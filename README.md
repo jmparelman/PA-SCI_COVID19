@@ -12,3 +12,9 @@ We have archived various pieces of data important for tracking and understanding
 
 **This work is conducted in partnership with the <a href='https://amistadlaw.org/'>Amistad Law Project </a>**
 
+
+## Current cases
+
+![](img/Covid19_cases_in_PA_SCI.svg)
+
+
