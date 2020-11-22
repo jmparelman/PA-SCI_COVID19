@@ -15,9 +15,9 @@ jobs:
        - shell: bash
          run:  |
            d=`date | tr ' ' '_'`
-           curl -o PA-DOC-COVID-19-Testing_${d}.xlsx https://www.cor.pa.gov/Documents/PA-DOC-COVID-19-Testing.xlsx
+           curl -o PA-DOC-COVID-19-Testing_LATEST.xlsx https://www.cor.pa.gov/Documents/PA-DOC-COVID-19-Testing.xlsx
        - name: Upload math result for job 1
          uses: actions/upload-artifact@v2
          with:
            name: DOC-data
-           path: test.xlsx
+           path: PA-DOC-COVID-19-Testing_LATEST.xlsx
