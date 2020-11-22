@@ -4,7 +4,7 @@ name: Download DOC testing data Excel data
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "*/5 0 * * *"
 
 jobs:
   download_data:
