@@ -1,0 +1,22 @@
+# download the Excel data from the DOC site
+
+name: Download DOC testing data Excel data
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  download_data:
+     name: Download DOC testing excel
+     runs-on: ubuntu-latest
+     steps:
+       - shell: bash
+         run:  |
+           d=`date | tr ' ' '_'`
+           curl -o PA-DOC-COVID-19-Testing_${d}.xlsx https://www.cor.pa.gov/Documents/PA-DOC-COVID-19-Testing.xlsx
+       - name: Upload math result for job 1
+         uses: actions/upload-artifact@v2
+         with:
+           name: DOC-data
+           path: test.xlsx
