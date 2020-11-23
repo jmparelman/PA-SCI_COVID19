@@ -1,8 +1,5 @@
 import pandas as pd
-import urllib
 from datetime import datetime
-import os
-import glob
 
 date = datetime.today()
 date_str = datetime.strftime(date,"%Y%m%d")
@@ -30,4 +27,4 @@ for frame in html_frames:
 
 
 agg = pd.read_csv("../data/latest_data/Daily_Populations_aggregated.csv")
-pd.concat([agg,frame]).to_csv("../data/latest_data/Daily_Populations_aggregated.csv",index=False)
+pd.concat([agg,frame]).to_csv("../data/latest_data/Daily_Populations_aggregated_TEST.csv",index=False)
