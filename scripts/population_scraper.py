@@ -29,5 +29,5 @@ for frame in html_frames:
         frame.to_csv(f'../data/Daily_Populations/Daily_Populations_{datetime.strftime(date,"%m-%d")}.csv',index=False)
 
 
-agg = pd.read_csv("../data/Daily_Populations/Daily_Populations_aggregated.csv")
-pd.concat([agg,frame]).to_csv("../data/Daily_Populations/Daily_Populations_aggregated.csv",index=False)
+agg = pd.read_csv("../data/latest_data/Daily_Populations_aggregated.csv")
+pd.concat([agg,frame]).to_csv("../data/latest_data/Daily_Populations_aggregated.csv",index=False)
