@@ -43,11 +43,11 @@ title: Jake P
         {% for sci in site.data.most_recent_inmateData %}
         {% if sci.SCI != "TOTAL" %}
         <tr style="line-height: 20px;">
-            <th class='th-sm'>{{sci.SCI}}</th>
-            <th class='th-sm'><img src="{{site.baseurl}}/assets/img/table_rolling_cases_figs/{{sci.SCI}}_rolling_avg.svg"/></th>
-            <th class='th-sm'>{{sci.inmate_current_cases}}</th>
-            <th class='th-sm'>{{sci.inmate_death}}</th>
-            <th class='th-sm'>{{sci.inmate_tests}}</th>
+            <td class='th-sm'>{{sci.SCI}}</td>
+            <td class='th-sm'><img src="{{site.baseurl}}/assets/img/table_rolling_cases_figs/{{sci.SCI}}_rolling_avg.svg"/></td>
+            <td class='th-sm'>{{sci.inmate_current_cases}}</td>
+            <td class='th-sm'>{{sci.inmate_death}}</td>
+            <td class='th-sm'>{{sci.inmate_tests}}</td>
         </tr>
         {% endif %}
         {% endfor %}
