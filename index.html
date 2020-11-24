@@ -22,7 +22,7 @@ title: Jake P
 {% assign totalrow = site.data.most_recent_inmateData | where:"SCI","TOTAL" | first%}
 
 <div class = "row">
-    <h2 class="text-center"><span>TOTAL TESTS:</span><span style="color:red">{{totalrow.inmate_tests}}</span></h2>
+    <h2 class="text-center"><span>TOTAL TESTS PERFORMED: </span><span style="color:red">{{totalrow.inmate_tests | intcomma}}</span></h2>
 </div>
 
 <table id="SCItable" class="table table-sm" cellspacing="0" width="100%">
