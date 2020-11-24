@@ -18,32 +18,29 @@ jobs:
            d=`date | tr ' ' '_'`
            cd data/DOC_downloads
            curl -o PA-DOC-COVID-19-Testing_${d}.xlsx https://www.cor.pa.gov/Documents/PA-DOC-COVID-19-Testing.xlsx?d=${d}
-      - name: Install Python 3
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.6
-      - name: Install dependencies
-        run: |
-          cd ./scripts
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Run population scrapper
-        run: |
-	  python population_scraper.py
-      - name: Run merge script
-        run: |
-          python merge_new_covid_data.py
-
-      - name: Commit files # transfer the new html files back into the repository
-        run: |
+       - name: Install Python 3
+         uses: actions/setup-python@v1
+         with:
+           python-version: 3.6
+       - name: Install dependencies
+         run: |
+           cd ./scripts
+           python -m pip install --upgrade pip
+           pip install -r requirements.txt
+       - name: Run population scrapper
+         run: |
+ 	   python population_scraper.py
+       - name: Run merge script
+         run: |
+           python merge_new_covid_data.py
+       - name: Commit files # transfer the new html files back into the repository
+         run: |
            git config --local user.name "mbod"
            git add ./data/DOC_downloads ./data/latest_data
            git commit -m "add downloaded DOC data and updated aggregated CSV files"
-      - name: Push changes # push the output folder to your repo
-        uses: ad-m/github-push-action@master
-        with:
+       - name: Push changes # push the output folder to your repo
+         uses: ad-m/github-push-action@master
+         with:
            github_token: ${{ secrets.GITHUB_TOKEN }}
            branch: main
            force: true
-
-
