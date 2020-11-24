@@ -9,7 +9,6 @@ on:
 
 jobs:
   download_data:
-     name: Download DOC testing excel
      runs-on: ubuntu-latest
      steps:
        - name: checkout repo
