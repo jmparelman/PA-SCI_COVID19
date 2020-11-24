@@ -42,7 +42,7 @@ title: Jake P
 
         {% for sci in site.data.most_recent_inmateData %}
         {% if sci.SCI != "TOTAL" %}
-        <tr style="line-height: 20px;">
+        <tr>
             <td class='th-sm'>{{sci.SCI}}</td>
             <td class='th-sm'><img src="{{site.baseurl}}/assets/img/table_rolling_cases_figs/{{sci.SCI}}_rolling_avg.svg"/></td>
             <td class='th-sm'>{{sci.inmate_current_cases}}</td>
