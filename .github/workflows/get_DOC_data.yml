@@ -38,7 +38,7 @@ jobs:
        - name: Commit files # transfer the new html files back into the repository
          run: |
            git config --local user.name "mbod"
-           git add ./data/DOC_downloads ./data/latest_data
+           git add ./data/DOC_downloads ./data/latest_data ./data/Daily_Populations
            git commit -m "add downloaded DOC data and updated aggregated CSV files"
        - name: Push changes # push the output folder to your repo
          uses: ad-m/github-push-action@master
