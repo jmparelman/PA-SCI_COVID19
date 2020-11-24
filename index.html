@@ -24,8 +24,18 @@ title: Jake P
     <thead>
         <th class= "th-sm">SCI NAME</th>
         <th class= "th-sm">DAILY CASES TREND</th>
-        <th class= "th-sm">CASES</th>
-        <th class= "th-sm">DEATHS</th>
-        <th class= "th-sm">TESTS</th>
+        <th class= "th-sm">CURRENT INMATE CASES</th>
+        <th class= "th-sm">INMATE DEATHS</th>
+        <th class= "th-sm">INMATE TESTS</th>
+
+        {% for sci in site.data.most_recent_inmateData %}
+        <tr>
+            <th class='th-sm'>{{sci.SCI}}</th>
+            <th class='th-sm'>----</th>
+            <th class='th-sm'>{{sci.inmate_current_cases}}</th>
+            <th class='th-sm'>{{sci.inmate_death}}</th>
+            <th class='th-sm'>{{sci.inmate_tests}}</th>
+        </tr>
+        {% endfor %}
     </thead>
 </table>
