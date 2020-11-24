@@ -29,9 +29,11 @@ jobs:
            pip install -r requirements.txt
        - name: Run population scrapper
          run: |
+           cd ./scripts
            python population_scraper.py
        - name: Run merge script
          run: |
+           cd ./scripts
            python merge_new_covid_data.py
        - name: Commit files # transfer the new html files back into the repository
          run: |
