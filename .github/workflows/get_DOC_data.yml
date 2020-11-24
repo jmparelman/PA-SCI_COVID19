@@ -17,7 +17,7 @@ jobs:
          run:  |
            d=`date | tr ' ' '_'`
            cd data/DOC_downloads
-           curl -o PA-DOC-COVID-19-Testing_${d}.xlsx https://www.cor.pa.gov/Documents/PA-DOC-COVID-19-Testing.xlsx?d=${d}
+           curl -H 'Cache-Control: no-cache' -o PA-DOC-COVID-19-Testing_${d}.xlsx https://www.cor.pa.gov/Documents/PA-DOC-COVID-19-Testing.xlsx?d=${d}
        - name: Install Python 3
          uses: actions/setup-python@v1
          with:
@@ -29,7 +29,7 @@ jobs:
            pip install -r requirements.txt
        - name: Run population scrapper
          run: |
- 	   python population_scraper.py
+           python population_scraper.py
        - name: Run merge script
          run: |
            python merge_new_covid_data.py
