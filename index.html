@@ -22,7 +22,9 @@ title: Jake P
 {% assign totalrow = site.data.most_recent_inmateData | where:"SCI","TOTAL" | first%}
 
 <div class = "row">
-    <h2 class="text-center"><span>TOTAL TESTS PERFORMED: </span><span style="color:red">{{totalrow.inmate_tests | intcomma}}</span></h2>
+    <h2 class="text-center"><span>TOTAL INMATE TESTS: </span><span style="color:red">{{totalrow.inmate_tests}}</span></h2>
+    <h2 class="text-center"><span>CURRENT INMATE CASES: </span><span style="color:red">{{totalrow.inmate_current_cases}}</span></h2>
+    <h2 class="text-center"><span>TOTAL INMATE DEATHS: </span><span style="color:red">{{totalrow.inmate_tests}}</span></h2>
 </div>
 
 <table id="SCItable" class="table table-sm" cellspacing="0" width="100%">
@@ -34,6 +36,7 @@ title: Jake P
         <th class= "th-sm">INMATE TESTS</th>
 
         {% for sci in site.data.most_recent_inmateData %}
+        {% if sci.SCI != "TOTAL" %}
         <tr>
             <th class='th-sm'>{{sci.SCI}}</th>
             <th class='th-sm'>----</th>
@@ -41,6 +44,7 @@ title: Jake P
             <th class='th-sm'>{{sci.inmate_death}}</th>
             <th class='th-sm'>{{sci.inmate_tests}}</th>
         </tr>
+        {% endif %}
         {% endfor %}
     </thead>
 </table>
