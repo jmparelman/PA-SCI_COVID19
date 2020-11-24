@@ -22,7 +22,7 @@ title: Jake P
 {% assign totalrow = site.data.most_recent_inmateData | where:"SCI","TOTAL" | first%}
 
 <div class = "row" style='margin-bottom: 70px; margin-top: 70px'>
-    <div class='col-sm-4 offset-sm-5'>
+    <div style="margin:auto; display:block;">
         <h2 class="text-left"><span>TOTAL INMATE TESTS: </span><span style="color:red">{{totalrow.inmate_tests}}</span></h2>
         <h2 class="text-left"><span>CURRENT INMATE CASES: </span><span style="color:red">{{totalrow.inmate_current_cases}}</span></h2>
         <h2 class="text-left"><span>TOTAL INMATE DEATHS: </span><span style="color:red">{{totalrow.inmate_death}}</span></h2>
