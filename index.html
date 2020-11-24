@@ -19,10 +19,9 @@ title: Jake P
   <li>Monthly SCI capacity</li>
 </ul>
 
-{% assign toprow = site.data.most_recent_inmateData | where:"SCI","TOTAL" %}
-{% for row in toprow %}
-    <h1>{{row.inmate_current_cases}}</h1>
-{% endfor %}
+{% assign totalrow = site.data.most_recent_inmateData | where:"SCI","TOTAL" | first%}
+<h1>{{totalrow.inmate_current_cases}}</h1>
+
 
 <table id="SCItable" class="table table-sm" cellspacing="0" width="100%">
     <thead class='thead-dark'>
