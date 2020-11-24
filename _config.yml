@@ -1,2 +1,4 @@
 name: ALP DOC Dashboard
 markdown: kramdown
+plugins:
+    - humanize
