@@ -1,27 +1,27 @@
-,inmate_tests,inmate_current_cases,inmate_death,SCI
-0,587,1,0,Albion
-1,492,23,1,Benner Township
-2,638,2,0,Cambridge Springs
-3,"6,605",13,1,Camp Hill
-4,"1,051",24,0,Chester
-5,"4,304",20,0,Coal Township
-6,814,46,5,Dallas
-7,646,0,0,Fayette
+,inmate_tests,inmate_positive,inmate_death,SCI
+0,587,7,0,Albion
+1,492,24,1,Benner Township
+2,638,6,0,Cambridge Springs
+3,"6,605",90,1,Camp Hill
+4,"1,051",148,0,Chester
+5,"4,304",164,0,Coal Township
+6,814,92,5,Dallas
+7,646,3,0,Fayette
 8,776,0,0,Forest
-9,624,0,0,Frackville
-10,"1,292",24,1,Greene
-11,555,0,0,Houtzdale
-12,825,9,5,Huntingdon
-13,"3,081",347,3,Laurel Highlands
-14,557,25,0,Mahanoy
-15,653,7,0,Mercer
-16,"1,373",20,0,Muncy
-17,"1,897",12,5,Phoenix
-18,558,0,0,Pine Grove
-19,740,0,0,Quehanna BC
-20,"1,061",0,0,Retreat
-21,899,39,1,Rockview
-22,699,8,0,Smithfield
-23,"1,326",0,0,Somerset
+9,624,3,0,Frackville
+10,"1,292",31,1,Greene
+11,555,1,0,Houtzdale
+12,825,201,5,Huntingdon
+13,"3,081",374,3,Laurel Highlands
+14,557,26,0,Mahanoy
+15,653,59,0,Mercer
+16,"1,373",23,0,Muncy
+17,"1,897",64,5,Phoenix
+18,558,123,0,Pine Grove
+19,740,7,0,Quehanna BC
+20,"1,061",13,0,Retreat
+21,899,43,1,Rockview
+22,699,38,0,Smithfield
+23,"1,326",85,0,Somerset
 24,576,0,0,Waymart
-0,"32,629",620,22,TOTAL
+0,"32,629","1,625",22,TOTAL
