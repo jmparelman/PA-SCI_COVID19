@@ -167,6 +167,38 @@
         $(document).ready( function () {
             $('#SCItable').DataTable();
         } );
+
+        var svg = d3.select('#chartArea').append('svg');
+
+        d3.csv("{{site.baseurl}}/_data/test_positive_deaths_over_time.csv",function(data){
+            console.log(data);
+
+            var x = d3.scaleTime()
+            	.rangeRound([0, svg.attr("width")]);
+
+            var x_axis = d3.axisBottom(x);
+
+            var y = d3.scaleLinear()
+            	.rangeRound([svg.attr("height"), 0]);
+            var y_axis = d3.axisBottom(y);
+            var xFormat = "%d-%b-%Y";;
+            var parseTime = d3.timeParse("%d/%m/%Y");
+
+            x.domain(d3.extent(data, function(d) { return parseTime(d.date); }));
+
+
+        })
+
+        function resize() {
+            width = document.getElementById('chartArea').clientWidth;
+            height = width / 3.236;
+            d3.select('#chartArea svg')
+              .attr('width', width - 10)
+              .attr('height', height - 10);
+        }
+
+        window.onresize = resize;
+
     </script>
 </body>
 </html>
