@@ -73,7 +73,7 @@ if __name__ == "__main__":
     df=df.set_index(pd.to_datetime(df['date_str'], format='%b_%d_%H:%M:%S_%Z_%Y'))
     
     new_filename = '../data/DOC_downloads/{}'.format(df.loc[df.index.max()]['filename'])
-    new_date = df.index.max().strftime('%Y-%m-%d')
+    new_date = df.index.max().tz_localize('UTC').tz_convert('US/Eastern').strftime('%Y-%m-%d')
     
     new_df = process_testing_report(new_filename, new_date)
 

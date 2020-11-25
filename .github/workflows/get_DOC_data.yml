@@ -14,7 +14,7 @@ jobs:
        - name: set timezone
          uses: szenius/set-timezone@v1.0
          with:
-           timezoneLinux: "US/EST"
+           timezoneLinux: "US/Eastern"
        - name: checkout repo
          uses: actions/checkout@v2
        - shell: bash

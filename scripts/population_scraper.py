@@ -1,7 +1,8 @@
 import pandas as pd
 from datetime import datetime
+import pytz
 
-date = datetime.today()
+date = datetime.now(pytz.timezone('US/Eastern'))
 date_str = datetime.strftime(date,"%Y%m%d")
 
 colmapper = {"INSTITUTION":"SCI",
