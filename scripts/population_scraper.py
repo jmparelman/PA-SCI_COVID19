@@ -27,4 +27,8 @@ for frame in html_frames:
 
 
 agg = pd.read_csv("../data/latest_data/Daily_Populations_aggregated.csv")
-pd.concat([agg,frame]).to_csv("../data/latest_data/Daily_Populations_aggregated_TEST.csv",index=False)
+new_df= pd.concat([agg,frame])
+
+new_df.set_index(pd.to_datetime(new_df['date']))
+
+new_df.to_csv("../data/latest_data/Daily_Populations_aggregated.csv")
