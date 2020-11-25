@@ -5,10 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel='stylesheet' href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></link>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   <style>
       tr {
      line-height: 25px;
@@ -47,7 +49,7 @@
 
   <div class="row content">
     <div class="col-sm-3 sidenav" style='height:100%'>
-        <img src="{{site.baseurl}}/assets/img/alp_logo_0.png" height='100px' style="margin-bottom:20px; margin-top:20px">
+        <img src="{{site.baseurl}}/assets/img/ALP_logo_primary_2color_RGB_HiRes.png" height='100px' style="margin-bottom:20px; margin-top:20px">
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="#section1">Get the data</a></li>
         <li><a href="#section2">About/Methods_</a></li>
@@ -64,5 +66,10 @@
 <footer class="container-fluid">
   <p>Footer Text</p>
 </footer>
+<script>
+    $(document).ready( function () {
+        $('#SCItable').DataTable();
+    } );
+</script>
 </body>
 </html>
