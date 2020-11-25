@@ -3,9 +3,9 @@
 name: Download DOC testing data Excel data
 
 on:
-#  schedule:
-#    - cron: "*/5 * * * *"
-   workflow_dispatch
+  schedule:
+    - cron: "0 23 * * *"
+#   workflow_dispatch
 
 jobs:
   download_data:
