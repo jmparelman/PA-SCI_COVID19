@@ -169,10 +169,11 @@
         $(document).ready( function () {
             $('#SCItable').DataTable();
         } );
-
+        console.log("{{site.data}}");
+        
         var svg = d3.select('#chartArea').append('svg');
 
-        d3.csv("{{site.data.test_positive_deaths_over_time.csv}}",function(data){
+        d3.csv("{{site.data}}",function(data){
             console.log(data);
 
             var x = d3.scaleTime()
