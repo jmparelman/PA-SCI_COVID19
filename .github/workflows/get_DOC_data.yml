@@ -12,11 +12,11 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: set timezone
-         uses: actions/set-timezone-action@v1.1
+         uses: szenius/set-timezone@v1.0
          with:
            timezoneLinux: "US/EST"
        - name: checkout repo
-         uses: actions/checkout@v2
+         uses: actions/checkout@v2nano
        - shell: bash
          run:  |
            d=`date | tr ' ' '_'`
