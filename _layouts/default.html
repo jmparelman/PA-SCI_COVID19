@@ -68,8 +68,10 @@
 </footer>
 <script>
     $(document).ready( function () {
-        $('#SCItable').DataTable();
-    } );
+        $(window).load(function() {
+            $('#SCItable').DataTable();
+        });
+    });
 </script>
 </body>
 </html>
