@@ -11,6 +11,10 @@ jobs:
   download_data:
      runs-on: ubuntu-latest
      steps:
+       - name: set timezone
+         uses: actions/set-timezone-action@v1.1
+         with:
+           timezoneLinux: "US/EST"
        - name: checkout repo
          uses: actions/checkout@v2
        - shell: bash
@@ -38,7 +42,7 @@ jobs:
        - name: Commit files # transfer the new html files back into the repository
          run: |
            git config --local user.name "mbod"
-           git add ./data/DOC_downloads ./data/latest_data ./data/Daily_Populations
+           git add ./data/DOC_downloads ./data/latest_data ./data/Daily_Populationsnano
            git commit -m "add downloaded DOC data and updated aggregated CSV files"
        - name: Push changes # push the output folder to your repo
          uses: ad-m/github-push-action@master
