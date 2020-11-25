@@ -11,11 +11,11 @@ column_mapping = {
  'Pending': 'staff_pending',
  'Death*': 'staff_death',
  'Recovered': 'staff_recovered',
- 'Positive.1': 'inmate_positive',
- 'Negative.1': 'inmate_negative',
- 'Pending.1': 'inmate_pending',
- 'Death*.1': 'inmate_death',
- 'Recovered.1': 'inmate_recovered',
+ 'Positive.1': 'incarcerated_person_positive',
+ 'Negative.1': 'incarcerated_person_negative',
+ 'Pending.1': 'incarcerated_person_pending',
+ 'Death*.1': 'incarcerated_person_death',
+ 'Recovered.1': 'incarcerated_person_recovered',
     
   # test purpose columns added 
   # 'Transfer', 'Transfer (+)', 'Release', 'Release (+)', 'Hospital',
@@ -34,6 +34,24 @@ column_mapping = {
  'Symptomatic (+)': 'test_symptomatic_positive' 
     
 }
+
+def add_deltas(all_data):
+    doc2_df = all_data.copy()
+    doc2_df=doc2_df.drop(columns='date').reset_index()
+
+    print(doc2_df.head())
+
+    exclude_cols = ['SCI', 'date', 'date.1']
+
+    cols_to_use = [c for c in doc2_df.columns if c not in exclude_cols]
+
+    for col in cols_to_use:
+       print('Calculating delta for', col)
+       doc2_df[f'{col}_new'] = doc2_df.groupby('SCI')[col].diff()
+    
+    doc2_df=doc2_df.set_index(doc2_df['date'])
+
+    return doc2_df
 
 
 def process_testing_report(fname, date):
@@ -59,10 +77,18 @@ if __name__ == "__main__":
     
     new_df = process_testing_report(new_filename, new_date)
 
-
     agg_filename = '../data/latest_data/PA_DOC_testing_data.csv'
+   
+    agg = pd.read_csv(agg_filename)
 
+    cols_to_drop = [c for c in agg.columns if c.endswith('_new') or c.endswith('_D') or c=='date.1']
 
-    agg = pd.read_csv(agg_filename).drop(columns='date.1')
-    pd.concat([agg,new_df]).to_csv(agg_filename.replace('.csv','TESTING.csv'),index=False)
+    agg = agg.drop(columns=cols_to_drop)
 
+    new_df = pd.concat([agg,new_df])
+
+    new_df=new_df.set_index(pd.to_datetime(new_df['date']))
+
+    new2_df = add_deltas(new_df)
+
+    new2_df.to_csv(agg_filename,index=False)
