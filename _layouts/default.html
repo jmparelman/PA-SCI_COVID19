@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-  <!-- <link rel='stylesheet' href="{{site.baseurl}}/assets/css/style.css" -->
+  <link rel='stylesheet' href="{{site.baseurl}}/assets/css/style.css"
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
@@ -72,49 +72,81 @@
 
   </style>
 </head>
-<body>
+<body style='background-color:#F8F8F8'>
+    {% assign totalrow = site.data.most_recent_inmateData | where:"SCI","TOTAL" | first%}
+
 
     <!-- ========================= SECTION CONTENT ========================= -->
+    <div style='background-color:white'>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <p class="navbar-brand"></p>
+          <button class="navbar-toggler" type="button" data-trigger="#main_nav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse" id="main_nav">
 
-    <div class="container">
+        <div class="offcanvas-header mt-3">
+        	<button class="btn btn-outline-danger btn-close float-right"> &times Close </button>
+        </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <p class="navbar-brand"></p>
-      <button class="navbar-toggler" type="button" data-trigger="#main_nav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse" id="main_nav">
+        <ul class="navbar-nav">
+        	<li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
+        	<li class="nav-item"><a class="nav-link" href="#"> Get the data </a></li>
+        	<li class="nav-item"><a class="nav-link" href="#"> About/Methods </a></li>
+        	<li class="nav-item"><a class="nav-link" href="#"> Projects </a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> Contacts </a></li>
+        </ul>
+          </div> <!-- navbar-collapse.// -->
+        </nav>
 
-    <div class="offcanvas-header mt-3">
-    	<button class="btn btn-outline-danger btn-close float-right"> &times Close </button>
+        <header class="section-header py-4">
+        <div class="container">
+            <div class='row justify-content-sm-center'>
+
+                <img src="{{site.baseurl}}/assets/img/ALP_logo_primary_2color_RGB_HiRes.png" height='100px' style="margin: 20px 20px 20px 20px">
+            </div>
+            <div class="row justify-content-center">
+                    <h1 style='text-align:center'>Pennsylvania Prison System COVID-19 Tracker</h1>
+            </div>
+        </div>
+        </header> <!-- section-header.// -->
+
+        <hr />
+        <div class='container' style="margin-top:50px;">
+            <div class="row justify-content-center">
+                <div class='col-sm-10 col-md-8'>
+                    <p style="text-align:center; font-style:italic">Since the beginning of the
+                         pandemic the Amistad Law Project has tracked COVID-19's spread through
+                         the Pennsylvania state prison system. Prisons are high-risk environments,
+                         often overcrowded and poorly ventilated. The care of incarcerated people
+                         by the state must be monitored and understood as this pandemic continues to
+                         impact this vulnerable population.</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <ul class="navbar-nav">
-    	<li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
-    	<li class="nav-item"><a class="nav-link" href="#"> Get the data </a></li>
-    	<li class="nav-item"><a class="nav-link" href="#"> About/Methods </a></li>
-    	<li class="nav-item"><a class="nav-link" href="#"> Projects </a></li>
-        <li class="nav-item"><a class="nav-link" href="#"> Contacts </a></li>
-    </ul>
-      </div> <!-- navbar-collapse.// -->
-    </nav>
-
-    <header class="section-header py-4">
-    <div class="container">
+    <div class='container' style='margin-top:50px'>
         <div class='row justify-content-center'>
-            <img src="{{site.baseurl}}/assets/img/ALP_logo_primary_2color_RGB_HiRes.png" height='200px' style="margin: 20px 20px 20px 20px">
-        </div>
-        <div class="row justify-content-center">
-                <h2 style='text-align:center'>PA Prisons COVID-19 Data Archive</h2>
-        </div>
-    </div>
-    </header> <!-- section-header.// -->
+            <div class="col-sm-11 col-md-7" style="background-color:white; padding:10px 20px 10px 20px">
+                <b style="color:grey">Totals Since March</b>
+                <br />
+                <h4>Incarcerated People:</h4>
+                <b>Tests Performed: {{totalrow.inmate_tests}}</b>
+                <br />
+                <b>Positive Cases: {{totalrow.inmate_tests}}</b>
+                <br />
+                <b>Deaths: {{totalrow.inmate_death}}</b>
 
-    <div style="margin-top:100px">
-        {{content}}
+                <h4 style="margin-top:25px">Staff:</h4>
+                <b>Tests Performed: {{totalrow.inmate_tests}}</b>
+                <br />
+                <b>Positive Cases: {{totalrow.inmate_tests}}</b>
+                <br />
+                <b>Deaths: {{totalrow.inmate_death}}</b>
+            </div>
+        </div>
     </div>
 
-    </div>
     <script>
         $(document).ready( function () {
             $('#SCItable').DataTable();
