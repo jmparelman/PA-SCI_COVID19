@@ -16,7 +16,7 @@ jobs:
          with:
            timezoneLinux: "US/EST"
        - name: checkout repo
-         uses: actions/checkout@v2nano
+         uses: actions/checkout@v2
        - shell: bash
          run:  |
            d=`date | tr ' ' '_'`
