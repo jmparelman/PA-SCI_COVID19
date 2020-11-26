@@ -190,10 +190,6 @@
               .map(([k, v]) => ({ date: k, inmate_positive: v }));
             console.log(dd);
           });
-}).entries(data)
-.map(function(d){
-    return { Country: d.key, Value: d.values};
-});
 
         function resize() {
             width = document.getElementById('chartArea').clientWidth;
