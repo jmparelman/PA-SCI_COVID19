@@ -171,7 +171,8 @@
         } );
 
         var svg = d3.select('#chartArea').append('svg');
-
+        width = document.getElementById('chartArea').clientWidth;
+        height = width / 3.236;
         d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
             console.log(data);
 
