@@ -174,11 +174,10 @@
         } );
 
         var svg = d3.select('#chartArea').append('svg');
-        width = document.getElementById('chartArea').clientWidth;
-        height = width / 3.236;
+        var width = 400,
+            height = 200;
 
         d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
-            console.log(data);
 
             var x = d3.scaleLinear().range([0, width-2]);
             var y = d3.scaleLinear().range([height-10, 0]);
@@ -196,8 +195,6 @@
                     d.date = parseDate(d.key);
                     d.new_cases = parseInt(d.values);
                 });
-
-            console.log(data_summarized);
 
             y.domain(d3.extent(data_summarized, function(d) { return d.date;}));
             x.domain(d3.extent(data_summarized, function(d) { return d.new_cases;}));
