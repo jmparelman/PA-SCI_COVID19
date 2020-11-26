@@ -202,12 +202,11 @@
             svg.append("g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
+                .call(d3.axisBottom(x));
 
-            // 4. Call the y axis in a group tag
             svg.append("g")
                 .attr("class", "y axis")
-                .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
+                .call(d3.axisLeft(y));
 
 
           });
