@@ -171,25 +171,29 @@
         } );
 
         var svg = d3.select('#chartArea').append('svg');
+        var width = svg.attr('width'), height = svg.attr('height');
 
-        d3.csv("{{site.baseurl}}/assets/data/test_positive_deaths_over_time.csv",function(data){
+        d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
             console.log(data);
 
-            var x = d3.scaleTime()
-            	.rangeRound([0, svg.attr("width")]);
+            var x = d3.scaleLinear().range([0, width-2]);
+            var y = d3.scaleLinear().range([height-10, 0]);
 
-            var x_axis = d3.axisBottom(x);
+            var parseDate = d3.timeParse("%Y-%m-%d");
+            var formatDate = d3.timeFormat("%d %b");
 
-            var y = d3.scaleLinear()
-            	.rangeRound([svg.attr("height"), 0]);
-            var y_axis = d3.axisBottom(y);
-            var xFormat = "%d-%b-%Y";;
-            var parseTime = d3.timeParse("%d/%m/%Y");
-
-            x.domain(d3.extent(data, function(d) { return parseTime(d.date); }));
-
-
-        })
+            var dd = d3.rollups(
+                data,
+                xs => d3.sum(xs, x => x.inmate_positive_D),
+                d => d.date
+              )
+              .map(([k, v]) => ({ date: k, inmate_positive: v }));
+            console.log(dd);
+          });
+}).entries(data)
+.map(function(d){
+    return { Country: d.key, Value: d.values};
+});
 
         function resize() {
             width = document.getElementById('chartArea').clientWidth;
