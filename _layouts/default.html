@@ -185,7 +185,7 @@
             var parseDate = d3.timeParse("%Y-%m-%d");
             var formatDate = d3.timeFormat("%d %b");
 
-            var dd = d3.rollups(
+            var dd = d3.rollup(
                 data,
                 xs => d3.sum(xs, x => x.inmate_positive_D),
                 d => d.date
