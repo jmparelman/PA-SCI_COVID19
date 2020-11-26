@@ -195,7 +195,8 @@
                     d.date = parseDate(d.key);
                     d.new_cases = parseInt(d.values);
                 });
-
+            console.log(data_summarized);
+            
             x.domain(d3.extent(data_summarized, function(d) { return d.date;}));
             y.domain(d3.extent(data_summarized, function(d) { return d.new_cases;}));
 
