@@ -158,7 +158,7 @@
             </div>
         </div>
         <div class='row justify-content-center'>
-            <div id='chartArea' class='col-11' style='background-color:white; height:200px'></div>
+            <div id='chartArea' class='col-11' style='background-color:white; height:400px'></div>
         </div>
 
         <div class="row justify-content-center" style='margin-top:20px'>
@@ -174,8 +174,8 @@
         } );
 
         var svg = d3.select('#chartArea').append('svg');
-        var width = 400,
-            height = 200;
+        width = document.getElementById('chartArea').clientWidth;
+        height = width / 3.236;
 
         d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
 
@@ -196,8 +196,8 @@
                     d.new_cases = parseInt(d.values);
                 });
 
-            y.domain(d3.extent(data_summarized, function(d) { return d.date;}));
-            x.domain(d3.extent(data_summarized, function(d) { return d.new_cases;}));
+            x.domain(d3.extent(data_summarized, function(d) { return d.date;}));
+            y.domain(d3.extent(data_summarized, function(d) { return d.new_cases;}));
 
             svg.append("g")
                 .attr("class", "x axis")
