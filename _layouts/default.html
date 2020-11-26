@@ -190,13 +190,13 @@
                 .key(function(d){return d.date})
                 .rollup(function(d){
                     return d3.sum(d, function(g){return g.inmate_positive_D;})
-                }).entries(data)
-                .forEach(function(d){
+                }).entries(data);
+
+            var data_summarized = data_summarized.forEach(function(d){
                     d.date = parseDate(d.key);
                     d.new_cases = parseInt(d.values);
                 });
-            console.log(data_summarized);
-            
+
             x.domain(d3.extent(data_summarized, function(d) { return d.date;}));
             y.domain(d3.extent(data_summarized, function(d) { return d.new_cases;}));
 
