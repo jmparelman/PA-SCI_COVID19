@@ -197,9 +197,8 @@
 
     d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
 
-        moveAvg = movingWindowAvg(data.map(a => a.value), 7)
-        console.log(moveAvg);
-        
+
+
         var data_summarized = d3.nest()
             .key(function(d){return d.date})
             .rollup(function(d){
@@ -209,8 +208,9 @@
         data_summarized.forEach(function(d,i){
                 d.date = parseDate(d.key);
                 d.new_cases = parseFloat(d.value);
-                d.moveAvg = moveAvg[i];
             });
+        moveAvg = movingWindowAvg(data_summarized.map(a => a.value), 7)
+        console.log(moveAvg);
         console.log(data_summarized);
 
         var x = d3.scaleLinear()
