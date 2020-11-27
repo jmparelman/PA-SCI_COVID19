@@ -49,7 +49,7 @@ var movingWindowAvg = function (arr, step) {  // Window size = 2 * step + 1
     });
 };
 
-d3.csv("../data/latest_data/PA_DOC_testing_data.csv",function(data){
+d3.csv("data/latest_data/PA_DOC_testing_data.csv",function(data){
 
     var data_summarized = d3.nest()
         .key(function(d){return d.date})
