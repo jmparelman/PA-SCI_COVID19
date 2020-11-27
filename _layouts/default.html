@@ -204,7 +204,8 @@
             .domain(d3.extent(data_summarized, function(d) { return d.value;}));
 
             var xAxis = svg.append("g")
-                .attr("class", "x axis");
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + (150) + ")");
 
         svg.append("g")
             .attr("class", "y axis")
