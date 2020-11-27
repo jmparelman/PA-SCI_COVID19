@@ -228,7 +228,7 @@
 
         svg.append("g")
             .attr("class", "y axis")
-            .attr('transform',"translate(20, 0)")
+            .attr('transform',"translate(25, 0)")
             .call(d3.axisLeft(y)
             .ticks(5));
 
@@ -251,9 +251,9 @@
 
         function drawChart() {
             currentWidth = parseInt(d3.select('#chartArea').style('width'));
-            currentWidth = currentWidth - (currentWidth * 0.05);
+            currentWidth = currentWidth - (currentWidth * 0.1);
             svg.attr('width',currentWidth);
-            x.range([20,currentWidth]);
+            x.range([25,currentWidth]);
             xAxis.call(d3.axisBottom(x)
                 .tickFormat(d3.timeFormat("%b %d"))
                 .ticks(4))
