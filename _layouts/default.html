@@ -210,6 +210,7 @@
                 d.new_cases = parseFloat(d.value);
                 d.moveAvg = moveAvg[i];
             });
+        console.log(data_summarized);
 
         var x = d3.scaleLinear()
             .domain(d3.extent(data_summarized, function(d) { return d.date;}));
