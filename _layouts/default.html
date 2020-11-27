@@ -158,8 +158,8 @@
             </div>
         </div>
         <div class='row justify-content-center'>
-            <div class=' col-xs-12 col-sm-11 justify-content-center' style='background-color:white; padding-right:2%'>
-                <div class='col-sm-8 offset-lg-2 col-xs-12' id='chartArea' style='background-color:white;'></div>
+            <div class='col-11 justify-content-center' style='background-color:white;'>
+                <div class='col-lg-8 offset-lg-2 col-sm-11' id='chartArea' style='background-color:white;'></div>
                 </div>
         </div>
 
@@ -250,9 +250,10 @@
 
 
         function drawChart() {
-            currentWidth = parseInt(d3.select('#chartArea').style('width'));
+            currentWidth = parseInt(d3.select('#chartArea').style('width')) - 50;
             svg.attr('width',currentWidth);
             x.range([25,currentWidth]);
+            x_bar.range([20,currentWidth]);
             xAxis.call(d3.axisBottom(x)
                 .tickFormat(d3.timeFormat("%b %d"))
                 .ticks(4))
