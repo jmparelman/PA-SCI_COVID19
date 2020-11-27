@@ -159,7 +159,7 @@
         </div>
         <div class='row justify-content-center'>
             <div class='col-11 justify-content-center' style='background-color:white;'>
-            <div class='col-8 offset-2' id='chartArea' style='background-color:white;'></div>
+            <div class='col-8 offset-2' id='chartArea' style='background-color:white; padding-bottom:10px'></div>
             </div>
         </div>
 
@@ -217,12 +217,12 @@
             .domain(d3.extent(data_summarized, function(d) { return d.date;}));
 
         var y = d3.scaleLinear()
-            .range([220, 0])
+            .range([240, 20])
             .domain(d3.extent(data_summarized, function(d) { return d.moveAvg;}));
 
             var xAxis = svg.append("g")
                 .attr("class", "x axis")
-                .attr("transform", "translate(0," + (220) + ")");
+                .attr("transform", "translate(0," + (240) + ")");
 
         svg.append("g")
             .attr("class", "y axis")
