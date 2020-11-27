@@ -220,7 +220,7 @@
 
         var y = d3.scaleLinear()
             .range([250, 50])
-            .domain(d3.extent(data_summarized, function(d) { return d.moveAvg;}));
+            .domain(d3.extent(data_summarized, function(d) { return d.value;}));
 
             var xAxis = svg.append("g")
                 .attr("class", "x axis")
@@ -262,7 +262,7 @@
                 .x(function(d) { return x(d.date); })
                 .y(function(d) { return y(d.moveAvg); })
                 .curve(d3.curveMonotoneX);
-                
+
             bars.attr("x", function(d) { return x(d.date); })
               .attr("width", x_bar.bandwidth());
 
