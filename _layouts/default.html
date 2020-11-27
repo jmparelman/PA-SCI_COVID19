@@ -225,7 +225,7 @@ d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data
         .call(d3.axisLeft(y));
 
     svg.append("path")
-      .data(data_summarized)
+      .data([data_summarized])
       .attr("class", "line")
       .style('fill','none')
       .style('stroke','black')
