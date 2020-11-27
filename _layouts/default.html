@@ -198,7 +198,8 @@
     d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
 
         moveAvg = movingWindowAvg(data.map(a => a.value), 7)
-
+        console.log(moveAvg);
+        
         var data_summarized = d3.nest()
             .key(function(d){return d.date})
             .rollup(function(d){
