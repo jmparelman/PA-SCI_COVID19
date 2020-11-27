@@ -203,11 +203,11 @@ d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data
 
     var y = d3.scaleLinear()
         .range([height-20, 0])
-        .domain(d3.extent(data, function(d) { return d.value;}));
+        .domain(d3.extent(data, function(d) { return d.values;}));
 
     var valueline = d3.line()
         .x(function(d) { return x(d.date); })
-        .y(function(d) { return y(d.value); })
+        .y(function(d) { return y(d.values); })
         .curve(d3.curveMonotoneX);
 
     svg.append("g")
