@@ -1,4 +1,5 @@
 // navbar script
+console.log('hi');
 $(function () {
     'use strict'
 
