@@ -1,5 +1,4 @@
 // navbar script
-var baseUrl = @Html.Raw(Json.Encode(Url.Content("~")));
 $(function () {
     'use strict'
 
