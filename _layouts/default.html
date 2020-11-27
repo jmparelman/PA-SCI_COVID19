@@ -241,13 +241,40 @@
             .attr('y',function(d){return y(d.value);})
             .attr("height", function(d) { return 250 - y(d.value); });
 
+        svg.append('rect')
+            .attr('y',10)
+            .attr('x',10)
+            .attr('width',10)
+            .attr('height',10)
+            .attr('fill','#ffb3b3');
+
+        svg.append('text')
+            .attr('y',20)
+            .attr('x',25)
+            .text('Daily cases')
+            .style('color','black')
+            .style('font-size',12);
+
+        svg.append('rect')
+            .attr('y',12)
+            .attr('x',35)
+            .attr('width',15)
+            .attr('height',3)
+            .attr('fill','#6f1616');
+
+        svg.append('text')
+            .attr('y',20)
+            .attr('x',40)
+            .text('7 day average')
+            .style('color','black')
+            .style('font-size',12);
+
         var line = svg.append("path")
           .data([data_summarized])
           .attr("class", "line")
           .style('fill','none')
           .style('stroke','#6f1616')
           .style('stroke-width','2px');
-
 
         function drawChart() {
             currentWidth = parseInt(d3.select('#chartArea').style('width'));
