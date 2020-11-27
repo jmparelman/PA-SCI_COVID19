@@ -199,11 +199,11 @@ d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data
 
     var x = d3.scaleLinear()
         .range([0, width-2])
-        .domain(d3.extent(data, function(d) { return d.date;}));
+        .domain(d3.extent(data_summarized, function(d) { return d.date;}));
 
     var y = d3.scaleLinear()
         .range([height-20, 0])
-        .domain(d3.extent(data, function(d) { return d.values;}));
+        .domain(d3.extent(data_summarized, function(d) { return d.values;}));
 
     var valueline = d3.line()
         .x(function(d) { return x(d.date); })
@@ -224,7 +224,7 @@ d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data
         .call(d3.axisLeft(y));
 
     svg.append("path")
-      .data([data])
+      .data(data_summarized)
       .attr("class", "line")
       .style('fill','none')
       .style('stroke','black')
