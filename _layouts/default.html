@@ -196,7 +196,8 @@ d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data
             d.date = parseDate(d.key);
             d.new_cases = parseFloat(d.values);
         });
-
+    console.log(data_summarized);
+    
     var x = d3.scaleLinear()
         .range([0, width-2])
         .domain(d3.extent(data_summarized, function(d) { return d.date;}));
