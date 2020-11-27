@@ -176,7 +176,7 @@
     } );
 
     var svg = d3.select('#chartArea').append('svg')
-        .attr("height",240);
+        .attr("height",300);
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
@@ -216,39 +216,55 @@
         var x = d3.scaleLinear()
             .domain(d3.extent(data_summarized, function(d) { return d.date;}));
 
+        var x_bar = d3.scaleBand();
+
         var y = d3.scaleLinear()
-            .range([200, 0])
+            .range([250, 50])
             .domain(d3.extent(data_summarized, function(d) { return d.moveAvg;}));
 
             var xAxis = svg.append("g")
                 .attr("class", "x axis")
-                .attr("transform", "translate(0," + (200) + ")");
+                .attr("transform", "translate(0," + (250) + ")");
 
         svg.append("g")
             .attr("class", "y axis")
-            .call(d3.axisLeft(y));
+            .attr('transform',"translate(20, 0)")
+            .call(d3.axisLeft(y)
+            .ticks(5));
+
+        var bars = svg.append('g')
+            .selectAll('rect')
+            .data(data_summarized)
+            .enter()
+            .append('rect')
+            .style('fill','#ffb3b3')
+            .attr('y',function(d){return y(d.value);})
+            .attr("height", function(d) { return 250 - y(d.value); });
 
         var line = svg.append("path")
           .data([data_summarized])
           .attr("class", "line")
           .style('fill','none')
-          .style('stroke','blue')
+          .style('stroke','#6f1616')
           .style('stroke-width','2px');
 
 
         function drawChart() {
             currentWidth = parseInt(d3.select('#chartArea').style('width'));
             svg.attr('width',currentWidth);
-            x.range([0,currentWidth]);
+            x.range([20,currentWidth]);
             xAxis.call(d3.axisBottom(x)
                 .tickFormat(d3.timeFormat("%b"))
-                .ticks(6))
+                .ticks(8))
             .selectAll("text");
 
             var valueline = d3.line()
                 .x(function(d) { return x(d.date); })
                 .y(function(d) { return y(d.moveAvg); })
                 .curve(d3.curveMonotoneX);
+                
+            bars.attr("x", function(d) { return x(d.date); })
+              .attr("width", x_bar.bandwidth());
 
             line.attr("d", valueline);
         };
