@@ -142,23 +142,28 @@
                     <div class='col-4' style='text-align:center'>
                         <b style='text-decoration: underline;text-decoration-color: #0b544e;'>Tests:</b>
                         </br>
-                        <h4><h4>{{totalrow.inmate_tests}}</h4></h4>
+                        <h4>234</h4>
                     </div>
                     <div class='col-4' style='text-align:center'>
                         <b style='text-decoration: underline;text-decoration-color: #FCBF49;'>Cases:</b>
                         </br>
-                        <h4>{{totalrow.inmate_current_cases}}</h4>
+                        <h4>234</h4>
                     </div>
                     <div class='col-4' style='text-align:center'>
                         <b style='text-decoration: underline;text-decoration-color: #D62828;'>Deaths</b>
                         </br>
-                        <h4>{{totalrow.inmate_death}}</h4>
+                        <h4>3243</h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class='row justify-content-center'>
-            <div id='chartArea' class='col-11' style='background-color:white; height:200px'></div>
+            <div class='col-11' style='background-color:white;'>
+                <div class='span-12' id='chartArea' style='background-color:white; padding:2%'>
+
+                </div>
+            </div>
+
         </div>
 
         <div class="row justify-content-center" style='margin-top:20px'>
@@ -169,56 +174,66 @@
     </div>
 
     <script>
-        $(document).ready( function () {
-            $('#SCItable').DataTable();
-        } );
+    $(document).ready( function () {
+        $('#SCItable').DataTable();
+    } );
 
-        var svg = d3.select('#chartArea').append('svg');
-        width = document.getElementById('chartArea').clientWidth;
-        height = width / 3.236;
+    width = document.getElementById('chartArea').clientWidth;
+    height = width / 3.236;
+    var svg = d3.select('#chartArea').append('svg').attr("viewBox", "0 0 "+width+" "+height);
 
-        d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
+    var parseDate = d3.timeParse("%Y-%m-%d");
 
-            var x = d3.scaleLinear().range([0, width-2]);
-            var y = d3.scaleLinear().range([height-10, 0]);
+d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
 
-            var parseDate = d3.timeParse("%Y-%m-%d");
-            var formatDate = d3.timeFormat("%d %b");
+    var data_summarized = d3.nest()
+        .key(function(d){return d.date})
+        .rollup(function(d){
+            return d3.sum(d, function(g){return g.inmate_positive_D;})
+        }).entries(data);
 
-            var data_summarized = d3.nest()
-                .key(function(d){return d.date})
-                .rollup(function(d){
-                    return d3.sum(d, function(g){return g.inmate_positive_D;})
-                }).entries(data);
+    data_summarized.forEach(function(d){
+            d.date = parseDate(d.key);
+            d.new_cases = parseFloat(d.values);
+        });
 
-            data_summarized.forEach(function(d){
-                    d.date = parseDate(d.key);
-                    d.new_cases = parseInt(d.values);
-                });
-            console.log(data_summarized);
-            x.domain(d3.extent(data_summarized, function(d) { return d.date;}));
-            y.domain(d3.extent(data_summarized, function(d) { return d.new_cases;}));
+    var x = d3.scaleLinear()
+        .range([0, width-2])
+        .domain(d3.extent(data, function(d) { return d.date;}));
 
-            svg.append("g")
-                .attr("class", "x axis")
-                .call(d3.axisBottom(x));
+    var y = d3.scaleLinear()
+        .range([height-20, 0])
+        .domain(d3.extent(data, function(d) { return d.value;}));
 
-            svg.append("g")
-                .attr("class", "y axis")
-                .call(d3.axisLeft(y));
+    var valueline = d3.line()
+        .x(function(d) { return x(d.date); })
+        .y(function(d) { return y(d.value); })
+        .curve(d3.curveMonotoneX);
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (height - 20) + ")")
+        .call(d3.axisBottom(x)
+              .tickFormat(d3.timeFormat("%d %b")))
+      .selectAll("text")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(d3.axisLeft(y));
+
+    svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .style('fill','none')
+      .style('stroke','black')
+      .style('stroke-width','3px')
+      .attr("d", valueline);
+
+  });
 
 
-          });
-
-        function resize() {
-            width = document.getElementById('chartArea').clientWidth;
-            height = width / 3.236;
-            d3.select('#chartArea svg')
-              .attr('width', width - 10)
-              .attr('height', height - 10);
-        }
-
-        // window.onresize = resize;
 
     </script>
 </body>
