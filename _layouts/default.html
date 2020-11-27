@@ -250,7 +250,8 @@
 
 
         function drawChart() {
-            currentWidth = parseInt(d3.select('#chartArea').style('width')) - 50;
+            currentWidth = parseInt(d3.select('#chartArea').style('width'));
+            currentWidth = currentWidth - (currentWidth * 0.1);
             svg.attr('width',currentWidth);
             x.range([25,currentWidth]);
             xAxis.call(d3.axisBottom(x)
