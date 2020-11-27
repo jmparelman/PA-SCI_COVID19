@@ -209,9 +209,12 @@
                 d.date = parseDate(d.key);
                 d.new_cases = parseFloat(d.value);
             });
+
         moveAvg = movingWindowAvg(data_summarized.map(a => a.value), 7)
-        console.log(moveAvg);
-        console.log(data_summarized);
+        
+        data_summarized.forEach(function(d,i){
+                d.moveAvg = moveAvg[i];
+            });
 
         var x = d3.scaleLinear()
             .domain(d3.extent(data_summarized, function(d) { return d.date;}));
