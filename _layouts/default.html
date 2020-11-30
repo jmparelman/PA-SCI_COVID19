@@ -128,7 +128,7 @@
 
     </div>
     <div class='container-fluid' style='padding: 40px'>
-        <div class='row justify-content-center' style='padding-bottom:30px;'>
+        <div class='row justify-content-center'>
             <div class='col-sm-11 col-xs-12' style='background-color:white;'>
                 <div class='row' style='padding:20px'>
                     <b style="color:grey">Totals Since March</b>
@@ -136,19 +136,19 @@
                 <div class='row justify-content-center' style='margin-bottom:15px'>
                     <h4 style='text-decoration:underline'>Incarcerated People</h4>
                 </div>
-                <div class='row' style='margin-bottom:15px'>
+                <div class='row' style='margin-bottom:30px'>
                     <div class='col-4' style='text-align:center'>
                         <b style='text-decoration: underline;text-decoration-color: #0b544e;'>Tests:</b>
                         </br>
                         <h4 id="current_tests"></h4>
                     </div>
                     <div class='col-4' style='text-align:center'>
-                        <b style='text-decoration: underline;text-decoration-color: #FCBF49;'>Current Cases:</b>
+                        <b style='text-decoration: underline;text-decoration-color: #FCBF49;'>Cases:</b>
                         </br>
                          <h4 id="current_cases"></h4>
                     </div>
                     <div class='col-4' style='text-align:center'>
-                        <b style='text-decoration: underline;text-decoration-color: #D62828;'>Deaths</b>
+                        <b style='text-decoration: underline;text-decoration-color: #D62828;'>Deaths:</b>
                         </br>
                         <h4 id="current_deaths"></h4>
                     </div>
@@ -194,8 +194,23 @@
     d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
 
 
-        // console.log(data[data.length-1][1].incarcerated_person_positive);
-        console.log(data);
+        // daily sums
+        var summary_data = d3.rollups(data, v => ({
+                            'current_cases': d3.sum(v, d => d.incarcerated_person_positive),
+                            'current_deaths': d3.sum(v, d => d.incarcerated_person_death),
+                            'current_tests': d3.sum(v, d => (+d.incarcerated_person_positive) + (+d.incarcerated_person_negative) )
+                          }),d=>d.date);
+
+
+        var current_cases = summary_data[summary_data.length-1][1].current_cases;
+        var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
+        var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
+
+
+         d3.select('#current_cases').text(current_cases);
+         d3.select('#current_deaths').text(current_deaths);
+         d3.select('#current_tests').text(current_tests);
+
         var data_summarized = d3.nest()
             .key(function(d){return d.date})
             .rollup(function(d){
