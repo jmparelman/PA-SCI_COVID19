@@ -156,8 +156,8 @@
             </div>
         </div>
         <div class='row justify-content-center'>
-            <div class='col-sm-11 col-xs-12 justify-content-center' style='background-color:white;'>
-                <div class='col-lg-8 offset-lg-2 col-sm-12' id='chartArea' style='background-color:white;border:1px solid black;'></div>
+            <div class='col-sm-11 col-xs-12 justify-content-center' style='background-color:white; padding:0'>
+                <div class='col-lg-8 offset-lg-2 col-sm-12' id='chartArea' style='background-color:white;border:1px solid black; margin:0;'></div>
                 </div>
         </div>
 
@@ -243,7 +243,7 @@
 
         svg.append("g")
             .attr("class", "y axis")
-            .attr('transform',"translate(20, 0)")
+            .attr('transform',"translate(25, 0)")
             .call(d3.axisLeft(y)
             .ticks(5));
 
