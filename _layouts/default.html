@@ -196,9 +196,9 @@
 
         // daily sums
         var summary_data = d3.rollups(data, v => ({
-                            'current_cases': d3.sum(v, d => d.incarcerated_person_positive),
-                            'current_deaths': d3.sum(v, d => d.incarcerated_person_death),
-                            'current_tests': d3.sum(v, d => (+d.incarcerated_person_positive) + (+d.incarcerated_person_negative) )
+                            'current_cases': d3.sum(v, d => d.inmate_positive),
+                            'current_deaths': d3.sum(v, d => d.inmate_death),
+                            'current_tests': d3.sum(v, d => (+d.inmate_positive) + (+d.inmate_negative) + (+d.inmate_pending))
                           }),d=>d.date);
 
         console.log(summary_data);
