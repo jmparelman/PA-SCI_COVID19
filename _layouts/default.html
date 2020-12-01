@@ -246,7 +246,7 @@
         // bar graph
         var bars = svg.append('g')
             .selectAll('rect')
-            .datum(data_summarized2)
+            .data(data_summarized2)
             .enter()
             .append('rect')
             .style('fill','#ffb3b3')
@@ -254,7 +254,7 @@
             .attr("height", d => 250 - y(d.new_cases));
 
         var line = svg.append("path")
-          .datum([data_summarized2])
+          .data([data_summarized2])
           .attr("class", "line")
           .style('fill','none')
           .style('stroke','#6f1616')
