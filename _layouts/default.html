@@ -219,6 +219,8 @@
                                                                          'new_cases': value
                                                                        }));
 
+        console.log(data_summarized2);
+        
         // d3 scaling
         var x = d3.scaleLinear()
             .domain(d3.extent(data_summarized, d => d.date));
