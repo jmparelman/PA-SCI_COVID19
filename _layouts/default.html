@@ -223,13 +223,13 @@
 
         // d3 scaling
         var x = d3.scaleLinear()
-            .domain(d3.extent(data_summarized, d => d.date));
+            .domain(d3.extent(data_summarized2, d => d.date));
 
         var x_bar = d3.scaleBand();
 
         var y = d3.scaleLinear()
             .range([250, 50])
-            .domain(d3.extent(data_summarized, d => d.value));
+            .domain(d3.extent(data_summarized2, d => d.value));
 
         // x axis
         var xAxis = svg.append("g")
@@ -254,7 +254,7 @@
             .attr("height", d => 250 - y(d.new_cases));
 
         var line = svg.append("path")
-          .datum(data_summarized2)
+          .datum([data_summarized2])
           .attr("class", "line")
           .style('fill','none')
           .style('stroke','#6f1616')
