@@ -308,7 +308,9 @@
         svg.style("pointer-events", "all")                    // **********
             .on("mouseover", function() { tooltip.style("display", null); })
             .on("mouseout", function() { tooltip.style("display", "none"); })
-            .on("mousemove", mousemove(event));
+            .on("mousemove", function(event,d){
+                console.log(d3.pointer(event));
+            });
 
         function mousemove(event){
             var x0 = x.invert(d3.pointer(event)[0]),
