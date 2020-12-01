@@ -176,6 +176,7 @@
         .attr("height",300);
 
     var parseDate = d3.timeParse("%Y-%m-%d");
+    var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
     var movingWindowAvg = function (arr, step) {  // Window size = 2 * step + 1
         return arr.map(function (_, idx) {
@@ -219,7 +220,7 @@
                                                                            'new_cases': value
                                                                        }));
 
-        const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),14);
+        const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
 
 
         data_summarized2.forEach((d,i) => {d.cases_moving_avg = cases_moving_avg[i];})
@@ -294,6 +295,35 @@
             .style('color','black')
             .style('font-size',12);
 
+        // tooltip
+        var tooltip = svg.append("g")                                // **********
+            .style("display", "none");
+
+        // tooltip node
+        const tooltip_node = tooltip.append('circle')
+            .attr('r',3)
+            .style('stroke','#ffb3b3')
+            .style('fill','#6f1616');
+
+        svg.style("pointer-events", "all")
+            .on("mouseover", function() { focus.style("display", null); })
+            .on("mouseout", function() { focus.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        function mousemove(){
+            var x0 = x.invert(d3.mouse(this)[0]),
+            i = bisectDate(data, x0, 1),
+            d0 = data_summarized2[i - 1],
+            d1 = data_summarized2[i],
+            d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+            console.log(x0);
+            console.log(d);
+            .attr("transform",                             // **********
+                  "translate(" + x(d.date) + "," +         // **********
+                                 y(d.cases_moving_avg) + ")")
+
+        };
+        
         function drawChart() {
             // function draws chart and updates on window resize
 
