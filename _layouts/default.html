@@ -311,12 +311,8 @@
 
 
         svg.style("pointer-events", "all")                    // **********
-            .on("mouseover", function() { tooltip_node.style("display", null); })
-            .on("mouseout", function() {
-                tooltip_node.style("display", "none");
-                div.style('opacity',0)
-                }
-            )
+            .on("mouseover", function() { tooltip_node.style("display", null);})
+            .on("mouseout", function() {tooltip_node.style("display", "none");})
             .on("mousemove", function(event,d){
                 var x0 = x.invert(d3.pointer(event)[0]),
                 i = bisectDate(data_summarized2, x0, 1),
