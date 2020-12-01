@@ -300,14 +300,13 @@
             .style("display", "none");
 
         // tooltip node
-        const tooltip_node = tooltip.append('circle')
+        var tooltip_node = tooltip.append('circle')
             .attr('r',3)
             .style('stroke','#ffb3b3')
             .style('fill','#6f1616');
 
-            svg.append("rect")                                     // **********
-            .attr("width", width)                              // **********
-            .attr("height", height)                            // **********
+        var pointer_rect = svg.append("rect")                                     // **********                           // **********
+            .attr("height", 250)                            // **********
             .style("fill", "none")                             // **********
             .style("pointer-events", "all")                    // **********
             .on("mouseover", function() { tooltip.style("display", null); })
@@ -339,6 +338,8 @@
                 .tickFormat(d3.timeFormat("%b %d"))
                 .ticks(4))
             .selectAll("text");
+
+            pointer_rect.attr('width',currentWidth);
 
             var valueline = d3.line()
                 .x(d => x(d.date))
