@@ -246,7 +246,7 @@
         // bar graph
         var bars = svg.append('g')
             .selectAll('rect')
-            .data(data_summarized2)
+            .data([data_summarized2])
             .enter()
             .append('rect')
             .style('fill','#ffb3b3')
