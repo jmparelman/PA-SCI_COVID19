@@ -216,8 +216,13 @@
 
          var data_summarized2 = Array.from(data_summarized, ([key, value]) => ({key, value,
                                                                          'date': parseDate(key),
-                                                                         'new_cases': value
+                                                                           'new_cases': value
                                                                        }));
+
+        const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
+
+
+        data_summarized2.forEach((d,i) => d.cases_moving_avg = cases_moving_avg[i];)
 
         console.log(data_summarized2);
 
@@ -301,36 +306,15 @@
                 .ticks(4))
             .selectAll("text");
 
-
-            const POINTS_AVERAGE = 6;
-            const avgline = d3
-                .line()
-                .x(d => x(d.date))
-                .y((d, i, data) => {
-                  var r,
-                    avg = 0;
-                  for (let j = 0; j <= POINTS_AVERAGE; j++) {
-                    if (i - j >= 0) {
-                      avg += y(data[i - j].new_cases);
-                      r = Math.floor(avg / (j + 1));
-                    } else {
-                      r = Math.floor(avg / j);
-                      j = POINTS_AVERAGE + 1;
-                    }
-                  }
-                  return r;
-                })
-                .curve(d3.curveMonotonX);
-
             var valueline = d3.line()
                 .x(d => x(d.date))
-                .y(d => y(d.new_cases))
+                .y(d => y(d.cases_moving_avg))
                 .curve(d3.curveMonotoneX);
 
             bars.attr("x", d => x(d.date))
               .attr("width", x_bar.bandwidth());
 
-            line.attr("d", avgline);
+            line.attr("d", valueline);
         };
 
         drawChart();
