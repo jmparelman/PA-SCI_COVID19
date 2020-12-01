@@ -219,7 +219,7 @@
                                                                            'new_cases': value
                                                                        }));
 
-        const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
+        const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),14);
 
 
         data_summarized2.forEach((d,i) => {d.cases_moving_avg = cases_moving_avg[i];})
