@@ -305,10 +305,7 @@
             .style('stroke','#ffb3b3')
             .style('fill','#6f1616');
 
-        var pointer_rect = svg.append("rect")                                     // **********                           // **********
-            .attr("height", 250)                            // **********
-            .style("fill", "none")                             // **********
-            .style("pointer-events", "all")                    // **********
+        svg.style("pointer-events", "all")                    // **********
             .on("mouseover", function() { tooltip.style("display", null); })
             .on("mouseout", function() { tooltip.style("display", "none"); })
             .on("mousemove", mousemove);
@@ -338,8 +335,6 @@
                 .tickFormat(d3.timeFormat("%b %d"))
                 .ticks(4))
             .selectAll("text");
-
-            pointer_rect.attr('width',currentWidth);
 
             var valueline = d3.line()
                 .x(d => x(d.date))
