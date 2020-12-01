@@ -300,7 +300,8 @@
             .style("stroke-dasharray", "3,3")
             .style("opacity", 0.5)
             .attr("y1", 0)
-            .attr("y2", 250);
+            .attr("y2", 250)
+            .attr('display','none');
 
         // tooltip node
         var tooltip_node = svg.append('circle')
@@ -311,8 +312,14 @@
 
 
         svg.style("pointer-events", "all")                    // **********
-            .on("mouseover", function() { tooltip_node.style("display", null);})
-            .on("mouseout", function() {tooltip_node.style("display", "none");})
+            .on("mouseover", function() {
+                tooltip_node.style("display", null);
+                tooltip_line.style("display", null);
+            })
+            .on("mouseout", function() {
+                tooltip_node.style("display", "none");
+                tooltip_line.style("display", "none");
+            })
             .on("mousemove", function(event,d){
                 var x0 = x.invert(d3.pointer(event)[0]),
                 i = bisectDate(data_summarized2, x0, 1),
@@ -321,7 +328,8 @@
                 d = x0 - d0.date > d1.date - x0 ? d1 : d0;
                 tooltip_node.attr('cx',x(d.date))
                     .attr('cy',y(d.cases_moving_avg));
-                tooltip_line.attr('x',x(d.date));
+                tooltip_line.attr('x1',x(d.date))
+                            .attr('x2',x(d.date));
 
             });
 
