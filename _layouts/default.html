@@ -250,7 +250,7 @@
             .enter()
             .append('rect')
             .style('fill','#ffb3b3')
-            .attr('y',d => y(d.new_cases))
+            .attr('y',function(d){ console.log(d.new_cases); return y(d.new_cases)})
             .attr("height", d => 250 - y(d.new_cases));
 
         var line = svg.append("path")
