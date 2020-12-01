@@ -12,7 +12,6 @@
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.1/d3.js"></script>
 
   <script type="text/javascript">
   /// some script
@@ -79,10 +78,8 @@
   </style>
 </head>
 <body style='background-color:#F8F8F8'>
-    {% assign totalrow = site.data.most_recent_inmateData | where:"SCI","TOTAL" | first%}
 
-
-    <!-- ========================= SECTION CONTENT ========================= -->
+    <!-- navbar -->
     <div class='container-fluid' style='background-color:white'>
         <nav class="navbar navbar-expand-lg navbar-light">
           <p class="navbar-brand"></p>
@@ -91,20 +88,19 @@
           </button>
           <div class="navbar-collapse" id="main_nav">
 
-        <div class="offcanvas-header mt-3">
-        	<button class="btn btn-outline-danger btn-close float-right"> &times Close </button>
-        </div>
+            <div class="offcanvas-header mt-3">
+            	<button class="btn btn-outline-danger btn-close float-right"> &times Close </button>
+            </div>
 
-        <ul class="navbar-nav">
-        	<li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
-        	<li class="nav-item"><a class="nav-link" href="#"> Get the data </a></li>
+            <ul class="navbar-nav">
+            	<li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
+            	<li class="nav-item"><a class="nav-link" href="#"> Get the data </a></li>
 
-        </ul>
-          </div> <!-- navbar-collapse.// -->
+            </ul>
+          </div>
         </nav>
 
-
-
+        <!-- Header content  -->
         <div class='row justify-content-center'>
             <img src="{{site.baseurl}}/assets/img/ALP_logo_primary_2color_RGB_HiRes.png" height='150px' style="margin: 20px">
         </div>
@@ -117,17 +113,17 @@
 
         <div class="row justify-content-center">
             <div class='col-sm-10 col-md-8'>
-                <p style="text-align:center; font-style:italic">Since the beginning of the
-                     pandemic the Amistad Law Project has tracked COVID-19's spread through
-                     the Pennsylvania state prison system. Prisons are high-risk environments,
-                     often overcrowded and poorly ventilated. The care of incarcerated people
-                     by the state must be monitored and understood as this pandemic continues to
-                     impact this vulnerable population.</p>
+                <p style="text-align:center; font-style:italic">Since the beginning of the pandemic the Amistad Law Project has tracked COVID-19's spread through the Pennsylvania state prison system and advocated for a dramatic reduction of the prison population to reduce the harm of the virus to incarcerated people and staff. Prisons are high-risk environments, often overcrowded and poorly ventilated where social distancing is impossible. The lack of care of incarcerated people by the state must be monitored, understood and chalenged as this pandemic continues to impact this vulnerable population. It is within the Governor’s power to expand his reprieve order and reduce the prison population so people can single cell and social distance, and in doing so save lives.</p>
             </div>
         </div>
 
     </div>
+
+
+    <!-- Main content -->
     <div class='container-fluid' style='padding: 40px'>
+
+        <!-- totals and total plot -->
         <div class='row justify-content-center'>
             <div class='col-sm-11 col-xs-12' style='background-color:white;'>
                 <div class='row' style='padding:20px'>
@@ -155,12 +151,14 @@
                 </div>
             </div>
         </div>
+
         <div class='row justify-content-center'>
             <div class='col-sm-11 col-xs-12 justify-content-center' style='background-color:white; padding:0'>
-                <div class='col-lg-8 offset-lg-2 col-sm-12' id='chartArea' style='background-color:white; margin:0;'></div>
+                <div class='col-lg-8 offset-lg-2 col-sm-12' id='chartArea' style='margin:0;'></div>
                 </div>
         </div>
 
+        <!-- SCI Table -->
         <div class="row justify-content-center" style='margin-top:20px'>
             <div class='col-sm-11 col-xs-12' style='background-color:white;'>
                 {{content}}
@@ -201,61 +199,65 @@
                             'current_tests': d3.sum(v, d => (+d.inmate_positive) + (+d.inmate_negative) + (+d.inmate_pending))
                           }),d=>d.date);
 
-        console.log(summary_data);
+        // most recent numbers
         var current_cases = summary_data[summary_data.length-1][1].current_cases;
         var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
         var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
-
 
          d3.select('#current_cases').text(current_cases);
          d3.select('#current_deaths').text(current_deaths);
          d3.select('#current_tests').text(current_tests);
 
-        var data_summarized = d3.nest()
-            .key(function(d){return d.date})
-            .rollup(function(d){
-                return d3.sum(d, function(g){return g.inmate_positive_D;})
-            }).entries(data);
 
-        data_summarized.forEach(function(d,i){
-                d.date = parseDate(d.key);
-                d.new_cases = parseFloat(d.value);
-            });
+         // daily new cases
+         var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.inmate_positive_D),
+                                         d => d.date);
 
-        moveAvg = movingWindowAvg(data_summarized.map(a => a.value), 7)
+         var data_summarized2 = Array.from(data_summarized, ([key, value]) => ({key, value,
+                                                                         'date': parseDate(key),
+                                                                         'new_cases': value
+                                                                       }));
 
-        data_summarized.forEach(function(d,i){
-                d.moveAvg = moveAvg[i];
-            });
-
+        // d3 scaling
         var x = d3.scaleLinear()
-            .domain(d3.extent(data_summarized, function(d) { return d.date;}));
+            .domain(d3.extent(data_summarized, d => d.date));
 
         var x_bar = d3.scaleBand();
 
         var y = d3.scaleLinear()
             .range([250, 50])
-            .domain(d3.extent(data_summarized, function(d) { return d.value;}));
+            .domain(d3.extent(data_summarized, d => d.value));
 
-            var xAxis = svg.append("g")
-                .attr("class", "x axis")
-                .attr("transform", "translate(0," + (250) + ")");
+        // x axis
+        var xAxis = svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + (250) + ")");
 
+        // y axis
         svg.append("g")
             .attr("class", "y axis")
             .attr('transform',"translate(25, 0)")
             .call(d3.axisLeft(y)
             .ticks(5));
 
+        // bar graph
         var bars = svg.append('g')
             .selectAll('rect')
             .data(data_summarized)
             .enter()
             .append('rect')
             .style('fill','#ffb3b3')
-            .attr('y',function(d){return y(d.value);})
-            .attr("height", function(d) { return 250 - y(d.value); });
+            .attr('y',d => y(d.value))
+            .attr("height", d => 250 - y(d.new_cases));
 
+        var line = svg.append("path")
+          .data([data_summarized])
+          .attr("class", "line")
+          .style('fill','none')
+          .style('stroke','#6f1616')
+          .style('stroke-width','2px');
+
+        // legend start
         svg.append('rect')
             .attr('y',10)
             .attr('x',10)
@@ -284,31 +286,48 @@
             .style('color','black')
             .style('font-size',12);
 
-        var line = svg.append("path")
-          .data([data_summarized])
-          .attr("class", "line")
-          .style('fill','none')
-          .style('stroke','#6f1616')
-          .style('stroke-width','2px');
-
         function drawChart() {
+            // function draws chart and updates on window resize
+
             currentWidth = parseInt(d3.select('#chartArea').style('width'));
             svg.attr('width',currentWidth);
             x.range([25,currentWidth - 30]);
+
             xAxis.call(d3.axisBottom(x)
                 .tickFormat(d3.timeFormat("%b %d"))
                 .ticks(4))
             .selectAll("text");
 
+
+            const POINTS_AVERAGE = 6;
+            const avgline = d3
+                .line()
+                .x(d => x(d.date))
+                .y((d, i, data) => {
+                  var r,
+                    avg = 0;
+                  for (let j = 0; j <= POINTS_AVERAGE; j++) {
+                    if (i - j >= 0) {
+                      avg += y(data[i - j].new_cases);
+                      r = Math.floor(avg / (j + 1));
+                    } else {
+                      r = Math.floor(avg / j);
+                      j = POINTS_AVERAGE + 1;
+                    }
+                  }
+                  return r;
+                })
+                .curve(d3.curveMonotonX);
+
             var valueline = d3.line()
-                .x(function(d) { return x(d.date); })
-                .y(function(d) { return y(d.moveAvg); })
+                .x(d => x(d.date))
+                .y(d => y(d.new_cases))
                 .curve(d3.curveMonotoneX);
 
-            bars.attr("x", function(d) { return x(d.date); })
+            bars.attr("x", d => x(d.date))
               .attr("width", x_bar.bandwidth());
 
-            line.attr("d", valueline);
+            line.attr("d", avgline);
         };
 
         drawChart();
