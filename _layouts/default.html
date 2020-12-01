@@ -299,7 +299,7 @@
             .style("stroke", "black")
             .style("stroke-dasharray", "3,3")
             .style("opacity", 0)
-            .attr("y1", 0)
+            .attr("y1", 50)
             .attr("y2", 250);
 
         // tooltip node
@@ -329,7 +329,6 @@
                     .attr('cy',y(d.cases_moving_avg));
                 tooltip_line.attr('x1',x(d.date))
                             .attr('x2',x(d.date));
-
             });
 
         function drawChart() {
