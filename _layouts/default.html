@@ -298,10 +298,9 @@
         var tooltip_line = svg.append("line")
             .style("stroke", "black")
             .style("stroke-dasharray", "3,3")
-            .style("opacity", 0.5)
+            .style("opacity", 0)
             .attr("y1", 0)
-            .attr("y2", 250)
-            .attr('display','none');
+            .attr("y2", 250);
 
         // tooltip node
         var tooltip_node = svg.append('circle')
@@ -314,11 +313,11 @@
         svg.style("pointer-events", "all")                    // **********
             .on("mouseover", function() {
                 tooltip_node.style("display", null);
-                tooltip_line.style("display", null);
+                tooltip_line.style("opacity", 0.5);
             })
             .on("mouseout", function() {
                 tooltip_node.style("display", "none");
-                tooltip_line.style("display", "none");
+                tooltip_line.style("opacity", 0);
             })
             .on("mousemove", function(event,d){
                 var x0 = x.invert(d3.pointer(event)[0]),
