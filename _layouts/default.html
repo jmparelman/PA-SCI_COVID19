@@ -222,7 +222,7 @@
         const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
 
 
-        data_summarized2.forEach((d,i) => d.cases_moving_avg = cases_moving_avg[i];)
+        data_summarized2.forEach((d,i) => {d.cases_moving_avg = cases_moving_avg[i];})
 
         console.log(data_summarized2);
 
