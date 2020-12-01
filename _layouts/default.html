@@ -310,7 +310,6 @@
             .on("mouseout", function() { tooltip.style("display", "none"); })
             .on("mousemove", function(event,d){
                 var x0 = x.invert(d3.pointer(event)[0]),
-                console.log(x0);
                 i = bisectDate(data, x0, 1),
                 d0 = data_summarized2[i - 1],
                 d1 = data_summarized2[i],
