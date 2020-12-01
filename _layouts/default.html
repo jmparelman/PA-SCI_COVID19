@@ -189,7 +189,8 @@
         });
     };
 
-    d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv",function(data){
+    d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
+
 
 
         // daily sums
