@@ -306,8 +306,8 @@
             .style('fill','#6f1616');
 
         svg.style("pointer-events", "all")
-            .on("mouseover", function() { focus.style("display", null); })
-            .on("mouseout", function() { focus.style("display", "none"); })
+            .on("mouseover", function() { tooltip.style("display", null); })
+            .on("mouseout", function() { tooltip.style("display", "none"); })
             .on("mousemove", mousemove);
 
         function mousemove(){
