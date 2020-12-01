@@ -330,7 +330,7 @@
             bars.attr("x", d => x(d.date))
               .attr("width", x_bar.bandwidth());
 
-            line.attr("d", valueline);
+            line.attr("d", avgline);
         };
 
         drawChart();
