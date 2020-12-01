@@ -327,8 +327,8 @@
                 .y(d => y(d.new_cases))
                 .curve(d3.curveMonotoneX);
 
-            bars.attr("x", d => x(d.date))
-              .attr("width", x_bar.bandwidth());
+            // bars.attr("x", d => x(d.date))
+            //   .attr("width", x_bar.bandwidth());
 
             line.attr("d", valueline);
         };
