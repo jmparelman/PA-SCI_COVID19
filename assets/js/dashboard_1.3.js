@@ -1,8 +1,8 @@
-// navbar script
-$(function () {
-    'use strict'
 
-  $("[data-trigger]").on("click", function(){
+$(function () {
+	  'use strict'
+
+	$("[data-trigger]").on("click", function(){
         var trigger_id =  $(this).attr('data-trigger');
         $(trigger_id).toggleClass("show");
         $('body').toggleClass("offcanvas-active");
@@ -21,21 +21,17 @@ $(function () {
         $(".navbar-collapse").removeClass("show");
         $("body").removeClass("offcanvas-active");
     });
-
-
 })
 
-// datatable
 $(document).ready( function () {
     $('#SCItable').DataTable();
 } );
 
-
-// d3 current cases plot
 var svg = d3.select('#chartArea').append('svg')
     .attr("height",300);
 
 var parseDate = d3.timeParse("%Y-%m-%d");
+var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 var movingWindowAvg = function (arr, step) {  // Window size = 2 * step + 1
     return arr.map(function (_, idx) {
@@ -49,53 +45,94 @@ var movingWindowAvg = function (arr, step) {  // Window size = 2 * step + 1
     });
 };
 
-d3.csv("data/latest_data/PA_DOC_testing_data.csv",function(data){
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
-    var data_summarized = d3.nest()
-        .key(function(d){return d.date})
-        .rollup(function(d){
-            return d3.sum(d, function(g){return g.inmate_positive_D;})
-        }).entries(data);
+d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
 
-    data_summarized.forEach(function(d,i){
-            d.date = parseDate(d.key);
-            d.new_cases = parseFloat(d.value);
-        });
 
-    moveAvg = movingWindowAvg(data_summarized.map(a => a.value), 7)
 
-    data_summarized.forEach(function(d,i){
-            d.moveAvg = moveAvg[i];
-        });
+    // daily sums
+    var summary_data = d3.rollups(data, v => ({
+                        'current_cases': d3.sum(v, d => d.inmate_positive),
+                        'current_deaths': d3.sum(v, d => d.inmate_death),
+                        'current_tests': d3.sum(v, d => (+d.inmate_positive) + (+d.inmate_negative) + (+d.inmate_pending))
+                      }),d=>d.date);
 
+    // most recent numbers
+    var current_cases = summary_data[summary_data.length-1][1].current_cases;
+    var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
+    var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
+    var last_date = summary_data[summary_data.length-1][0];
+
+    const lastdayFormat = d3.timeFormat("%m/%d/%y");
+
+     d3.select('#current_cases').text(numberWithCommas(current_cases));
+     d3.select('#current_deaths').text(numberWithCommas(current_deaths));
+     d3.select('#current_tests').text(numberWithCommas(current_tests));
+     d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
+     // daily new cases
+     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.inmate_positive_D),
+                                     d => d.date);
+
+     var data_summarized2 = Array.from(data_summarized, ([key, value]) => ({key, value,
+                                                                     'date': parseDate(key),
+                                                                       'new_cases': value
+                                                                   }));
+
+
+    const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
+
+
+    data_summarized2.forEach((d,i) => {
+        d.cases_moving_avg = cases_moving_avg[i];
+        d.barID = "barID-"+i;
+    })
+
+
+    // d3 scaling
     var x = d3.scaleLinear()
-        .domain(d3.extent(data_summarized, function(d) { return d.date;}));
+        .domain(d3.extent(data_summarized2, d => d.date));
 
-    var x_bar = d3.scaleBand();
+    var x_bar = d3.scaleBand()
+        .domain(data_summarized2.map(d => d.date));
 
     var y = d3.scaleLinear()
         .range([250, 50])
-        .domain(d3.extent(data_summarized, function(d) { return d.value;}));
+        .domain(d3.extent(data_summarized2, d => d.value));
 
-        var xAxis = svg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + (250) + ")");
+    // x axis
+    var xAxis = svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (250) + ")");
 
+    // y axis
     svg.append("g")
         .attr("class", "y axis")
         .attr('transform',"translate(25, 0)")
         .call(d3.axisLeft(y)
         .ticks(5));
 
+    // bar graph
     var bars = svg.append('g')
         .selectAll('rect')
-        .data(data_summarized)
+        .data(data_summarized2)
         .enter()
         .append('rect')
         .style('fill','#ffb3b3')
-        .attr('y',function(d){return y(d.value);})
-        .attr("height", function(d) { return 250 - y(d.value); });
+        .attr('y',d => y(d.new_cases))
+        .attr("height", d => 250 - y(d.new_cases))
+        .attr('id', d => d.barID);
 
+    var line = svg.append("path")
+      .data([data_summarized2])
+      .attr("class", "line")
+      .style('fill','none')
+      .style('stroke','#6f1616')
+      .style('stroke-width','2px');
+
+    // legend start
     svg.append('rect')
         .attr('y',10)
         .attr('x',10)
@@ -124,30 +161,110 @@ d3.csv("data/latest_data/PA_DOC_testing_data.csv",function(data){
         .style('color','black')
         .style('font-size',12);
 
-    var line = svg.append("path")
-      .data([data_summarized])
-      .attr("class", "line")
-      .style('fill','none')
-      .style('stroke','#6f1616')
-      .style('stroke-width','2px');
+    var tooltip_line = svg.append("line")
+        .style("stroke", "black")
+        .style("stroke-dasharray", "3,3")
+        .style("opacity", 0)
+        .attr("y1", 50)
+        .attr("y2", 250);
+
+    // tooltip node
+    var tooltip_node = svg.append('circle')
+        .attr('r',5)
+        .style('stroke','#ffb3b3')
+        .style('fill','#6f1616')
+        .style('display','none');
+
+    var tooltip_text_1 = svg.append('text')
+        .attr('y',100)
+        .style('stroke','black')
+        .attr("font-size", "9px")
+        .style('stroke-width',0)
+        .attr('class','svg-text')
+        .attr('text-decoration','underline');
+
+    var tooltip_text_2 = svg.append('text')
+        .attr('y',110)
+        .style('stroke','black')
+        .style('stroke-width',0)
+        .attr("font-size", "9px")
+        .attr('class','svg-text');
+
+    var tooltip_text_3 = svg.append('text')
+        .attr('y',120)
+        .style('stroke','black')
+        .style('stroke-width',0)
+        .attr("font-size", "9px")
+        .attr('class','svg-text');
+
+
+    svg.style("pointer-events", "all")                    // **********
+        .on("mouseover", function() {
+            tooltip_node.style("display", null);
+            tooltip_line.style("opacity", 0.5);
+            d3.selectAll('.svg-text').style('opacity',1);
+        })
+        .on("mouseout", function() {
+            tooltip_node.style("display", "none");
+            tooltip_line.style("opacity", 0);
+            d3.selectAll('.svg-text').style('opacity',0);
+        })
+        .on("mousemove", function(event,d){
+            var x0 = x.invert(d3.pointer(event)[0]),
+            i = bisectDate(data_summarized2, x0, 1),
+            d0 = data_summarized2[i - 1],
+            d1 = data_summarized2[i],
+            d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+            const dayFormat = d3.timeFormat("%m/%d");
+
+            tooltip_node.attr('cx',x(d.date))
+                .attr('cy',y(d.cases_moving_avg));
+            tooltip_line.attr('x1',x(d.date))
+                        .attr('x2',x(d.date));
+
+
+             if (x(d.date) < svg.attr('width') - (svg.attr('width')/7) ) {
+                    // you are on A zone
+                    d3.selectAll('.svg-text').attr('transform','translate(5,0)')
+             } else {
+                    // you are on B zone
+                    d3.selectAll('.svg-text').attr('transform','translate(-70,0)')
+             }
+
+            tooltip_text_1.text(dayFormat(d.date));
+            tooltip_text_2.text("new cases: "+d.new_cases);
+            tooltip_text_3.text("7 day avg.: "+Math.floor(d.cases_moving_avg));
+            d3.selectAll('.svg-text').attr('x',x(d.date));
+
+            bars.style('fill','#ffb3b3');
+            d3.select('#'+d.barID)
+                .style('fill','#6f1616');
+
+
+
+        });
 
     function drawChart() {
+        // function draws chart and updates on window resize
+
         currentWidth = parseInt(d3.select('#chartArea').style('width'));
-        currentWidth = currentWidth - (currentWidth * 0.05);
         svg.attr('width',currentWidth);
-        x.range([25,currentWidth]);
+        x.range([25,currentWidth - 30]);
+        x_bar.range([25, currentWidth - 30]);
         xAxis.call(d3.axisBottom(x)
             .tickFormat(d3.timeFormat("%b %d"))
             .ticks(4))
         .selectAll("text");
 
         var valueline = d3.line()
-            .x(function(d) { return x(d.date); })
-            .y(function(d) { return y(d.moveAvg); })
+            .x(d => x(d.date))
+            .y(d => y(d.cases_moving_avg))
             .curve(d3.curveMonotoneX);
 
-        bars.attr("x", function(d) { return x(d.date); })
-          .attr("width", x_bar.bandwidth());
+        bars.attr("x", d => x(d.date))
+          .attr("width", x_bar.bandwidth()/2)
+          .attr('transform','translate(-'+x_bar.bandwidth()/4+',0)');
 
         line.attr("d", valueline);
     };
