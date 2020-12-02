@@ -223,7 +223,10 @@
         const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
 
 
-        data_summarized2.forEach((d,i) => {d.cases_moving_avg = cases_moving_avg[i];})
+        data_summarized2.forEach((d,i) => {
+            d.cases_moving_avg = cases_moving_avg[i];
+            d.barIndex = "barID-"+i;
+        })
 
         console.log(data_summarized2);
 
@@ -258,8 +261,8 @@
             .style('fill','#ffb3b3')
             .attr('y',d => y(d.new_cases))
             .attr("height", d => 250 - y(d.new_cases))
-            .attr('id',function(d) {
-                console.log(x(d.date))});
+            .attr('id',function(d,i) {
+                console.log(d.barID)});
 
         var line = svg.append("path")
           .data([data_summarized2])
