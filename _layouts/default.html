@@ -316,7 +316,7 @@
         var tooltip_text_1 = svg.append('text')
             .attr('y',100)
             .style('stroke','black')
-            .attr("font-size", "8px")
+            .attr("font-size", "9px")
             .attr('font-weight','lighter')
             .attr('class','svg-text')
             .attr('text-decoration','underline');
@@ -324,14 +324,14 @@
         var tooltip_text_2 = svg.append('text')
             .attr('y',110)
             .style('stroke','black')
-            .attr("font-size", "8px")
+            .attr("font-size", "9px")
             .attr('font-weight','lighter')
             .attr('class','svg-text');
 
         var tooltip_text_3 = svg.append('text')
             .attr('y',120)
             .style('stroke','black')
-            .attr("font-size", "8px")
+            .attr("font-size", "9px")
             .attr('font-weight','lighter')
             .attr('class','svg-text');
 
@@ -362,7 +362,7 @@
                             .attr('x2',x(d.date));
 
 
-                 if (x(d.date) < (svg.attr('width')/2) ) {
+                 if (x(d.date) < svg.attr('width' - (svg.attr('width')/10) ) {
                         // you are on A zone
                         d3.selectAll('.svg-text').attr('transform','translate(5,0)')
                  } else {
