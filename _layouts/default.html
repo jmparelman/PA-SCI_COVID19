@@ -370,10 +370,12 @@
                         d3.select('.svg-text').attr('transform','translate(-40,0)')
                  }
 
-                tooltip_text_1.text(dayFormat(d.date));
-                tooltip_text_2.text("new cases: "+d.new_cases);
-                tooltip_text_3.text("7 day avg.: "+d.cases_moving_avg);
-                d3.select('.svg-text').attr('x',x(d.date));
+                tooltip_text_1.text(dayFormat(d.date))
+                    .attr('x',x(d.date));
+                tooltip_text_2.text("new cases: "+d.new_cases)
+                    .attr('x',x(d.date));
+                tooltip_text_3.text("7 day avg.: "+d.cases_moving_avg)
+                    .attr('x',x(d.date));
 
                 bars.style('fill','#ffb3b3');
                 d3.select('#'+d.barID)
