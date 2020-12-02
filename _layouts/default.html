@@ -129,6 +129,9 @@
                 <div class='row' style='padding:20px'>
                     <b style="color:grey">Totals Since March</b>
                 </div>
+                <div class='row justify-content-center'>
+                    <b style='color:grey; text-decoration:underline;' id="last-updated"></b>
+                </div>
                 <div class='row justify-content-center' style='margin-bottom:15px'>
                     <h4 style='text-decoration:underline'>Incarcerated People</h4>
                 </div>
@@ -205,11 +208,13 @@
         var current_cases = summary_data[summary_data.length-1][1].current_cases;
         var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
         var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
+        var last_date = summary_data[summary_data.length-1[1 ].date];
+        const lastdayFormat = d3.timeFormat("%m/%d/%y");
 
          d3.select('#current_cases').text(current_cases);
          d3.select('#current_deaths').text(current_deaths);
          d3.select('#current_tests').text(current_tests);
-
+         d3.select('#last-updated').text("Last Updated: "+lastdayFormat(last_date));
 
          // daily new cases
          var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.inmate_positive_D),
@@ -362,12 +367,12 @@
                             .attr('x2',x(d.date));
 
 
-                 if (x(d.date) < svg.attr('width') - (svg.attr('width')/8) ) {
+                 if (x(d.date) < svg.attr('width') - (svg.attr('width')/7) ) {
                         // you are on A zone
                         d3.selectAll('.svg-text').attr('transform','translate(5,0)')
                  } else {
                         // you are on B zone
-                        d3.selectAll('.svg-text').attr('transform','translate(-60,0)')
+                        d3.selectAll('.svg-text').attr('transform','translate(-70,0)')
                  }
 
                 tooltip_text_1.text(dayFormat(d.date));
