@@ -338,7 +338,7 @@
                 bars.style('fill','#ffb3b3');
                 console.log('#'+d.barID);
                 d3.select('#'+d.barID)
-                    .style('fill','black');
+                    .style('fill','#6f1616');
             });
 
         function drawChart() {
@@ -360,7 +360,7 @@
 
             bars.attr("x", d => x(d.date))
               .attr("width", x_bar.bandwidth()/2)
-              .attr('transform','translate(-'+x_bar.bandwidth()/2+',0)');
+              .attr('transform','translate(-'+x_bar.bandwidth()/4+',0)');
 
             line.attr("d", valueline);
         };
