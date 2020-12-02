@@ -13,6 +13,5 @@ We have archived various pieces of data important for tracking and understanding
 
 **This work is conducted in partnership with the <a href='https://amistadlaw.org/'>Amistad Law Project </a>**
 
-
-
+![alp logo](img/ALP_logo_primary_2color_RGB_HiRes.png)
 
