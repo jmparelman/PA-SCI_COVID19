@@ -208,13 +208,14 @@
         var current_cases = summary_data[summary_data.length-1][1].current_cases;
         var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
         var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
-        var last_date = summary_data[summary_data.length-1[1 ].date];
+
+
         const lastdayFormat = d3.timeFormat("%m/%d/%y");
 
          d3.select('#current_cases').text(current_cases);
          d3.select('#current_deaths').text(current_deaths);
          d3.select('#current_tests').text(current_tests);
-         d3.select('#last-updated').text("Last Updated: "+lastdayFormat(last_date));
+
 
          // daily new cases
          var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.inmate_positive_D),
@@ -224,7 +225,9 @@
                                                                          'date': parseDate(key),
                                                                            'new_cases': value
                                                                        }));
-
+                                                                       
+        var last_date = data_summarized2[data_summarized2.length-1[1 ].date];
+        d3.select('#last-updated').text("Last Updated: "+lastdayFormat(last_date));
         const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
 
 
