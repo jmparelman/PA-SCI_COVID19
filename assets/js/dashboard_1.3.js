@@ -50,7 +50,7 @@ function numberWithCommas(x) {
 }
 
 d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
-
+    console.log(data);
 
 
     // daily sums
