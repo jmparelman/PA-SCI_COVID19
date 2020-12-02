@@ -359,7 +359,8 @@
                 .curve(d3.curveMonotoneX);
 
             bars.attr("x", d => x(d.date))
-              .attr("width", x_bar.bandwidth());
+              .attr("width", x_bar.bandwidth()/2)
+              .attr('transform','translate(-'+x_bar.bandwidth()/2+',0)');
 
             line.attr("d", valueline);
         };
