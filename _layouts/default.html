@@ -228,7 +228,6 @@
             d.barID = "barID-"+i;
         })
 
-        console.log(data_summarized2);
 
         // d3 scaling
         var x = d3.scaleLinear()
@@ -345,6 +344,7 @@
                 tooltip_line.attr('x1',x(d.date))
                             .attr('x2',x(d.date));
 
+                console.log(x0);
                  if (x0 < (svg.attr('width')/2) ) {
                         // you are on A zone
                         d3.select('.svg-text').attr('transform','translate(0,0)')
