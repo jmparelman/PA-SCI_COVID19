@@ -12,14 +12,8 @@
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
-  <script type="text/javascript">
-  /// some script
-
-  </script>
 </head>
-<bod>
-
+<body>
     <!-- navbar -->
     <div class='container-fluid' style='background-color:white'>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -161,7 +155,7 @@
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-
+    console.log('{{site.baseurl}}');
     d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
 
 
