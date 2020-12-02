@@ -1,6 +1,5 @@
-<div style="text-align:center">
-  <img src="img/ALP_logo_primary_2color_RGB_HiRes.png" height="150px"/>
-</div>
+<img src="img/ALP_logo_primary_2color_RGB_HiRes.png" height="150px" style='display:block; margin-left:auto;margin-right:auto'/>
+
 
 
 # Pennsylvania State Correctional Institutions & COVID-19 Data Archive
