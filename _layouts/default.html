@@ -129,9 +129,6 @@
                 <div class='row' style='padding:20px'>
                     <b style="color:grey">Totals Since March</b>
                 </div>
-                <div class='row justify-content-center'>
-                    <b style='color:grey; text-decoration:underline;' id="last-updated"></b>
-                </div>
                 <div class='row justify-content-center' style='margin-bottom:15px'>
                     <h4 style='text-decoration:underline'>Incarcerated People</h4>
                 </div>
@@ -159,6 +156,9 @@
             <div class='col-sm-11 col-xs-12 justify-content-center' style='background-color:white; padding:0'>
                 <div class='col-lg-8 offset-lg-2 col-sm-12' id='chartArea' style='margin:0;'></div>
                 </div>
+        </div>
+        <div class='row justify-content-center'>
+            <b style='color:grey; text-decoration:underline; margin-top:15px' id="last-updated"></b>
         </div>
 
         <!-- SCI Table -->
@@ -193,6 +193,10 @@
         });
     };
 
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     d3.csv("{{site.baseurl}}/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
 
 
@@ -205,8 +209,8 @@
                           }),d=>d.date);
 
         // most recent numbers
-        var current_cases = summary_data[summary_data.length-1][1].current_cases;
-        var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
+        var current_cases = numberWithCommas(ummary_data[summary_data.length-1][1].current_cases;)
+        var current_deaths = numberWithCommas(summary_data[summary_data.length-1][1 ].current_deaths;)
         var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
         var last_date = summary_data[summary_data.length-1][0];
 
@@ -216,7 +220,6 @@
          d3.select('#current_deaths').text(current_deaths);
          d3.select('#current_tests').text(current_tests);
          d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
-
          // daily new cases
          var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.inmate_positive_D),
                                          d => d.date);
