@@ -348,7 +348,7 @@
             currentWidth = parseInt(d3.select('#chartArea').style('width'));
             svg.attr('width',currentWidth);
             x.range([25,currentWidth - 30]);
-
+            x_bar.rangeRound([25, currentWidth - 30]);
             xAxis.call(d3.axisBottom(x)
                 .tickFormat(d3.timeFormat("%b %d"))
                 .ticks(4))
