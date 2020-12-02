@@ -1,4 +1,4 @@
-<div style='align:center'>
+<div style="text-align:center">
   <img src="img/ALP_logo_primary_2color_RGB_HiRes.png" height="150px"/>
 </div>
 
