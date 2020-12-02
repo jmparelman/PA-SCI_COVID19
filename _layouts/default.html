@@ -234,7 +234,7 @@
         var x = d3.scaleLinear()
             .domain(d3.extent(data_summarized2, d => d.date));
 
-        var x_bar = d3.scaleBand();
+        var x_bar = d3.scaleBand().padding(0);
 
         var y = d3.scaleLinear()
             .range([250, 50])
