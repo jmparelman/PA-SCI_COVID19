@@ -334,6 +334,9 @@
                     .attr('cy',y(d.cases_moving_avg));
                 tooltip_line.attr('x1',x(d.date))
                             .attr('x2',x(d.date));
+                bars.style('fill','#ffb3b3');
+                d3.select('#'+d.barID)
+                    .style('fill','black');
             });
 
         function drawChart() {
