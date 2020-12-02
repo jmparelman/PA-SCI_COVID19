@@ -1,25 +1,33 @@
 body.offcanvas-active{
-	overflow:hidden;
+  overflow:hidden;
 }
 .offcanvas-header{ display:none; }
 
 @media (max-width: 992px) {
   .offcanvas-header{ display:block; }
   .navbar-collapse {
-    position: fixed;
-    top:0;
-    bottom: 0;
-    left: 100%;
-    width: 100%;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    overflow-y: auto;
-    visibility: hidden;
-    background-color: black;
-    transition: visibility .2s ease-in-out, transform .2s ease-in-out;
+	position: fixed;
+	top:0;
+	bottom: 0;
+	left: 100%;
+	width: 100%;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	overflow-y: auto;
+	visibility: hidden;
+	background-color: white;
+	transition: visibility .2s ease-in-out, transform .2s ease-in-out;
   }
   .navbar-collapse.show {
-    visibility: visible;
-    transform: translateX(-100%);
+	visibility: visible;
+	transform: translateX(-100%);
   }
+}
+.total-data-box {
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+
+body {
+	background-color:#F8F8F8
 }
