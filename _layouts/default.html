@@ -335,6 +335,7 @@
                 tooltip_line.attr('x1',x(d.date))
                             .attr('x2',x(d.date));
                 bars.style('fill','#ffb3b3');
+                console.log('#'+d.barID);
                 d3.select('#'+d.barID)
                     .style('fill','black');
             });
