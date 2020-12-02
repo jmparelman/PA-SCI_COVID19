@@ -317,19 +317,34 @@
             .attr('y',100)
             .style('stroke','black')
             .attr("font-size", "9px")
+            .attr('font-weight','normal')
             .attr('class','svg-text');
 
+        var tooltip_text_2 = svg.append('text')
+            .attr('y',110)
+            .style('stroke','black')
+            .attr("font-size", "9px")
+            .attr('font-weight','normal')
+            .attr('class','svg-text');
 
+        var tooltip_text_3 = svg.append('text')
+            .attr('y',120)
+            .style('stroke','black')
+            .attr("font-size", "9px")
+            .attr('font-weight','normal')
+            .attr('class','svg-text');
 
 
         svg.style("pointer-events", "all")                    // **********
             .on("mouseover", function() {
                 tooltip_node.style("display", null);
                 tooltip_line.style("opacity", 0.5);
+                d3.select('.svg-text').style('opacity',0);
             })
             .on("mouseout", function() {
                 tooltip_node.style("display", "none");
                 tooltip_line.style("opacity", 0);
+                d3.select('.svg-text').style('opacity',1);
             })
             .on("mousemove", function(event,d){
                 var x0 = x.invert(d3.pointer(event)[0]),
@@ -349,14 +364,16 @@
                 console.log(svg.attr('width'))
                  if (x(d.date) < (svg.attr('width')/2) ) {
                         // you are on A zone
-                        d3.select('.svg-text').attr('transform','translate(0,0)')
+                        d3.select('.svg-text').attr('transform','translate(5,0)')
                  } else {
                         // you are on B zone
-                        d3.select('.svg-text').attr('transform','translate(-20,0)')
+                        d3.select('.svg-text').attr('transform','translate(-40,0)')
                  }
 
-                tooltip_text_1.text('date:'+dayFormat(d.date))
-                    .attr('x',x(d.date));
+                tooltip_text_1.text(dayFormat(d.date));
+                tooltip_text_2.text("new cases: "+d.new_cases);
+                tooltip_text_3.text("7 day avg.: "+d.cases_moving_avg);
+                d3.select('.svg-text').attr('x',x(d.date));
 
                 bars.style('fill','#ffb3b3');
                 d3.select('#'+d.barID)
