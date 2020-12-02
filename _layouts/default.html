@@ -316,7 +316,8 @@
 
         var tooltip_text_1 = svg.append('text')
             .attr('y',100)
-            .style('stroke','black');
+            .style('stroke','black')
+            .attr("font-size", "12px");
 
 
 
@@ -343,6 +344,15 @@
                     .attr('cy',y(d.cases_moving_avg));
                 tooltip_line.attr('x1',x(d.date))
                             .attr('x2',x(d.date));
+
+                 if (x0 < (svg.attr('width')/2) ) {
+                        // you are on A zone
+                        d3.select('.svg-text').attr('transform','translate(0,0)')
+                 } else {
+                        // you are on B zone
+                        d3.select('.svg-text').attr('transform','translate(-20,0)')
+                 }
+
                 tooltip_text_1.text('date:'+dayFormat(d.date))
                     .attr('x',x(d.date));
 
