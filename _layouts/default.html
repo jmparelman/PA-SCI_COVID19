@@ -316,21 +316,22 @@
         var tooltip_text_1 = svg.append('text')
             .attr('y',100)
             .style('stroke','black')
-            .attr("font-size", "9px")
+            .attr("font-size", "8px")
             .attr('font-weight','lighter')
-            .attr('class','svg-text');
+            .attr('class','svg-text')
+            .attr('text-decoration','underline');
 
         var tooltip_text_2 = svg.append('text')
-            .attr('y',115)
+            .attr('y',110)
             .style('stroke','black')
-            .attr("font-size", "9px")
+            .attr("font-size", "8px")
             .attr('font-weight','lighter')
             .attr('class','svg-text');
 
         var tooltip_text_3 = svg.append('text')
-            .attr('y',130)
+            .attr('y',120)
             .style('stroke','black')
-            .attr("font-size", "9px")
+            .attr("font-size", "8px")
             .attr('font-weight','lighter')
             .attr('class','svg-text');
 
@@ -366,7 +367,7 @@
                         d3.selectAll('.svg-text').attr('transform','translate(5,0)')
                  } else {
                         // you are on B zone
-                        d3.selectAll('.svg-text').attr('transform','translate(-40,0)')
+                        d3.selectAll('.svg-text').attr('transform','translate(-60,0)')
                  }
 
                 tooltip_text_1.text(dayFormat(d.date));
