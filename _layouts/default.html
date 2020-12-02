@@ -339,12 +339,12 @@
             .on("mouseover", function() {
                 tooltip_node.style("display", null);
                 tooltip_line.style("opacity", 0.5);
-                d3.selectAll('.svg-text').style('opacity',0);
+                d3.selectAll('.svg-text').style('opacity',1);
             })
             .on("mouseout", function() {
                 tooltip_node.style("display", "none");
                 tooltip_line.style("opacity", 0);
-                d3.selectAll('.svg-text').style('opacity',1);
+                d3.selectAll('.svg-text').style('opacity',0);
             })
             .on("mousemove", function(event,d){
                 var x0 = x.invert(d3.pointer(event)[0]),
@@ -360,8 +360,7 @@
                 tooltip_line.attr('x1',x(d.date))
                             .attr('x2',x(d.date));
 
-                console.log(x(d.date));
-                console.log(svg.attr('width'))
+
                  if (x(d.date) < (svg.attr('width')/2) ) {
                         // you are on A zone
                         d3.selectAll('.svg-text').attr('transform','translate(5,0)')
