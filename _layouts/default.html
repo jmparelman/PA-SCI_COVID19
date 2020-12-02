@@ -209,16 +209,16 @@
                           }),d=>d.date);
 
         // most recent numbers
-        var current_cases = numberWithCommas(ummary_data[summary_data.length-1][1].current_cases;)
-        var current_deaths = numberWithCommas(summary_data[summary_data.length-1][1 ].current_deaths;)
+        var current_cases = summary_data[summary_data.length-1][1].current_cases;
+        var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
         var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
         var last_date = summary_data[summary_data.length-1][0];
 
         const lastdayFormat = d3.timeFormat("%m/%d/%y");
 
-         d3.select('#current_cases').text(current_cases);
-         d3.select('#current_deaths').text(current_deaths);
-         d3.select('#current_tests').text(current_tests);
+         d3.select('#current_cases').text(numberWithCommas(current_cases));
+         d3.select('#current_deaths').text(numberWithCommas(current_deaths));
+         d3.select('#current_tests').text(numberWithCommas(current_tests));
          d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
          // daily new cases
          var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.inmate_positive_D),
