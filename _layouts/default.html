@@ -263,8 +263,7 @@
             .style('fill','#ffb3b3')
             .attr('y',d => y(d.new_cases))
             .attr("height", d => 250 - y(d.new_cases))
-            .attr('id',function(d,i) {
-                console.log(d.barID)});
+            .attr('id', d => d.barID);
 
         var line = svg.append("path")
           .data([data_summarized2])
