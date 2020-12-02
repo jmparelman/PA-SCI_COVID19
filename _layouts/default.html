@@ -209,7 +209,7 @@
         var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
         var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
 
-
+        console.log(summary_data);
         const lastdayFormat = d3.timeFormat("%m/%d/%y");
 
          d3.select('#current_cases').text(current_cases);
@@ -225,8 +225,8 @@
                                                                          'date': parseDate(key),
                                                                            'new_cases': value
                                                                        }));
-                                                                       
-        var last_date = data_summarized2[data_summarized2.length-1[1 ].date];
+
+
         d3.select('#last-updated').text("Last Updated: "+lastdayFormat(last_date));
         const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
 
