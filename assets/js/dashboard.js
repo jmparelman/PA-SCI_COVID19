@@ -60,10 +60,14 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
                         'current_tests': d3.sum(v, d => (+d.incarcerated_person_positive) + (+d.incarcerated_person_negative) + (+d.incarcerated_person_pending))
                       }),d=>d.date);
 
+		console.log('DAILY AGGREGATED DATA');
+		console.log(summary_data);
+
+
     // most recent numbers
     var current_cases = summary_data[summary_data.length-1][1].current_cases;
-    var current_deaths = summary_data[summary_data.length-1][1 ].current_deaths;
-    var current_tests = summary_data[summary_data.length-1][1 ].current_tests;
+    var current_deaths = summary_data[summary_data.length-1][1].current_deaths;
+    var current_tests = summary_data[summary_data.length-1][1].current_tests;
     var last_date = summary_data[summary_data.length-1][0];
 
     const lastdayFormat = d3.timeFormat("%m/%d/%y");
