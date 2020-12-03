@@ -4,22 +4,22 @@ title: ALP DOC Data hub
 ---
 
 <table id="SCItable" class="table table-sm display" cellspacing="0" width="100%">
-    
+
     <thead class='thead-dark'>
-        <th class= "th-sm">SCI NAME</th>
-        <th class= "th-sm">DAILY CASES TREND</th>
-        <th class= "th-sm">CURRENT INMATE CASES</th>
-        <th class= "th-sm">INMATE DEATHS</th>
-        <th class= "th-sm">INMATE TESTS</th>
+        <th class= "th-sm">SCI</th>
+        <th class= "th-sm">Daily cases trend</th>
+        <th class= "th-sm">Current incarcerated person cases</th>
+        <th class= "th-sm">Incarcerated person deaths</th>
+        <th class= "th-sm">Incarcerated person tests</th>
     </thead>
         {% for sci in site.data.most_recent_inmateData %}
         {% if sci.SCI != "TOTAL" %}
-        <tr>
-            <td class='th-sm'>{{sci.SCI}}</td>
-            <td class='th-sm'><img height='60px' src="{{site.baseurl}}/assets/img/table_rolling_cases_figs/{{sci.SCI}}_rolling_avg.svg"/></td>
-            <td class='th-sm'>{{sci.inmate_current_cases}}</td>
-            <td class='th-sm'>{{sci.inmate_death}}</td>
-            <td class='th-sm'>{{sci.inmate_tests}}</td>
+        <tr id="row_{{ sci.SCI | replace: ' ', '_' }}">
+                <td class='th-sm' class="sci_name">{{sci.SCI}}</td>
+                <td class='th-sm' class="sparkline"></td>
+                <td class='th-sm' class="current_ip_cases"></td>
+                <td class='th-sm' class="ip_deaths"></td>
+                <td class='th-sm' class="ip_tests"></td>
         </tr>
         {% endif %}
         {% endfor %}

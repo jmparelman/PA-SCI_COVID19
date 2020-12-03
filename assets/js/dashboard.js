@@ -242,8 +242,90 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
                 .style('fill','#6f1616');
 
 
+						// add sparklines
+		 		   var sci_data = d3.group(data, d => d.SCI);
+		 		   Array.from(sci_data, ([key, values]) => sparkline('#sparkline_'+key.replace(/ /g, "_") + ' .sparkline', values));
+
+
+
 
         });
+
+
+				// SPARKLINE CODE ADDED
+				function sparkline(elemId, data) {
+
+				      var width = 200;
+				        var height = 40;
+				        var x = d3.scaleLinear().range([0, width-2]);
+				        var y = d3.scaleLinear().range([height-10, 0]);
+				        var parseDate = d3.timeParse("%Y-%m-%d");
+
+				        var formatDate = d3.timeFormat("%d %b");
+				        var line = d3.line()
+				                         //.curve(d3.curveBasis)
+				                         .x(function(d) { return x(d.date); })
+				                         .y(function(d) { return y(d.incarcerated_person_positive_new); });
+
+
+
+				        data.forEach(function(d) {
+				            d.date = parseDate(d.date);
+				            d.incarcerated_person_positive_new = parseFloat(0+d.incarcerated_person_positive_new);
+				        });
+
+				        var max_idx = d3.maxIndex(data, d=>d.incarcerated_person_positive_new);
+				        var max_value = data[max_idx].incarcerated_person_positive_new;
+				        var start_date = formatDate(data[0].date);
+				        var end_date = formatDate(data[data.length-1].date);
+
+				        x.domain(d3.extent(data, function(d) { return d.date; }));
+				        y.domain(d3.extent(data, function(d) { return d.incarcerated_person_positive_new; }));
+
+				        var svg = d3.select(elemId)
+				          .append('svg')
+				          .attr('width', width)
+				          .attr('height', height)
+				          .append('g')
+				        .attr('transform', 'translate(0,2)');
+
+				        svg.append('path')
+				          .datum(data)
+				          .attr('class', 'sparkline')
+				          .attr('d', line);
+
+
+				          svg.append('circle')
+				             .attr('class', 'sparkcircle')
+				             .attr('cx', x(data[max_idx].date))
+				             .attr('cy', y(data[max_idx].incarcerated_person_positive_new))
+				             .attr('r', 1.5);
+
+				        svg.append('text')
+				        .attr('x', x(data[max_idx].date)-12)
+				        .attr('y', y(data[max_idx].incarcerated_person_positive_new))
+				        .attr("dy", ".35em")
+				        .attr('class', 'maxlabel')
+				        .text(max_value);
+
+				        svg.append('text')
+				        .attr('x', x(data[0].date))
+				        .attr('y', y(0)+4)
+				        .attr("dy", ".35em")
+				        .attr('class', 'maxlabel')
+				        .text(start_date);
+
+				        svg.append('text')
+				        .attr('x', x(data[data.length-1].date)-15)
+				        .attr('y', y(0)+4)
+				        .attr("dy", ".35em")
+				        .attr('class', 'maxlabel')
+				        .text(end_date);
+
+			};
+			// END SPARKLINE
+
+
 
     function drawChart() {
         // function draws chart and updates on window resize
