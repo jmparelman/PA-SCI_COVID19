@@ -95,6 +95,14 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
     })
 
 
+
+			// add sparklines
+		   var sci_data = d3.group(data, d => d.SCI);
+		   Array.from(sci_data, ([key, values]) => sparkline('#'+key.replace(/ /g, "_") + ' .sparkline', values));
+
+
+
+
     // d3 scaling
     var x = d3.scaleLinear()
         .domain(d3.extent(data_summarized2, d => d.date));
@@ -245,10 +253,6 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
             d3.select('#'+d.barID)
                 .style('fill','#6f1616');
 
-
-						// add sparklines
-		 		   var sci_data = d3.group(data, d => d.SCI);
-		 		   Array.from(sci_data, ([key, values]) => sparkline('#'+key.replace(/ /g, "_") + ' .sparkline', values));
 
 
 
