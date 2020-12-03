@@ -36,7 +36,7 @@ body {
 .sparkline {
         fill: none;
         stroke: #000;
-        stroke-width: 0.7px;
+        stroke-width: 0.8px;
       }
 
 .sparkcircle {
@@ -45,8 +45,17 @@ body {
 }
 
 .maxlabel {
-  font-size: 6px;
+  font-size: 8px;
   font-family: sans-serif;
 }
 
-.bar { fill: steelblue; }
+.dtable-container {
+    max-width: 100% !important;
+
+
+    table {
+        white-space: nowrap !important;
+        width:100%!important;
+        border-collapse:collapse!important;
+    }
+}
