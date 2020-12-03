@@ -55,9 +55,9 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
     // daily sums
     var summary_data = d3.rollups(data, v => ({
-                        'current_cases': d3.sum(v, d => d.inmate_positive),
-                        'current_deaths': d3.sum(v, d => d.inmate_death),
-                        'current_tests': d3.sum(v, d => (+d.inmate_positive) + (+d.inmate_negative) + (+d.inmate_pending))
+                        'current_cases': d3.sum(v, d => d.incarcerated_person_positive),
+                        'current_deaths': d3.sum(v, d => d.incarcerated_person_death),
+                        'current_tests': d3.sum(v, d => (+d.incarcerated_person_positive) + (+d.incarcerated_person_negative) + (+d.incarcerated_person_pending))
                       }),d=>d.date);
 
     // most recent numbers
@@ -73,7 +73,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
      d3.select('#current_tests').text(numberWithCommas(current_tests));
      d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
      // daily new cases
-     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.inmate_positive_D),
+     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_positive_new),
                                      d => d.date);
 
      var data_summarized2 = Array.from(data_summarized, ([key, value]) => ({key, value,
