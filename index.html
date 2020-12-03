@@ -15,12 +15,12 @@ title: ALP DOC Data hub
         {% for sci in site.data.most_recent_inmateData %}
         {% if sci.SCI != "TOTAL" %}
         <tr id="{{ sci.SCI | replace: ' ', '_' }}">
-          
-                <td class='th-sm' class="sci_name">{{sci.SCI}}</td>
-                <td class='th-sm' class="sparkline"></td>
-                <td class='th-sm' class="current_ip_cases"></td>
-                <td class='th-sm' class="ip_deaths"></td>
-                <td class='th-sm' class="ip_tests"></td>
+
+                <td class="th-sm sci_name">{{sci.SCI}}</td>
+                <td class="th-sm sparkline"></td>
+                <td class="th-sm current_ip_cases"></td>
+                <td class="th-sm ip_deaths"></td>
+                <td class="th-sm ip_tests"></td>
         </tr>
         {% endif %}
         {% endfor %}
