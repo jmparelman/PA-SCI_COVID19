@@ -307,7 +307,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				          .attr('width', width)
 				          .attr('height', height)
 				          .append('g')
-				        .attr('transform', 'translate(0,2)');
+				        .attr('transform', 'translate(0,10)');
 
 				        svg.append('path')
 				          .datum(data)
