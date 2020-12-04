@@ -286,6 +286,11 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				        data.forEach(function(d) {
 				            d.date = parseDate(d.date);
 				            d.incarcerated_person_positive_new = parseFloat(0+d.incarcerated_person_positive_new);
+										d.incarcerated_person_death = parseFloat(0+d.incarcerated_person_death);
+										d.incarcerated_person_positive = parseFloat(0+d.incarcerated_person_positive);
+										d.incarcerated_person_negative = parseFloat(0+d.incarcerated_person_negative);
+										d.incarcerated_person_pending = parseFloat(0+d.incarcerated_person_pending);
+
 				        });
 								console.log('after');
 								console.log(data);
