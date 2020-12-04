@@ -51,23 +51,14 @@ body {
 
 .maxlabel {
   font-size: 10px;
-  stroke: rgba(0, 0, 0, 0.6);
+  fill: rgba(0, 0, 0, 0.6);
   font-family: sans-serif;
+  stroke: none;
 }
 
 .datelabel {
   font-size: 8px;
-  stroke: rgba(0, 0, 0, 0.6);
+  fill: rgba(0, 0, 0, 0.6);
+  stroke: none;
 
-}
-
-.dtable-container {
-    max-width: 100% !important;
-
-
-    table {
-        white-space: nowrap !important;
-        width:100%!important;
-        border-collapse:collapse!important;
-    }
 }
