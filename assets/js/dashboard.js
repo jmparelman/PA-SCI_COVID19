@@ -52,7 +52,7 @@ var movingWindowAvg = function (arr, step) {  // Window size = 2 * step + 1
 };
 
 function numberWithCommas(x) {
-    return x.parseInt().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parseInt(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
