@@ -332,12 +332,11 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 											*/
 
 
-								var maxY = y(data[max_idx].incarcerated_person_positive_new);
-								var xoffset = 10 + 33*(parseInt(maxY).toString().length-1);
-										console.log(maxY + ' -> ' + xoffset);
+								var xoffset = 10 + 33*(max_value.toString().length-1);
+										console.log(max_value + ' -> ' + xoffset);
 				        svg.append('text')
 				        .attr('x', x(data[max_idx].date)-xoffset)
-				        .attr('y', maxY)
+				        .attr('y', y(data[max_idx].incarcerated_person_positive_new))
 				        .attr("dy", ".35em")
 				        .attr('class', 'maxlabel')
 				        .text(max_value);
