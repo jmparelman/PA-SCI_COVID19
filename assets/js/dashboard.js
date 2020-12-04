@@ -102,9 +102,9 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
 
 
-			// add sparklines
-		   var sci_data = d3.group(data, d => d.SCI);
-		   Array.from(sci_data, ([key, values]) => sparkline('#'+key.replace(/ /g, "_") + ' .sparkline', values));
+		// add sparklines
+	   var sci_data = d3.group(data, d => d.SCI);
+	   Array.from(sci_data, ([key, values]) => sparkline('#'+key.replace(/ /g, "_"), values));
 
 
 
@@ -282,7 +282,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				                         .y(function(d) { return y(d.incarcerated_person_positive_new); });
 
 
-
+								// update for d3 v6
 				        data.forEach(function(d) {
 				            d.date = parseDate(d.date);
 				            d.incarcerated_person_positive_new = parseFloat(0+d.incarcerated_person_positive_new);
@@ -296,7 +296,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				        x.domain(d3.extent(data, function(d) { return d.date; }));
 				        y.domain(d3.extent(data, function(d) { return d.incarcerated_person_positive_new; }));
 
-				        var svg = d3.select(elemId)
+				        var svg = d3.select(elemId + ' .sparkline')
 				          .append('svg')
 				          .attr('width', width)
 				          .attr('height', height)
@@ -330,11 +330,23 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				        .text(start_date);
 
 				        svg.append('text')
-				        .attr('x', x(data[data.length-1].date)-15)
+				        .attr('x', x(data[data.length-1].date)-30)
 				        .attr('y', y(0)+4)
 				        .attr("dy", ".35em")
 				        .attr('class', 'maxlabel')
 				        .text(end_date);
+
+								// add the data for SCI in additional cells
+
+								var current_ip_cases = data[data.length-1][1].incarcerated_person_positive_new;
+								var ip_deaths = data[data.length-1][1].incarcerated_person_death;
+								var ip_tests = data[data.length-1][1].incarcerated_person_positive + data[data.length-1][1].incarcerated_person_negative + data[data.length-1][1].incarcerated_person_pending;
+
+
+								d3.select(elemId + ' .current_ip_cases').text(numberWithCommas(current_ip_cases));
+								d3.select(elemId + ' .ip_deaths').text(numberWithCommas(ip_deaths));
+								d3.select(elemId + ' .ip_tests').text(numberWithCommas(ip_tests));
+
 
 			};
 			// END SPARKLINE
