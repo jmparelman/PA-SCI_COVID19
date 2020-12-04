@@ -339,9 +339,9 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
 								// add the data for SCI in additional cells
 
-								var current_ip_cases = data[data.length-1][1].incarcerated_person_positive_new;
-								var ip_deaths = data[data.length-1][1].incarcerated_person_death;
-								var ip_tests = data[data.length-1][1].incarcerated_person_positive + data[data.length-1][1].incarcerated_person_negative + data[data.length-1][1].incarcerated_person_pending;
+								var current_ip_cases = data[data.length-1].incarcerated_person_positive_new;
+								var ip_deaths = data[data.length-1].incarcerated_person_death;
+								var ip_tests = data[data.length-1].incarcerated_person_positive + data[data.length-1].incarcerated_person_negative + data[data.length-1].incarcerated_person_pending;
 
 
 								d3.select(elemId + ' .current_ip_cases').text(numberWithCommas(current_ip_cases));
