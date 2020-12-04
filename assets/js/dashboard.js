@@ -24,13 +24,7 @@ $(function () {
 })
 
 $(document).ready( function () {
-    var table = $('#SCItable').DataTable(
-			{ "pageLength": 25,
-			  responsive: true
-      }
-		);
 
-		new $.fn.dataTable.FixedHeader( table );
 } );
 
 var svg = d3.select('#chartArea').append('svg')
@@ -56,7 +50,6 @@ function numberWithCommas(x) {
 }
 
 d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
-    console.log(data);
 
 
     // daily sums
@@ -66,8 +59,6 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
                         'current_tests': d3.sum(v, d => (+d.incarcerated_person_positive) + (+d.incarcerated_person_negative) + (+d.incarcerated_person_pending))
                       }),d=>d.date);
 
-		console.log('DAILY AGGREGATED DATA');
-		console.log(summary_data);
 
 
     // most recent numbers
@@ -106,6 +97,13 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 	   var sci_data = d3.group(data, d => d.SCI);
 	   Array.from(sci_data, ([key, values]) => sparkline('#'+key.replace(/ /g, "_"), values));
 
+		 var table = $('#SCItable').DataTable(
+	 		{ "pageLength": 25,
+	 			responsive: true
+	 		}
+	 	);
+
+	 	new $.fn.dataTable.FixedHeader( table );
 
 
 
