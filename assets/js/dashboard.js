@@ -319,6 +319,15 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				             .attr('cy', y(data[max_idx].incarcerated_person_positive_new))
 				             .attr('r', 1.5);
 
+										 svg.append('line')
+ 						          .attr('class', 'maxbar')
+ 						          .attr('x1', x(data[max_idx].date))
+											.attr('x2', x(data[max_idx].date))
+											.attr('y1', y(0))
+											.attr('y2', y(data[max_idx].incarcerated_person_positive_new))
+											
+
+
 				        svg.append('text')
 				        .attr('x', x(data[max_idx].date)-12)
 				        .attr('y', y(data[max_idx].incarcerated_person_positive_new))
@@ -330,14 +339,14 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				        .attr('x', x(data[0].date))
 				        .attr('y', y(0)+6)
 				        .attr("dy", ".35em")
-				        .attr('class', 'maxlabel')
+				        .attr('class', 'datelabel')
 				        .text(start_date);
 
 				        svg.append('text')
 				        .attr('x', x(data[data.length-1].date)-30)
 				        .attr('y', y(0)+6)
 				        .attr("dy", ".35em")
-				        .attr('class', 'maxlabel')
+				        .attr('class', 'datelabel')
 				        .text(end_date);
 
 								// add the data for SCI in additional cells

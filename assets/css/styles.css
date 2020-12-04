@@ -45,10 +45,20 @@ body {
     stroke: none;
 }
 
+.maxline {
+  stroke: rgba(0, 0, 0, 0.6);
+}
+
 .maxlabel {
-  font-size: 8px;
+  font-size: 10px;
   stroke: rgba(0, 0, 0, 0.6);
   font-family: sans-serif;
+}
+
+.datelabel {
+  font-size: 8px;
+  stroke: rgba(0, 0, 0, 0.6);
+
 }
 
 .dtable-container {
