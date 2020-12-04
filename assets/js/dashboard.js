@@ -332,7 +332,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 											*/
 
 
-								var xoffset = 10 + 33*(max_value.toString().length-1);
+								var xoffset = 10*(max_value.toString().length);
 										console.log(max_value + ' -> ' + xoffset);
 				        svg.append('text')
 				        .attr('x', x(data[max_idx].date)-xoffset)
