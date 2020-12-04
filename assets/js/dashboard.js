@@ -99,7 +99,10 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
 		 var table = $('#SCItable').DataTable(
 	 		{ "pageLength": 25,
-	 			responsive: true
+	 			responsive: true,
+				columnDefs: [
+    			{ orderable: false, targets: 1 }
+  			]
 	 		}
 	 	);
 
