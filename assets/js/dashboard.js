@@ -332,7 +332,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 											*/
 
 
-								var maxY = y(data[max_idx].incarcerated_person_positive_new));
+								var maxY = y(data[max_idx].incarcerated_person_positive_new);
 								var xoffset = 15*(parseInt(maxY).toString().length-1);
 
 console.log(max_xpos + ' -- ' + xoffset);
