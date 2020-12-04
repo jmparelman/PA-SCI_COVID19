@@ -11,6 +11,8 @@ We have archived various pieces of data important for tracking and understanding
 * Daily COVID-19 data sheets for all SCI `data/DOC_downloads` (`data/PA_DOC_testing_data` for older datasheets collected prior to repo setup)
 * Monthly population PDF (containing capacity information) `data/Monthly_Population_PDFs`
 
+See our dashboard for descriptive information about the spread of COVID-19 in the PA prison system <a href='http://paprisonpandemictracker.com/'>paprisonpandemictracker.com</a>
+
 **This work is conducted in partnership with the <a href='https://amistadlaw.org/'>Amistad Law Project </a>**
 
 <img src="img/ALP_logo_primary_2color_RGB_HiRes.png" height="150px" style='display:block; margin-left:auto;margin-right:auto'/>
