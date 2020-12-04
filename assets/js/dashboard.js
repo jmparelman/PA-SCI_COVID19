@@ -333,7 +333,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
 
 								var max_xpos = x(data[max_idx].date);
-								var xoffset = 15*(max_xpos.toString().length-1);
+								var xoffset = 15*(parseInt(max_xpos).toString().length-1);
 
 console.log(max_xpos + ' -- ' + xoffset);
 
