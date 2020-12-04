@@ -35,7 +35,7 @@ body {
 
 .sparkline {
         fill: none;
-        stroke: rgba(204, 0, 0, 0.6);
+        stroke: rgba(0, 0, 204, 0.6);
         stroke-width: 1.5;
         fill: "none";
       }
@@ -47,6 +47,7 @@ body {
 
 .maxlabel {
   font-size: 8px;
+  stroke: rgba(0, 0, 0, 0.6);
   font-family: sans-serif;
 }
 
