@@ -332,8 +332,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 											*/
 
 
-								var xoffset = 10*(max_value.toString().length);
-										console.log(max_value + ' -> ' + xoffset);
+								var xoffset = 10+5*(max_value.toString().length-1);
 				        svg.append('text')
 				        .attr('x', x(data[max_idx].date)-xoffset)
 				        .attr('y', y(data[max_idx].incarcerated_person_positive_new))
