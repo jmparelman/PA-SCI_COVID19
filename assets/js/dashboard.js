@@ -275,7 +275,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
 				        var formatDate = d3.timeFormat("%d %b");
 				        var line = d3.line()
-				                         .curve(d3.curveBasis)
+				                         .curve(d3.curveMonotoneX)
 				                         .x(function(d) { return x(d.date); })
 				                         .y(function(d) { return y(d.incarcerated_person_positive_new); });
 
@@ -313,14 +313,6 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				          .attr('d', line);
 
 
-									svg.append('line')
-												.data(data)
-								 				.attr('class', 'maxbar')
-								 				.attr('x1', d=> x(d.date))
-								 				.attr('x2', d=> x(d.date))
-								 				.attr('y1', y(0))
-								 				.attr('y2', d=>y(d.incarcerated_person_positive_new))
-
 
 
 				          svg.append('circle')
@@ -341,7 +333,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
 
 				        svg.append('text')
-				        .attr('x', x(data[max_idx].date)-12)
+				        .attr('x', x(data[max_idx].date)-15)
 				        .attr('y', y(data[max_idx].incarcerated_person_positive_new))
 				        .attr("dy", ".35em")
 				        .attr('class', 'maxlabel')
@@ -355,7 +347,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				        .text(start_date);
 
 				        svg.append('text')
-				        .attr('x', x(data[data.length-1].date)-30)
+				        .attr('x', x(data[data.length-1].date)-24)
 				        .attr('y', y(0)+6)
 				        .attr("dy", ".35em")
 				        .attr('class', 'datelabel')
