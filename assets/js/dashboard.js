@@ -272,7 +272,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 				      var width = 200;
 				        var height = 40;
 				        var x = d3.scaleLinear().range([0, width-2]);
-				        var y = d3.scaleLinear().range([height-10, 0]);
+				        var y = d3.scaleLinear().range([height-20, 0]);
 				        var parseDate = d3.timeParse("%Y-%m-%d");
 
 				        var formatDate = d3.timeFormat("%d %b");
@@ -330,14 +330,14 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
 				        svg.append('text')
 				        .attr('x', x(data[0].date))
-				        .attr('y', y(0)+4)
+				        .attr('y', y(0)+6)
 				        .attr("dy", ".35em")
 				        .attr('class', 'maxlabel')
 				        .text(start_date);
 
 				        svg.append('text')
 				        .attr('x', x(data[data.length-1].date)-30)
-				        .attr('y', y(0)+4)
+				        .attr('y', y(0)+6)
 				        .attr("dy", ".35em")
 				        .attr('class', 'maxlabel')
 				        .text(end_date);
