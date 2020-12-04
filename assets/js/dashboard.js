@@ -314,7 +314,7 @@ d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function
 
 
 									svg.append('line')
-												.datum(data)
+												.data(data)
 								 				.attr('class', 'maxbar')
 								 				.attr('x1', d=> x(d.date))
 								 				.attr('x2', d=> x(d.date))
