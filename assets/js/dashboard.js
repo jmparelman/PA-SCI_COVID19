@@ -24,9 +24,13 @@ $(function () {
 })
 
 $(document).ready( function () {
-    $('#SCItable').DataTable(
-			{ "pageLength": 25}
+    var table = $('#SCItable').DataTable(
+			{ "pageLength": 25,
+			  responsive: true
+      }
 		);
+
+		new $.fn.dataTable.FixedHeader( table );
 } );
 
 var svg = d3.select('#chartArea').append('svg')
