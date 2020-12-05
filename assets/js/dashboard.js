@@ -49,7 +49,8 @@ function numberWithCommas(x) {
     return parseInt(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
+//d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
+d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
 
 
     // daily sums
