@@ -68,9 +68,4 @@ body {
 
 table.dataTable.nowrap th, table.dataTable.nowrap td {
     white-space: normal;
-    margin-right:0;
-}
-
-#SCItable_wrapper {
-    width: 100%;
 }
