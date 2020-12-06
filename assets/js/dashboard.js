@@ -362,7 +362,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 								var current_ip_cases = data[data.length-1].incarcerated_person_positive_new;
 								var ip_deaths = data[data.length-1].incarcerated_person_death;
-								var ip_cases = data[data.length-1].incarcerated_person_positive - ip_cases = data[data.length-1].incarcerated_person_recovered;
+								var ip_cases = data[data.length-1].incarcerated_person_positive - data[data.length-1].incarcerated_person_recovered;
 								var ip_tests = +data[data.length-1].incarcerated_person_positive + data[data.length-1].incarcerated_person_negative + data[data.length-1].incarcerated_person_pending;
 
 
