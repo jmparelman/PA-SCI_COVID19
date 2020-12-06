@@ -367,7 +367,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
 								//d3.select(elemId + ' .current_ip_cases').text(numberWithCommas(current_ip_cases));
-								d3.select(elemId + ' .total_ip_cases').text(numberWithCommas(ip_cases))
+								d3.select(elemId + ' .active_ip_cases').text(numberWithCommas(ip_cases))
 								d3.select(elemId + ' .ip_deaths').text(numberWithCommas(ip_deaths));
 								d3.select(elemId + ' .ip_tests').text(numberWithCommas(ip_tests));
 
