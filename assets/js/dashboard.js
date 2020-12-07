@@ -57,7 +57,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
     var summary_data = d3.rollups(data, v => ({
                         'current_cases': d3.sum(v, d => d.incarcerated_person_positive),
                         'current_deaths': d3.sum(v, d => d.incarcerated_person_death),
-                        'current_tests': d3.sum(v, d => (+d.incarcerated_person_positive) + (+d.incarcerated_person_negative) + (+d.incarcerated_person_pending))
+                        'current_tests': d3.sum(v, d => (+d.incarcerated_person_positive) + (+d.incarcerated_person_negative) + (+d.incarcerated_person_pending) + (+d.incarcerated_person_recovered))
                       }),d=>d.date);
 
 
@@ -363,7 +363,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								var current_ip_cases = data[data.length-1].incarcerated_person_positive_new;
 								var ip_deaths = data[data.length-1].incarcerated_person_death;
 								var ip_cases = data[data.length-1].incarcerated_person_positive - data[data.length-1].incarcerated_person_recovered;
-								var ip_tests = +data[data.length-1].incarcerated_person_positive + data[data.length-1].incarcerated_person_negative + data[data.length-1].incarcerated_person_pending;
+								var ip_tests = +data[data.length-1].incarcerated_person_positive + data[data.length-1].incarcerated_person_negative + data[data.length-1].incarcerated_person_pending + + data[data.length-1].incarcerated_person_recovered;
 
 
 								//d3.select(elemId + ' .current_ip_cases').text(numberWithCommas(current_ip_cases));
