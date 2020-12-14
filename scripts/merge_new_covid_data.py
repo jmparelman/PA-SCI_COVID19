@@ -59,7 +59,16 @@ def process_testing_report(fname, date):
     df = pd.read_excel(os.path.join(fname), skiprows=1)
     df.rename(columns=column_mapping, inplace=True)
     df2=df.iloc[1:26][column_mapping.values()]
-    df2['date']=date
+
+
+    # check to see if there is an updated date in the spreadsheet in cell W28
+    update_date = df.iloc[25,22].strftime('%Y-%m-%d')	
+
+    if update_date:
+    	df2['date']=update_date
+    	df2['date.1']=date
+    else:
+    	df2['date']=date
     
     return df2
     
@@ -77,7 +86,7 @@ if __name__ == "__main__":
     
     new_df = process_testing_report(new_filename, new_date)
 
-    agg_filename = '../data/latest_data/PA_DOC_testing_data.csv'
+    agg_filename = '../data/latest_data/PA_DOC_testing_data_TEMP.csv'
    
     agg = pd.read_csv(agg_filename)
 
