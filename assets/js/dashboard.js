@@ -73,7 +73,9 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
      d3.select('#current_cases').text(numberWithCommas(current_cases));
      d3.select('#current_deaths').text(numberWithCommas(current_deaths));
      d3.select('#current_tests').text(numberWithCommas(current_tests));
-     d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
+     // HIDE LAST UPDATED FOR NOW WHILE WE RESOLVE
+		 // the DOC dashboard vs DOC excel data issues
+		 //d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
      // daily new cases
      var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_positive_new),
                                      d => d.date);
