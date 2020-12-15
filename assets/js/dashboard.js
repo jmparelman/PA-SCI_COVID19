@@ -100,6 +100,8 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 	   var sci_data = d3.group(data, d => d.SCI);
 	   Array.from(sci_data, ([key, values]) => sparkline('#'+key.replace(/ /g, "_"), values));
 
+
+		 // setup and activate the table
 		 var table = $('#SCItable').DataTable(
 	 		{ "pageLength": 25,
 	 			responsive: true,
@@ -111,6 +113,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 	 	new $.fn.dataTable.FixedHeader( table );
 
+		table.order([3, 'desc']).draw();
 
 
     // d3 scaling
