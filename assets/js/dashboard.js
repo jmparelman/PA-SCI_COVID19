@@ -113,7 +113,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 	 	new $.fn.dataTable.FixedHeader( table );
 
-		table.order([3, 'desc']).draw();
+		table.order([2, 'desc']).draw();
 
 
     // d3 scaling
