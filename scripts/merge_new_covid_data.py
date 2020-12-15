@@ -41,7 +41,7 @@ def add_deltas(all_data):
 
     print(doc2_df.head())
 
-    exclude_cols = ['SCI', 'date', 'date.1']
+    exclude_cols = ['SCI', 'date', 'date.1', 'date.1.1']
 
     cols_to_use = [c for c in doc2_df.columns if c not in exclude_cols]
 
