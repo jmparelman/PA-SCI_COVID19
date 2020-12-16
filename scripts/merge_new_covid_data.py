@@ -90,7 +90,7 @@ if __name__ == "__main__":
    
     agg = pd.read_csv(agg_filename)
 
-    cols_to_drop = [c for c in agg.columns if c.endswith('_new') or c.endswith('_D') or c=='date.1']
+    cols_to_drop = [c for c in agg.columns if c.endswith('_new') or c.endswith('_D') or c.startswith('date.1')]
 
     agg = agg.drop(columns=cols_to_drop)
 
