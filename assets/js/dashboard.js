@@ -137,7 +137,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
         .attr("class", "y axis")
         .attr('transform',"translate(30, 0)")
         .call(d3.axisLeft(y)
-        .ticks(1));
+        .ticks(5));
 
     // bar graph
     var bars = svg.append('g')

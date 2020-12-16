@@ -33,6 +33,11 @@ body {
 }
 
 
+.y {
+  font-size: 8
+}
+
+
 .sparkline {
         fill: none;
         stroke: rgba(0, 0, 204, 0.6);
