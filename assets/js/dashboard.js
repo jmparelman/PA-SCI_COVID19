@@ -125,7 +125,8 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
     var y = d3.scaleLinear()
         .range([250, 50])
-        .domain(d3.extent(data_summarized2, d => d.value));
+				.domain([0, d3.max(data_summarized2, d => d.value)])
+        //.domain(d3.extent(data_summarized2, d => d.value));
 
     // x axis
     var xAxis = svg.append("g")
