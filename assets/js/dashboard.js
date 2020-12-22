@@ -378,7 +378,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								// milliseconds so 1000 * 60 = 1 min, * 60 = 1 hr * 24 hours * 7 days
 								var week_ago = last_date - (1000*60*60*24*7);
 
-								var last_7days_data = data.filter(d => d.date >= weekago);
+								var last_7days_data = data.filter(d => d.date >= week_ago);
 
 								var ip_cases_7day = d3.mean(last_7days_data.map(d => d.incarcerated_person_positive_new));
 
