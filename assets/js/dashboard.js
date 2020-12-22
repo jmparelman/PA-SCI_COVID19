@@ -388,7 +388,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								d3.select(elemId + ' .ip_deaths').text(numberWithCommas(ip_deaths));
 								d3.select(elemId + ' .ip_tests').text(numberWithCommas(ip_tests));
 								// mbod 12/22 add last 7 days avg cases
-								d3.select(elemId + ' .7day_ip_cases').text(numberWithCommas(ip_cases_7day));
+								d3.select(elemId + ' .ip_cases_7day').text(numberWithCommas(ip_cases_7day));
 
 			};
 			// END SPARKLINE
