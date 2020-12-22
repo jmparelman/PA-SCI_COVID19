@@ -371,12 +371,24 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								var ip_cases = data[data.length-1].incarcerated_person_positive - data[data.length-1].incarcerated_person_recovered;
 								var ip_tests = +data[data.length-1].incarcerated_person_positive + data[data.length-1].incarcerated_person_negative + data[data.length-1].incarcerated_person_pending;
 
+								// 7 day case sum
+								var last_date = data[data.length-1].date;
+
+								// find index for a week ago
+								// milliseconds so 1000 * 60 = 1 min, * 60 = 1 hr * 24 hours * 7 days
+								var week_ago = last_date - (1000*60*60*24*7);
+
+								var last_7days_data = data.filter(d => d.date >= weekago);
+
+								var ip_cases_7day = d3.mean(last_7days_data.map(d => d.incarcerated_person_positive_new));
+
 
 								//d3.select(elemId + ' .current_ip_cases').text(numberWithCommas(current_ip_cases));
 								d3.select(elemId + ' .active_ip_cases').text(numberWithCommas(ip_cases))
 								d3.select(elemId + ' .ip_deaths').text(numberWithCommas(ip_deaths));
 								d3.select(elemId + ' .ip_tests').text(numberWithCommas(ip_tests));
-
+								// mbod 12/22 add last 7 days avg cases
+								d3.select(elemId + ' .7day_ip_cases').text(numberWithCommas(ip_cases_7day));
 
 			};
 			// END SPARKLINE
