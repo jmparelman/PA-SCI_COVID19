@@ -76,7 +76,7 @@ table.dataTable.nowrap th, table.dataTable.nowrap td {
 }
 
 
-.mainchart-xaxis {
+.mainchart-xaxis path {
   fill: none;
   stroke: none;
 }
