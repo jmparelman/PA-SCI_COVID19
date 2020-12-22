@@ -371,15 +371,13 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								var ip_cases = data[data.length-1].incarcerated_person_positive - data[data.length-1].incarcerated_person_recovered;
 								var ip_tests = +data[data.length-1].incarcerated_person_positive + data[data.length-1].incarcerated_person_negative + data[data.length-1].incarcerated_person_pending;
 
+								// mbod 12/21 add 7day mean of new cases column
 								// 7 day case sum
 								var last_date = data[data.length-1].date;
-
 								// find index for a week ago
 								// milliseconds so 1000 * 60 = 1 min, * 60 = 1 hr * 24 hours * 7 days
 								var week_ago = last_date - (1000*60*60*24*7);
-
 								var last_7days_data = data.filter(d => d.date >= week_ago);
-
 								var ip_cases_7day = d3.mean(last_7days_data.map(d => d.incarcerated_person_positive_new));
 
 
