@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mismanagement, Disorder & Obscurity: The Pennsylvania Department of Corrections' Handling of COVID-19 information"
+title:  "Mismanagement, Disorder & Obscurity: The Pennsylvania Department of Corrections' Handling of COVID-19 Information"
 date: 2020-12-23
 author: "Jake M. Parelman & Matthew Brook O’Donnell"
 ---
