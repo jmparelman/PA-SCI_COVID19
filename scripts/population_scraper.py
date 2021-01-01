@@ -28,7 +28,7 @@ for frame in html_frames:
         frame.iloc[:,1:] = frame.iloc[:,1:].astype(float)
         frame['date'] = date_str
         today_df = frame.rename(columns=colmapper)
-        today_df.to_csv(f'../data/Daily_Populations/Daily_Populations_{datetime.strftime(date,"%m-%d")}.csv',index=False)
+        today_df.to_csv(f'../data/Daily_Populations/Daily_Populations_{datetime.strftime(date,"%m-%d-%y")}.csv',index=False)
 
         print('FOUND')
 
