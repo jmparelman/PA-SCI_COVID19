@@ -1,5 +1,5 @@
 date,SCI,incarcerated_person_active_cases,incarcerated_person_active_cases_asymptomatic,incarcerated_person_deaths,staff_active_cases,staff_deaths
-2021-01-28,Albion,88,58,2,40,0
+2021-01-28,Somerset,2,2,4,8,0
 2021-01-28,Benner Township,28,21,5,5,0
 2021-01-28,Cambridge Springs,5,2,1,5,0
 2021-01-28,Camp Hill,10,9,3,29,1
@@ -9,8 +9,8 @@ date,SCI,incarcerated_person_active_cases,incarcerated_person_active_cases_asymp
 2021-01-28,Fayette,5,4,2,9,1
 2021-01-28,Forest,750,721,4,17,0
 2021-01-28,Frackville,6,4,0,6,0
+2021-01-28,Albion,88,58,2,40,0
 2021-01-28,Greene,10,10,1,7,0
-2021-01-28,Houtzdale,23,4,1,10,1
 2021-01-28,Huntingdon,6,4,7,16,0
 2021-01-28,Laurel Highlands,15,15,11,11,0
 2021-01-28,Mahanoy,39,6,4,9,0
@@ -20,34 +20,34 @@ date,SCI,incarcerated_person_active_cases,incarcerated_person_active_cases_asymp
 2021-01-28,Pine Grove,0,0,1,7,0
 2021-01-28,Quehanna BC,22,3,0,3,0
 2021-01-28,Rockview,3,3,1,2,0
+2021-01-28,Houtzdale,23,4,1,10,1
 2021-01-28,Smithfield,69,69,6,5,1
-2021-01-28,Somerset,2,2,4,8,0
 2021-01-28,Waymart,164,141,5,28,0
-2021-01-29,Albion,103,73,2,35,0
-2021-01-29,Benner Township,25,10,5,7,0
 2021-01-29,Cambridge Springs,4,1,1,5,0
-2021-01-29,Camp Hill,9,7,3,27,1
-2021-01-29,Chester,3,3,10,9,0
-2021-01-29,Coal Township,14,8,0,40,0
-2021-01-29,Dallas,3,2,9,21,0
-2021-01-29,Fayette,6,5,2,9,1
-2021-01-29,Forest,97,83,4,18,0
-2021-01-29,Frackville,5,4,0,6,0
-2021-01-29,Greene,11,11,1,7,0
-2021-01-29,Houtzdale,19,3,1,9,1
-2021-01-29,Huntingdon,9,6,7,11,0
-2021-01-29,Laurel Highlands,12,12,11,10,0
-2021-01-29,Mahanoy,22,2,4,9,0
-2021-01-29,Mercer,4,3,4,3,0
-2021-01-29,Muncy,16,12,1,8,0
-2021-01-29,Phoenix,26,16,11,35,0
-2021-01-29,Pine Grove,0,0,1,7,0
-2021-01-29,Quehanna BC,15,0,0,4,0
-2021-01-29,Rockview,3,3,1,2,0
-2021-01-29,Smithfield,69,69,6,5,1
-2021-01-29,Somerset,1,1,4,8,0
 2021-01-29,Waymart,164,143,5,28,0
-2021-02-01,Albion,153,82,2,31,0
+2021-01-29,Somerset,1,1,4,8,0
+2021-01-29,Smithfield,69,69,6,5,1
+2021-01-29,Rockview,3,3,1,2,0
+2021-01-29,Quehanna BC,15,0,0,4,0
+2021-01-29,Pine Grove,0,0,1,7,0
+2021-01-29,Phoenix,26,16,11,35,0
+2021-01-29,Muncy,16,12,1,8,0
+2021-01-29,Mercer,4,3,4,3,0
+2021-01-29,Benner Township,25,10,5,7,0
+2021-01-29,Mahanoy,22,2,4,9,0
+2021-01-29,Huntingdon,9,6,7,11,0
+2021-01-29,Greene,11,11,1,7,0
+2021-01-29,Frackville,5,4,0,6,0
+2021-01-29,Forest,97,83,4,18,0
+2021-01-29,Fayette,6,5,2,9,1
+2021-01-29,Dallas,3,2,9,21,0
+2021-01-29,Coal Township,14,8,0,40,0
+2021-01-29,Chester,3,3,10,9,0
+2021-01-29,Camp Hill,9,7,3,27,1
+2021-01-29,Laurel Highlands,12,12,11,10,0
+2021-01-29,Albion,103,73,2,35,0
+2021-01-29,Houtzdale,19,3,1,9,1
+2021-02-01,Waymart,176,155,7,21,0
 2021-02-01,Benner Township,22,9,5,7,0
 2021-02-01,Cambridge Springs,2,1,1,5,0
 2021-02-01,Camp Hill,9,8,3,28,1
@@ -67,10 +67,11 @@ date,SCI,incarcerated_person_active_cases,incarcerated_person_active_cases_asymp
 2021-02-01,Phoenix,20,11,12,35,0
 2021-02-01,Pine Grove,0,0,1,5,0
 2021-02-01,Quehanna BC,15,0,0,2,0
+2021-02-01,Albion,153,82,2,31,0
 2021-02-01,Rockview,3,3,1,1,0
 2021-02-01,Smithfield,86,84,6,6,1
 2021-02-01,Somerset,0,0,4,6,0
-2021-02-01,Waymart,176,155,7,21,0
+2021-02-02,Smithfield,86,84,6,6,1
 2021-02-02,Albion,153,82,2,31,0
 2021-02-02,Benner Township,19,8,5,7,0
 2021-02-02,Cambridge Springs,2,1,1,5,0
@@ -92,6 +93,29 @@ date,SCI,incarcerated_person_active_cases,incarcerated_person_active_cases_asymp
 2021-02-02,Pine Grove,0,0,1,5,0
 2021-02-02,Quehanna BC,12,0,0,2,0
 2021-02-02,Rockview,3,3,1,0,0
-2021-02-02,Smithfield,86,84,6,6,1
-2021-02-02,Somerset,0,0,4,7,0
 2021-02-02,Waymart,176,153,7,21,0
+2021-02-02,Somerset,0,0,4,7,0
+2021-02-04,Waymart,176,158,7,24,0
+2021-02-04,Benner Township,17,7,5,5,0
+2021-02-04,Cambridge Springs,2,1,1,5,0
+2021-02-04,Camp Hill,5,4,3,25,1
+2021-02-04,Chester,2,1,10,8,0
+2021-02-04,Coal Township,12,5,0,37,0
+2021-02-04,Dallas,1,1,9,19,0
+2021-02-04,Fayette,8,7,2,19,1
+2021-02-04,Forest,31,19,4,7,0
+2021-02-04,Frackville,6,5,0,4,0
+2021-02-04,Greene,10,10,1,7,0
+2021-02-04,Houtzdale,20,6,1,5,1
+2021-02-04,Laurel Highlands,3,3,11,10,0
+2021-02-04,Mahanoy,14,0,4,6,0
+2021-02-04,Mercer,4,3,4,2,0
+2021-02-04,Muncy,13,11,1,4,0
+2021-02-04,Phoenix,19,10,12,32,0
+2021-02-04,Pine Grove,1,1,1,5,0
+2021-02-04,Quehanna BC,12,0,0,2,0
+2021-02-04,Rockview,1,1,1,0,0
+2021-02-04,Smithfield,89,87,6,6,1
+2021-02-04,Somerset,0,0,4,6,0
+2021-02-04,Huntingdon,5,3,7,7,0
+2021-02-04,Albion,126,79,2,26,0
