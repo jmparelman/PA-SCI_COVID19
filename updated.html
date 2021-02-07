@@ -14,7 +14,7 @@ title: PA Prisons Pandemic Tracker
         <th class= "th-sm">Staff deaths</th>
     </thead>
         {% for sci in site.data.most_recent_inmateData %}
-        {% if sci.SCI != "TOTAL" %}
+        {% if sci.SCI != "TOTAL" and sci.SCI != "Retreat" %}
         <tr id="{{ sci.SCI | replace: ' ', '_' }}">
 
                 <td class="th-sm sci_name">{{sci.SCI}}</td>
