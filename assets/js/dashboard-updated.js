@@ -81,7 +81,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 		 d3.select('#staff_deaths_total').text(numberWithCommas(staff_deaths));
 
 
-		 d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
+		 d3.select('#asof-date').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
 
 
 
