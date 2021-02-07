@@ -81,7 +81,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 		 d3.select('#staff_deaths_total').text(numberWithCommas(staff_deaths));
 
 
-		 d3.select('#asof-date').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
+		 d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
 
 
 
@@ -289,7 +289,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				      var width = 200;
 				        var height = 40;
 				        var x = d3.scaleLinear().range([0, width-2]);
-				        var y = d3.scaleLinear().range([height-20, 0]);
+				        var y = d3.scaleLinear().range([height-40, 0]);
 				        var parseDate = d3.timeParse("%Y-%m-%d");
 
 				        var formatDate = d3.timeFormat("%d %b");
