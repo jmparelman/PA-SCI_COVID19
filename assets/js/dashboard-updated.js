@@ -65,21 +65,26 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
     // most recent numbers
-    var current_cases = summary_data[summary_data.length-1][1].current_cases;
-    var current_deaths = summary_data[summary_data.length-1][1].current_deaths;
-    var current_tests = summary_data[summary_data.length-1][1].current_tests;
-    var last_date = summary_data[summary_data.length-1][0];
+    var ip_active_cases = summary_data[summary_data.length-1][1].ip_active_cases;
+    var ip_deaths = summary_data[summary_data.length-1][1].ip_deaths;
+		var staff_active_cases = summary_data[summary_data.length-1][1].staff_active_cases;
+    var staff_deaths = summary_data[summary_data.length-1][1].staff_deaths;
+
 
     const lastdayFormat = d3.timeFormat("%m/%d/%y");
 
-     d3.select('#current_cases').text(numberWithCommas(current_cases));
-     d3.select('#current_deaths').text(numberWithCommas(current_deaths));
-     d3.select('#current_tests').text(numberWithCommas(current_tests));
-     // HIDE LAST UPDATED FOR NOW WHILE WE RESOLVE
-		 // the DOC dashboard vs DOC excel data issues
-		 //d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
-     // daily new cases
-     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_positive_new),
+     d3.select('#ip_active_cases_total').text(numberWithCommas(ip_active_cases));
+     d3.select('#ip_deaths_total').text(numberWithCommas(ip_deaths));
+		 d3.select('#staff_active_cases_total').text(numberWithCommas(staff_active_cases));
+		 d3.select('#staff_deaths_total').text(numberWithCommas(staff_deaths));
+
+
+		 d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
+
+
+
+
+     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_active_cases),
                                      d => d.date);
 
      var data_summarized2 = Array.from(data_summarized, ([key, value]) => ({key, value,
