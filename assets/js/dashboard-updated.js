@@ -296,7 +296,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				        var line = d3.line()
 				                         .curve(d3.curveMonotoneX)
 				                         .x(function(d) { return x(d.date); })
-				                         .y(function(d) { return y(d.incarcerated_person_positive_new); });
+				                         .y(function(d) { return y(d.incarcerated_person_active_cases); });
 
 
 								// update for d3 v6
