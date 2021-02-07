@@ -302,21 +302,19 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								// update for d3 v6
 				        data.forEach(function(d) {
 				            d.date = parseDate(d.date);
-				            d.incarcerated_person_positive_new = parseFloat(0+d.incarcerated_person_positive_new);
-										d.incarcerated_person_death = parseFloat(0+d.incarcerated_person_death);
-										d.incarcerated_person_positive = parseFloat(0+d.incarcerated_person_positive);
-										d.incarcerated_person_negative = parseFloat(0+d.incarcerated_person_negative);
-										d.incarcerated_person_pending = parseFloat(0+d.incarcerated_person_pending);
-										d.incarcerated_person_reovered = parseFloat(0+d.incarcerated_person_recovered);
+				            d.incarcerated_person_active_cases = parseFloat(0+d.incarcerated_person_active_cases);
+										d.incarcerated_person_deaths = parseFloat(0+d.incarcerated_person_deaths);
+										d.staff_active_cases = parseFloat(0+d.staff_active_cases);
+										d.staff_deaths = parseFloat(0+d.staff_deaths);
 				        });
 
-				        var max_idx = d3.maxIndex(data, d=>d.incarcerated_person_positive_new);
-				        var max_value = data[max_idx].incarcerated_person_positive_new;
+				        var max_idx = d3.maxIndex(data, d=>d.incarcerated_person_active_cases);
+				        var max_value = data[max_idx].incarcerated_person_active_cases;
 				        var start_date = formatDate(data[0].date);
 				        var end_date = formatDate(data[data.length-1].date);
 
 				        x.domain(d3.extent(data, function(d) { return d.date; }));
-				        y.domain(d3.extent(data, function(d) { return d.incarcerated_person_positive_new; }));
+				        y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
 
 				        var svg = d3.select(elemId + ' .sparkline')
 				          .append('svg')
@@ -337,7 +335,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				          svg.append('circle')
 				             .attr('class', 'sparkcircle')
 				             .attr('cx', x(data[max_idx].date))
-				             .attr('cy', y(data[max_idx].incarcerated_person_positive_new))
+				             .attr('cy', y(data[max_idx].incarcerated_person_active_cases))
 				             .attr('r', 1.5);
 
 
@@ -354,7 +352,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								var xoffset = 10+5*(max_value.toString().length-1);
 				        svg.append('text')
 				        .attr('x', x(data[max_idx].date)-xoffset)
-				        .attr('y', y(data[max_idx].incarcerated_person_positive_new))
+				        .attr('y', y(data[max_idx].incarcerated_person_active_cases))
 				        .attr("dy", ".35em")
 				        .attr('class', 'maxlabel')
 				        .text(max_value);
@@ -375,27 +373,21 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 								// add the data for SCI in additional cells
 
-								var current_ip_cases = data[data.length-1].incarcerated_person_positive_new;
-								var ip_deaths = data[data.length-1].incarcerated_person_death;
-								var ip_cases = data[data.length-1].incarcerated_person_positive - data[data.length-1].incarcerated_person_recovered;
-								var ip_tests = +data[data.length-1].incarcerated_person_positive + data[data.length-1].incarcerated_person_negative + data[data.length-1].incarcerated_person_pending;
-
+								var ip_cases = data[data.length-1].incarcerated_person_active_cases;
+								var ip_deaths = data[data.length-1].incarcerated_person_deaths;
+								var staff_cases = data[data.length-1].staff_active_cases;
+								var staff_deaths = data[data.length-1].staff_deaths
 								// mbod 12/21 add 7day mean of new cases column
 								// 7 day case sum
 								var last_date = data[data.length-1].date;
-								// find index for a week ago
-								// milliseconds so 1000 * 60 = 1 min, * 60 = 1 hr * 24 hours * 7 days
-								var week_ago = last_date - (1000*60*60*24*7);
-								var last_7days_data = data.filter(d => d.date >= week_ago);
-								var ip_cases_7day = d3.mean(last_7days_data.map(d => d.incarcerated_person_positive_new));
 
 
 								//d3.select(elemId + ' .current_ip_cases').text(numberWithCommas(current_ip_cases));
 								d3.select(elemId + ' .active_ip_cases').text(numberWithCommas(ip_cases))
 								d3.select(elemId + ' .ip_deaths').text(numberWithCommas(ip_deaths));
-								d3.select(elemId + ' .ip_tests').text(numberWithCommas(ip_tests));
-								// mbod 12/22 add last 7 days avg cases
-								d3.select(elemId + ' .ip_cases_7day').text(numberWithCommas(ip_cases_7day));
+								d3.select(elemId + ' .active_staff_cases').text(numberWithCommas(staff_cases));
+
+								d3.select(elemId + ' .staff_deaths').text(numberWithCommas(staff_deaths));
 
 			};
 			// END SPARKLINE
