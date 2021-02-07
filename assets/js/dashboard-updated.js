@@ -72,6 +72,8 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
     const lastdayFormat = d3.timeFormat("%m/%d/%y");
+		var last_date = data[data.length-1].date;
+
 
      d3.select('#ip_active_cases_total').text(numberWithCommas(ip_active_cases));
      d3.select('#ip_deaths_total').text(numberWithCommas(ip_deaths));
