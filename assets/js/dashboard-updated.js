@@ -313,6 +313,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 										d.staff_deaths = parseFloat(0+d.staff_deaths);
 				        });
 
+alert(data);
 				        var max_idx = d3.maxIndex(data, d=>d.incarcerated_person_active_cases);
 				        var max_value = data[max_idx].incarcerated_person_active_cases;
 				        var start_date = formatDate(data[0].date);
