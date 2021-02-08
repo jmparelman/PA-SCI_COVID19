@@ -315,7 +315,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
  								});
 
 
-								console.log(domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; })));
+								console.log(d3.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; })));
 
 				        var max_idx = d3.maxIndex(data, d=>d.incarcerated_person_active_cases);
 				        var max_value = data[max_idx].incarcerated_person_active_cases;
