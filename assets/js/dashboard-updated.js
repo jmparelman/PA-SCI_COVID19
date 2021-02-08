@@ -291,9 +291,6 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				        var x = d3.scaleLinear().range([0, width-2]);
 				        var y = d3.scaleLinear().range([0, height]);
 
-								x.domain(d3.extent(data, function(d) { return d.date; }));
-								y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
-
 
 
 				        var parseDate = d3.timeParse("%Y-%m-%d");
@@ -313,6 +310,10 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
  										d.staff_active_cases = parseFloat(0+d.staff_active_cases);
  										d.staff_deaths = parseFloat(0+d.staff_deaths);
  								});
+
+
+								x.domain(d3.extent(data, function(d) { return d.date; }));
+								y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
 
 
 								console.log(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
