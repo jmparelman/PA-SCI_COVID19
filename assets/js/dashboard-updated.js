@@ -288,8 +288,13 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 				      var width = 200;
 				        var height = 40;
-				        var x = d3.scaleLinear().range([0, width-2]);
-				        var y = d3.scaleLinear().range([height-20, 0]);
+				        var x = d3.scaleLinear().domain(d3.extent(data, function(d) { return d.date; })).range([0, width-2]);
+				        var y = d3.scaleLinear().domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; })).range([height-20, 0]);
+
+								//x.domain(d3.extent(data, function(d) { return d.date; }));
+								//y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
+
+
 				        var parseDate = d3.timeParse("%Y-%m-%d");
 
 				        var formatDate = d3.timeFormat("%d %b");
@@ -313,8 +318,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				        var start_date = formatDate(data[0].date);
 				        var end_date = formatDate(data[data.length-1].date);
 
-				        x.domain(d3.extent(data, function(d) { return d.date; }));
-				        y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
+
 
 				        var svg = d3.select(elemId + ' .sparkline')
 				          .append('svg')
