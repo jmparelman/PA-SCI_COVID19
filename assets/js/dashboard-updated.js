@@ -289,7 +289,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				      var width = 200;
 				        var height = 40;
 				        var x = d3.scaleLinear().range([0, width-2]);
-				        var y = d3.scaleLinear().domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; })).range([0, height]);
+				        var y = d3.scaleLinear().range([0, height]);
 
 								//x.domain(d3.extent(data, function(d) { return d.date; }));
 								//y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
