@@ -286,7 +286,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				// SPARKLINE CODE ADDED
 				function sparkline(elemId, data) {
 
-				      var width = 100;
+				      var width = 150;
 				        var height = 40;
 
 								var parseDate = d3.timeParse("%Y-%m-%d");
@@ -311,7 +311,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 						 	var end_date = formatDate(data[data.length-1].date);
 
 
-				        var x = d3.scaleLinear().range([0, width]).domain(d3.extent(data, function(d) { return d.date; }));
+				        var x = d3.scaleLinear().range([10, width]).domain(d3.extent(data, function(d) { return d.date; }));
 				        //var y = d3.scaleLinear().range([height-20, 0]).domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
 
 								var y = d3.scaleLinear().range([height-20, 0]).domain([0, max_value]);
@@ -382,7 +382,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				        .text(start_date);
 
 				        svg.append('text')
-				        .attr('x', x(data[data.length-1].date)-26)
+				        .attr('x', x(data[data.length-1].date)-30)
 				        .attr('y', 24)
 				        .attr("dy", ".35em")
 				        .attr('class', 'datelabel')
