@@ -294,15 +294,6 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								//x.domain(d3.extent(data, function(d) { return d.date; }));
 								//y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
 
-								// update for d3 v6
-								data.forEach(function(d) {
-										d.date = parseDate(d.date);
-										d.incarcerated_person_active_cases = parseFloat(0+d.incarcerated_person_active_cases);
-										d.incarcerated_person_active_cases_asymptomatic = parseFloat(0+d.incarcerated_person_active_cases_asymptomatic);
-										d.incarcerated_person_deaths = parseFloat(0+d.incarcerated_person_deaths);
-										d.staff_active_cases = parseFloat(0+d.staff_active_cases);
-										d.staff_deaths = parseFloat(0+d.staff_deaths);
-								});
 
 
 				        var parseDate = d3.timeParse("%Y-%m-%d");
@@ -313,10 +304,17 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				                         .x(function(d) { return x(d.date); })
 				                         .y(function(d) { return y(d.incarcerated_person_active_cases); });
 
+								 // update for d3 v6
+ 								data.forEach(function(d) {
+ 										d.date = parseDate(d.date);
+ 										d.incarcerated_person_active_cases = parseFloat(0+d.incarcerated_person_active_cases);
+ 										d.incarcerated_person_active_cases_asymptomatic = parseFloat(0+d.incarcerated_person_active_cases_asymptomatic);
+ 										d.incarcerated_person_deaths = parseFloat(0+d.incarcerated_person_deaths);
+ 										d.staff_active_cases = parseFloat(0+d.staff_active_cases);
+ 										d.staff_deaths = parseFloat(0+d.staff_deaths);
+ 								});
 
 
-
-console.log(data);
 				        var max_idx = d3.maxIndex(data, d=>d.incarcerated_person_active_cases);
 				        var max_value = data[max_idx].incarcerated_person_active_cases;
 				        var start_date = formatDate(data[0].date);
