@@ -306,7 +306,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
 				        var x = d3.scaleLinear().range([0, width-2]).domain(d3.extent(data, function(d) { return d.date; }));
-				        var y = d3.scaleLinear().range([height-10, 0]).domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
+				        var y = d3.scaleLinear().range([height-20, 0]).domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
 
 
 
@@ -372,14 +372,14 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 				        svg.append('text')
 				        .attr('x', x(data[0].date))
-				        .attr('y', 6)
+				        .attr('y', 24)
 				        .attr("dy", ".35em")
 				        .attr('class', 'datelabel')
 				        .text(start_date);
 
 				        svg.append('text')
 				        .attr('x', x(data[data.length-1].date)-26)
-				        .attr('y', 6)
+				        .attr('y', 24)
 				        .attr("dy", ".35em")
 				        .attr('class', 'datelabel')
 				        .text(end_date);
