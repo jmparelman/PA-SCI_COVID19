@@ -286,7 +286,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				// SPARKLINE CODE ADDED
 				function sparkline(elemId, data) {
 
-				      var width = 200;
+				      var width = 100;
 				        var height = 40;
 
 								var parseDate = d3.timeParse("%Y-%m-%d");
