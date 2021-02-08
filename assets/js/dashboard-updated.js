@@ -288,8 +288,8 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 				      var width = 200;
 				        var height = 40;
-				        var x = d3.scaleLinear().range([0, width-2]);
-				        var y = d3.scaleLinear().range([height, 10]);
+				        var x = d3.scaleLinear().range([0, width-2]).domain(d3.extent(data, function(d) { return d.date; }));
+				        var y = d3.scaleLinear().range([height-10, 0]).domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
 
 
 
@@ -312,8 +312,8 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
  								});
 
 
-								x.domain(d3.extent(data, function(d) { return d.date; }));
-								y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
+								//x.domain(d3.extent(data, function(d) { return d.date; }));
+								//y.domain(d3.extent(data, function(d) { return d.incarcerated_person_active_cases; }));
 
 				        var max_idx = d3.maxIndex(data, d=>d.incarcerated_person_active_cases);
 				        var max_value = data[max_idx].incarcerated_person_active_cases;
