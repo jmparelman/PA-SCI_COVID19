@@ -55,7 +55,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
     // daily sums
     var summary_data = d3.rollups(data, v => ({
-                        'ip_active_cases': d3.sum(v, d => d.incarcerated_person_active_cases),
+                        'ip_active_cases': d3.sum(v, d => d.incarcerated_person_active_cases + d.incarcerated_person_active_cases_asymptomatic),
                         'ip_deaths': d3.sum(v, d => d.incarcerated_person_deaths),
                         'staff_active_cases': d3.sum(v, d => d.staff_active_cases),
 												'staff_deaths': d3.sum(v, d => d.staff_deaths),
@@ -86,7 +86,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
 
-     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_active_cases),
+     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_active_cases + d.incarcerated_person_active_cases_asymptomatic),
                                      d => d.date);
 
      var data_summarized2 = Array.from(data_summarized, ([key, value]) => ({key, value,
@@ -297,7 +297,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								// update for d3 v6
 							 data.forEach(function(d) {
 									 d.date = parseDate(d.date);
-									 d.incarcerated_person_active_cases = parseFloat(0+d.incarcerated_person_active_cases);
+									 d.incarcerated_person_active_cases = parseFloat(0+d.incarcerated_person_active_cases) + parseFloat(0+d.incarcerated_person_active_cases_asymptomatic);
 									 d.incarcerated_person_active_cases_asymptomatic = parseFloat(0+d.incarcerated_person_active_cases_asymptomatic);
 									 d.incarcerated_person_deaths = parseFloat(0+d.incarcerated_person_deaths);
 									 d.staff_active_cases = parseFloat(0+d.staff_active_cases);
