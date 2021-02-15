@@ -132,7 +132,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
         .domain(d3.extent(data_summarized2, d => d.date));
 
     var x_bar = d3.scaleBand()
-        .domain(data_summarized2.map(d => d.date)).padding(0.4);
+        .domain(data_summarized2.map(d => d.date));
 
     var y = d3.scaleLinear()
         .range([250, 50])
@@ -142,7 +142,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
     // x axis
     var xAxis = svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + (250) + ")");
+        .attr("transform", "translate(30," + (250) + ")");
 
     // y axis
     svg.append("g")
