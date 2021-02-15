@@ -420,7 +420,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
         currentWidth = parseInt(d3.select('#chartArea').style('width'));
         svg.attr('width',currentWidth);
         x.range([25,currentWidth - 30]);
-        x_bar.range([25, currentWidth - 30]).padding(0.4);
+        x_bar.range([25, currentWidth - 30]);
         xAxis.call(d3.axisBottom(x)
             .tickFormat(d3.timeFormat("%b %d"))
             .ticks(4))
