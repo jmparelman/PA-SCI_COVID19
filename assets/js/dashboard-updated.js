@@ -55,7 +55,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
     // daily sums
     var summary_data = d3.rollups(data, v => ({
-                        'ip_active_cases': d3.sum(v, d => parseFloat(0+d.incarcerated_person_active_positive) + parseFloat(0+d.incarcerated_person_asymptomatic_positive)),
+                        'ip_active_cases': d3.sum(v, d => d.incarcerated_person_active_positive) + d3.sum(d.incarcerated_person_asymptomatic_positive),
 												'ip_active_positive': d3.sum(v, d => d.incarcerated_person_active_positive),
 												'ip_asymptomatic_positive': d3.sum(v, d=> d.incarcerated_person_asymptomatic_positive),
                         'ip_deaths': d3.sum(v, d => d.incarcerated_person_deaths),
