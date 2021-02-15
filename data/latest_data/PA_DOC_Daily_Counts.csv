@@ -1,4 +1,4 @@
-date,SCI,incarcerated_person_active_positive,incarcerated_person_positive_asymptomatic,incarcerated_person_deaths,staff_active_cases,staff_deaths
+date,SCI,incarcerated_person_active_positive,incarcerated_person_asymptomatic_positive,incarcerated_person_deaths,staff_active_cases,staff_deaths
 2021-01-28,Albion,88,58,2,40,0
 2021-01-28,Benner Township,28,21,5,5,0
 2021-01-28,Cambridge Springs,5,2,1,5,0
