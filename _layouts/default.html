@@ -15,10 +15,13 @@
 -->
   <link rel='stylesheet' href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.bootstrap.min.css"></link>
   <link rel='stylesheet' href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap.min.css"></link>
-
+  <script>
+      $(window).on('load', function() {
+          $('#myModal').modal('show');
+      });
+  </script>
 
   <script src="https://d3js.org/d3.v6.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
@@ -137,10 +140,6 @@
         </div>
     </div>
     <script src="{{site.baseurl}}/assets/js/dashboard.js"></script>
-    <script>
-        $(window).on('load', function() {
-            $('#myModal').modal('show');
-        });
-    </script>
+
 </body>
 </html>
