@@ -416,7 +416,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
     function drawChart() {
         // function draws chart and updates on window resize
-
+				const xoffset=25;
         currentWidth = parseInt(d3.select('#chartArea').style('width'));
         svg.attr('width',currentWidth);
         x.range([25,currentWidth - 30]);
@@ -427,11 +427,11 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
         .selectAll("text");
 
         var valueline = d3.line()
-            .x(d => x(d.date))
+            .x(d => x(d.date)+xoffset)
             .y(d => y(d.cases_moving_avg))
             .curve(d3.curveMonotoneX);
 
-        bars.attr("x", d => x(d.date)+30)
+        bars.attr("x", d => x(d.date)+xoffset)
           .attr("width", x_bar.bandwidth()/2)
           .attr('transform','translate(-'+x_bar.bandwidth()/4+',0)');
 
