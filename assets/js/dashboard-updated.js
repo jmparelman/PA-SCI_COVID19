@@ -131,7 +131,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
     var x = d3.scaleLinear()
         .domain(d3.extent(data_summarized2, d => d.date));
 
-    var x_bar = d3.scaleBand()
+    var x_bar = d3.scaleBand().range([60, 500])
         .domain(data_summarized2.map(d => d.date));
 
     var y = d3.scaleLinear()
