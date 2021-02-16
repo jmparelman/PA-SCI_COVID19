@@ -101,7 +101,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
 			 // nasty hack
-			 data_summarized2.unshift({"date":"2021-01-27", "new_cases": 0});
+			 data_summarized2.unshift({"key":"2021-01-27", "value": 0, 'date': parseDate("2021-01-27"), 'new_cases': 0});
 			 console.log(data_summarized2);
 
 
