@@ -64,8 +64,6 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
                       }),d=>d.date);
 
-	  // nasty hack
-		summary_data.unshift(["2021-01-27", {'ip_active_cases': 0, 'ip_active_positive': 0, 'ip_asymptomatic_positive': 0}]);
 
 		console.log(summary_data);
 
@@ -94,10 +92,15 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
      var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_active_positive) + d3.sum(v, d => d.incarcerated_person_asymptomatic_positive),
                                      d => d.date);
 
+
+
      var data_summarized2 = Array.from(data_summarized, ([key, value]) => ({key, value,
                                                                      'date': parseDate(key),
                                                                        'new_cases': value
                                                                    }));
+
+			 // nasty hack
+			 data_summarized.unshift({"date":"2021-01-27", "new_cases": 0});
 
 
     const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
