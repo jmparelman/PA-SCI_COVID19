@@ -71,8 +71,8 @@ body {
 
 }
 
-.modal-ku {
-  width: 900px;
+.modal-lg {
+  max-width: 900px;
   margin: auto;
 }
 
