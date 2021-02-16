@@ -64,6 +64,8 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
                       }),d=>d.date);
 
+	  # nasty hack
+		summary_data.unshift(["2021-01-27", {'ip_active_cases': 0}]);
 
 		console.log(summary_data);
 
