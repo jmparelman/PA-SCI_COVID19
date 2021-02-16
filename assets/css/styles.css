@@ -71,6 +71,11 @@ body {
 
 }
 
+.modal-ku {
+  width: 900px;
+  margin: auto;
+}
+
 table.dataTable.nowrap th, table.dataTable.nowrap td {
     white-space: normal;
 }
