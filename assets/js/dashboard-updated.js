@@ -128,10 +128,10 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
     // d3 scaling
-    var x = d3.scaleLinear().range([100, 500])
+    var x = d3.scaleLinear()
         .domain(d3.extent(data_summarized2, d => d.date));
 
-    var x_bar = d3.scaleBand().range([100, 500])
+    var x_bar = d3.scaleBand()
         .domain(data_summarized2.map(d => d.date));
 
     var y = d3.scaleLinear()
@@ -431,7 +431,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
             .y(d => y(d.cases_moving_avg))
             .curve(d3.curveMonotoneX);
 
-        bars.attr("x", d => x(d.date))
+        bars.attr("x", d => x(d.date)+30)
           .attr("width", x_bar.bandwidth()/2)
           .attr('transform','translate(-'+x_bar.bandwidth()/4+',0)');
 
