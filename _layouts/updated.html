@@ -20,9 +20,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-rfs/bootstrap-rfs.css">
 
 
+  <script>
+      $(window).on('load', function() {
+          $('#myModal').modal('show');
+      });
+  </script>
 
   <script src="https://d3js.org/d3.v6.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
@@ -31,6 +35,35 @@
 
 </head>
 <body>
+    <!-- Modal popup -->
+    <div class="modal fade hide" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body modal-lg">
+            <p>
+                Recent changes to the Pennsylvania Department of Corrections’ management and reporting of COVID-19 testing data have dramatically affected our ability to report the most complete and representative information about the spread of COVID-19 in Pennsylvania prisons.
+            </p>
+            <p>
+                The DOC has severely restricted our access to vital information necessary for our organization’s efforts to communicate COVID-19 testing data on this website.
+            </p>
+            <p>
+                In the absence of complete information, we continue to use what <a href='https://www.cor.pa.gov/Documents/DOC-COVID-19-Daily-Count.pdf'>information the DOC is still making available</a>. This website has undergone significant changes to communicate the available data. We are no longer able to present information about the number of tests or positive tests in PA prisons. The primary piece of information we do have is an estimate of the number of active cases in PA prisons (inmate active positive cases and asymptomatic inmate positive cases combined), and we now display this as the main figure on this website.
+
+            </p>
+            <p>
+                We are continuing to pressure the DOC for the release of complete COVID-19 testing data, and will return this website to its original state when this data is again available.
+            </p>
+          </div>
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+
     <!-- navbar -->
     <div class='container-fluid' style='background-color:white'>
         <nav class="navbar navbar-expand-lg navbar-light">
