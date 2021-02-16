@@ -128,10 +128,10 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
     // d3 scaling
-    var x = d3.scaleLinear()
+    var x = d3.scaleLinear().range([100, 500])
         .domain(d3.extent(data_summarized2, d => d.date));
 
-    var x_bar = d3.scaleBand().range([60, 500])
+    var x_bar = d3.scaleBand().range([100, 500])
         .domain(data_summarized2.map(d => d.date));
 
     var y = d3.scaleLinear()
