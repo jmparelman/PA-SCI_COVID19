@@ -65,7 +65,6 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
                       }),d=>d.date);
 
 
-		console.log(summary_data);
 
     // most recent numbers
     var ip_active_cases = summary_data[summary_data.length-1][1].ip_active_cases;
@@ -99,8 +98,11 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
                                                                        'new_cases': value
                                                                    }));
 
+
+
 			 // nasty hack
-			 data_summarized.unshift({"date":"2021-01-27", "new_cases": 0});
+			 data_summarized2.unshift({"date":"2021-01-27", "new_cases": 0});
+			 console.log(data_summarized2);
 
 
     const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
