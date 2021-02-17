@@ -5,8 +5,8 @@ title: Commentaries, Statements & Analyses
 
 <ul>
   {% for post in site.posts %}
-    <li>
-      <b style='margin:10px 0;'><a href="{{ post.url }}" style='color:black'>{{post.date | date_to_long_string }} - {{ post.title }}</a></b>
+    <li style='margin-bottom:10px'>
+      <b><a href="{{ post.url }}" style='color:black'>{{post.date | date_to_long_string }} - {{ post.title }}</a></b>
 
     </li>
   {% endfor %}
