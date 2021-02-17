@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Our Response to the Department of Corrections January 29th Statement, And Changes To Our Website."
-date: 2020-12-23
+date: 2021-02-16
 author: "Jake M. Parelman & Matthew Brook O’Donnell"
 ---
 
