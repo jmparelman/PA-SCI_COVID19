@@ -88,7 +88,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
 
-     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_active_positive) + d3.sum(v, d => d.incarcerated_person_asymptomatic_positive),
+     var data_summarized = d3.rollup(data, v => d3.sum(v, d => d.incarcerated_person_positive) + d3.sum(v, d => d.incarcerated_person_asymptomatic_positive),
                                      d => d.date);
 
 
