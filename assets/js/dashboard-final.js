@@ -24,7 +24,7 @@ $(function () {
 })
 
 $(document).ready( function () {
-
+var latest_data;
 } );
 
 var svg = d3.select('#chartArea').append('svg')
@@ -49,7 +49,7 @@ function numberWithCommas(x) {
     return parseInt(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-var latest_data;
+
 
 d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/latest_data/PA_DOC_dashboard_latest.csv").then(function(data){
 
