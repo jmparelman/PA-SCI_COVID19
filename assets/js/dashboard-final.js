@@ -82,6 +82,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 			})
 		);
 
+console.log(latest_summary_data);
 
     // most recent numbers
     var ip_active_cases = latest_summary_data[latest_summary_data.length-1][1].ip_active_cases;
