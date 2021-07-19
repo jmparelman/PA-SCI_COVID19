@@ -409,6 +409,8 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 								// add the data for SCI in additional cells
 
+								console.log(elemId);
+
 								var sci_data = latest_data.filter(function(d) { return d.SCI.replace(/ /g, "_") == elemId } );
 
 								console.log(sci_data);
