@@ -49,6 +49,15 @@ function numberWithCommas(x) {
     return parseInt(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+var latest_data;
+
+d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/latest_data/PA_DOC_dashboard_latest.csv").then(function(data){
+
+	lastest_data = data;
+
+});
+
+
 //d3.csv("/PA-SCI_COVID19/data/latest_data/PA_DOC_testing_data.csv").then(function(data){
 d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/latest_data/PA_DOC_dashboard_cases.csv").then(function(data){
 
@@ -400,9 +409,11 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 								// add the data for SCI in additional cells
 
-								var ip_cases = data[data.length-1].incarcerated_person_active_cases;
+								console.log(latest_data);
+
+								var ip_active_cases = data[data.length-1].incarcerated_person_active_cases;
 								var ip_deaths = data[data.length-1].incarcerated_person_deaths;
-								var staff_cases = data[data.length-1].staff_active_cases;
+								var staff_active_cases = data[data.length-1].staff_active_cases;
 								var staff_deaths = data[data.length-1].staff_deaths
 								// mbod 12/21 add 7day mean of new cases column
 								// 7 day case sum
@@ -410,9 +421,9 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
 								//d3.select(elemId + ' .current_ip_cases').text(numberWithCommas(current_ip_cases));
-								d3.select(elemId + ' .active_ip_cases').text(numberWithCommas(ip_cases))
+								d3.select(elemId + ' .active_ip_cases').text(numberWithCommas(ip_active_cases))
 								d3.select(elemId + ' .ip_deaths').text(numberWithCommas(ip_deaths));
-								d3.select(elemId + ' .active_staff_cases').text(numberWithCommas(staff_cases));
+								d3.select(elemId + ' .active_staff_cases').text(numberWithCommas(staff_active_cases));
 
 								d3.select(elemId + ' .staff_deaths').text(numberWithCommas(staff_deaths));
 
