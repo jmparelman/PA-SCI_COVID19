@@ -53,7 +53,7 @@ function numberWithCommas(x) {
 
 d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/latest_data/PA_DOC_dashboard_latest.csv").then(function(data){
 
-	lastest_data = data;
+	latest_data = data;
 
 });
 
