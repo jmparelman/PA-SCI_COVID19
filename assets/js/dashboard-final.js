@@ -419,7 +419,6 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 								var ip_cases = sci_data[0].ip_cases;
 								var ip_deaths = sci_data[0].ip_deaths;
 								var staff_active_cases = sci_data[0].staff_active_cases;
-								var staff_deaths = sci_data[0].staff_deaths;
 								var staff_cases = sci_data[0].staff_cases;
 								// mbod 12/21 add 7day mean of new cases column
 								// 7 day case sum
@@ -427,11 +426,13 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
 								//d3.select(elemId + ' .current_ip_cases').text(numberWithCommas(current_ip_cases));
-								d3.select(elemId + ' .active_ip_cases').text(numberWithCommas(ip_active_cases))
+								d3.select(elemId + ' .active_ip_cases').text(numberWithCommas(ip_active_cases));
+								d3.select(elemId + ' .ip_cases').text(numberWithCommas(ip_cases))
+
 								d3.select(elemId + ' .ip_deaths').text(numberWithCommas(ip_deaths));
 								d3.select(elemId + ' .active_staff_cases').text(numberWithCommas(staff_active_cases));
 
-								d3.select(elemId + ' .staff_deaths').text(numberWithCommas(staff_deaths));
+								d3.select(elemId + ' .staff_cases').text(numberWithCommas(staff_cases));
 
 			};
 			// END SPARKLINE
