@@ -13,9 +13,7 @@ title: PA Prisons Pandemic Tracker
         <th class= "th-sm">Incarcerated person deaths</th>
         <th class= "th-sm">Staff active cases</th>
         <th class="th-sm">Staff total cases</th>
-        <!--
-        <th class= "th-sm">Staff deaths</th>
-        -->
+
     </thead>
         {% for sci in site.data.most_recent_inmateData_UPDATE %}
         {% if sci.SCI != "TOTAL" and sci.SCI != "Retreat" %}
@@ -28,9 +26,7 @@ title: PA Prisons Pandemic Tracker
                 <td class="th-sm ip_deaths"></td>
                 <td class="th-sm active_staff_cases"></td>
                 <td class="th-sm staff_cases"></td>
-                <!--
-                <td class="th-sm staff_deaths"></td>
-                -->
+          
         </tr>
         {% endif %}
         {% endfor %}
