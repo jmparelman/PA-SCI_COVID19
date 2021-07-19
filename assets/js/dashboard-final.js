@@ -74,12 +74,22 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
                       }),d=>d.date);
 
 
+		var latest_summary_data = d3.rollups(latest_data, v => ({
+				'ip_active_cases': d3.sum(v, d => d.ip_active_cases),
+				'ip_cases': d3.sum(v, d => d.ip_cases),
+				'ip_deaths': d3.sum(v, d=> d.ip_deaths),
+				'staff_active_cases': d3.sum(v, d => d.staff_active_cases)
+			})
+		);
+
 
     // most recent numbers
-    var ip_active_cases = summary_data[summary_data.length-1][1].ip_active_cases;
-    var ip_deaths = summary_data[summary_data.length-1][1].ip_deaths;
-		var staff_active_cases = summary_data[summary_data.length-1][1].staff_active_cases;
-    var staff_deaths = summary_data[summary_data.length-1][1].staff_deaths;
+    var ip_active_cases = latest_summary_data[latest_summary_data.length-1][1].ip_active_cases;
+		var ip_cases = latest_summary_data[latest_summary_data.length-1][1].ip_cases;
+
+    var ip_deaths = latest_summary_data[latest_summary_data.length-1][1].ip_deaths;
+		var staff_active_cases = latest_summary_data[latest_summary_data.length-1][1].staff_active_cases;
+    //var staff_deaths = summary_data[summary_data.length-1][1].staff_deaths;
 
 
     const lastdayFormat = d3.timeFormat("%m/%d/%y");
@@ -87,9 +97,10 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
      d3.select('#ip_active_cases_total').text(numberWithCommas(ip_active_cases));
+		 d3.select('#ip_cases_total').text(numberWithCommas(ip_cases));
+
      d3.select('#ip_deaths_total').text(numberWithCommas(ip_deaths));
 		 d3.select('#staff_active_cases_total').text(numberWithCommas(staff_active_cases));
-		 d3.select('#staff_deaths_total').text(numberWithCommas(staff_deaths));
 
 
 		 d3.select('#last-updated').text("Last Updated: "+lastdayFormat(parseDate(last_date)));
