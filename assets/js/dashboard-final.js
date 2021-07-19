@@ -415,12 +415,12 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 								console.log(sci_data);
 
-								var ip_active_cases = sci_data.ip_active_cases;
-								var ip_cases = sci_data.ip_cases;
-								var ip_deaths = sci_data.ip_deaths;
-								var staff_active_cases = sci_data.staff_active_cases;
-								var staff_deaths = sci_data.staff_deaths;
-								var staff_cases = sci_data.staff_cases;
+								var ip_active_cases = sci_data[0].ip_active_cases;
+								var ip_cases = sci_data[0].ip_cases;
+								var ip_deaths = sci_data[0].ip_deaths;
+								var staff_active_cases = sci_data[0].staff_active_cases;
+								var staff_deaths = sci_data[0].staff_deaths;
+								var staff_cases = sci_data[0].staff_cases;
 								// mbod 12/21 add 7day mean of new cases column
 								// 7 day case sum
 								var last_date = data[data.length-1].date;
