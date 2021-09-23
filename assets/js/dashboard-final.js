@@ -126,7 +126,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 			 // nasty hack
 			 data_summarized2.unshift({'key':'2021-01-27', 'value': 0, 'date': parseDate('2021-01-27'), 'new_cases': 0});
-			 console.log(data_summarized2);
+			 console.log('ds2' + data_summarized2);
 
 
     const cases_moving_avg = movingWindowAvg(data_summarized2.map(a => a.new_cases),7);
