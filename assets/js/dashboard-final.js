@@ -402,6 +402,13 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 
 
 								var xoffset = 10; //+5*(max_value.toString().length-1);
+
+								// hacky way to adjust position of
+								// max value x position
+								if (width - x(data[max_idx].date) < 20){
+									xoffset=-1*xoffset;
+								}
+
 				        svg.append('text')
 				        .attr('x', x(data[max_idx].date)+xoffset)
 				        .attr('y', y(data[max_idx].incarcerated_person_active_cases))
