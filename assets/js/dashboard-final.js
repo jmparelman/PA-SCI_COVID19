@@ -320,7 +320,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
 				// SPARKLINE CODE ADDED
 				function sparkline(elemId, data) {
 							console.log('SL '+elemId);
-							consolt.log(data);
+							console.log(data);
 				      var width = 150;
 				        var height = 40;
 
