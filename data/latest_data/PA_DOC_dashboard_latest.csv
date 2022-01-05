@@ -1,26 +1,26 @@
 SCI,population,ip_active_cases,ip_cases,ip_deaths,staff_active_cases,staff_cases
-Albion,1996,1,822,5,10,296
-Benner,1707,1,368,10,18,308
-Cambridge Springs,830,2,737,1,14,163
-Camp Hill,2105,8,793,5,49,447
-Chester,1067,3,321,13,14,252
-Coal Township,1550,3,613,5,13,284
-Dallas,1751,0,1297,11,5,280
-Fayette,1966,6,129,6,2,217
-Forest,2155,0,1009,6,3,252
+Albion,1992,1,822,5,6,304
+Benner,1701,1,368,10,22,313
+Cambridge Springs,828,2,737,1,15,164
+Camp Hill,2108,13,799,5,49,447
+Chester,1067,4,322,13,12,253
+Coal Township,1542,3,613,5,10,286
+Dallas,1745,0,1297,11,3,284
+Fayette,1963,5,129,6,2,217
+Forest,2154,0,1009,6,3,252
 Frackville,1013,0,136,1,12,198
-Greene,1458,3,255,1,1,224
-Houtzdale,2279,2,267,3,5,249
-Huntingdon,1573,0,316,8,7,268
-Laurel Highlands,1131,10,603,15,16,292
-Mahanoy,2078,1,431,7,18,325
-Mercer,919,1,251,6,8,148
-Muncy,984,3,510,2,30,282
-Phoenix,2895,18,297,19,39,481
-Pine Grove,891,6,194,1,1,168
-Quehanna,432,6,271,0,1,122
+Greene,1465,3,255,1,1,224
+Houtzdale,2276,2,267,3,7,252
+Huntingdon,1574,0,316,8,7,268
+Laurel Highlands,1151,10,603,15,16,292
+Mahanoy,2078,1,431,7,21,330
+Mercer,918,1,251,6,12,153
+Muncy,983,3,510,2,25,286
+Phoenix,2898,18,297,19,36,484
+Pine Grove,890,6,194,1,1,168
+Quehanna,430,6,271,0,2,123
 Retreat,0,0,8,0,0,4
-Rockview,1751,3,173,2,11,375
-Smithfield,1293,71,1321,6,10,284
-Somerset,1900,0,652,4,13,308
-Waymart,786,0,847,16,1,308
+Rockview,1751,4,174,2,31,397
+Smithfield,1289,68,1328,6,13,291
+Somerset,1898,0,652,4,16,313
+Waymart,785,0,847,16,1,308
