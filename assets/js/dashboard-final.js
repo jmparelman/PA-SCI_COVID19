@@ -212,7 +212,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
     svg.append('text')
         .attr('y',20)
         .attr('x',25)
-        .text('Active cases')
+        .text('New cases')
         .style('color','black')
         .style('font-size',12);
 
@@ -302,7 +302,7 @@ d3.csv("https://raw.githubusercontent.com/jmparelman/PA-SCI_COVID19/main/data/la
              }
 
             tooltip_text_1.text(dayFormat(d.date));
-            tooltip_text_2.text("active cases: "+d.new_cases);
+            tooltip_text_2.text("new cases: "+d.new_cases);
             tooltip_text_3.text("7 day avg.: "+Math.floor(d.cases_moving_avg));
             d3.selectAll('.svg-text').attr('x',x(d.date));
 
