@@ -554,6 +554,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Albion,0
 2022-02-25,Albion,2
 2022-02-26,Albion,0
+2022-02-27,Albion,0
 2022-02-28,Albion,0
 2020-03-28,Benner,0
 2020-03-31,Benner,0
@@ -1110,6 +1111,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Benner,1
 2022-02-25,Benner,1
 2022-02-26,Benner,0
+2022-02-27,Benner,0
 2022-02-28,Benner,0
 2020-03-28,Cambridge Springs,0
 2020-03-31,Cambridge Springs,0
@@ -1666,6 +1668,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Cambridge Springs,0
 2022-02-25,Cambridge Springs,0
 2022-02-26,Cambridge Springs,0
+2022-02-27,Cambridge Springs,0
 2022-02-28,Cambridge Springs,0
 2020-03-28,Camp Hill,0
 2020-03-31,Camp Hill,0
@@ -2222,7 +2225,8 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Camp Hill,1
 2022-02-25,Camp Hill,0
 2022-02-26,Camp Hill,0
-2022-02-28,Camp Hill,1
+2022-02-27,Camp Hill,0
+2022-02-28,Camp Hill,5
 2020-03-28,Chester,0
 2020-03-31,Chester,0
 2020-04-03,Chester,0
@@ -2778,6 +2782,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Chester,0
 2022-02-25,Chester,0
 2022-02-26,Chester,0
+2022-02-27,Chester,0
 2022-02-28,Chester,0
 2020-03-28,Coal Township,0
 2020-03-31,Coal Township,0
@@ -3334,6 +3339,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Coal Township,0
 2022-02-25,Coal Township,0
 2022-02-26,Coal Township,0
+2022-02-27,Coal Township,1
 2022-02-28,Coal Township,0
 2020-03-28,Dallas,0
 2020-03-31,Dallas,0
@@ -3890,6 +3896,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Dallas,0
 2022-02-25,Dallas,0
 2022-02-26,Dallas,0
+2022-02-27,Dallas,0
 2022-02-28,Dallas,0
 2020-03-28,Fayette,0
 2020-03-31,Fayette,0
@@ -4446,6 +4453,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Fayette,0
 2022-02-25,Fayette,0
 2022-02-26,Fayette,0
+2022-02-27,Fayette,0
 2022-02-28,Fayette,0
 2020-03-28,Forest,0
 2020-03-31,Forest,0
@@ -5001,7 +5009,8 @@ date,SCI,incarcerated_person_positive
 2022-02-23,Forest,1
 2022-02-24,Forest,1
 2022-02-25,Forest,0
-2022-02-26,Forest,0
+2022-02-26,Forest,1
+2022-02-27,Forest,0
 2022-02-28,Forest,0
 2020-03-28,Frackville,0
 2020-03-31,Frackville,0
@@ -5558,6 +5567,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Frackville,0
 2022-02-25,Frackville,0
 2022-02-26,Frackville,0
+2022-02-27,Frackville,0
 2022-02-28,Frackville,0
 2020-03-28,Greene,0
 2020-03-31,Greene,0
@@ -6114,6 +6124,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Greene,0
 2022-02-25,Greene,0
 2022-02-26,Greene,0
+2022-02-27,Greene,0
 2022-02-28,Greene,0
 2020-03-28,Houtzdale,0
 2020-03-31,Houtzdale,0
@@ -6670,6 +6681,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Houtzdale,0
 2022-02-25,Houtzdale,0
 2022-02-26,Houtzdale,0
+2022-02-27,Houtzdale,0
 2022-02-28,Houtzdale,0
 2020-03-28,Huntingdon,0
 2020-03-31,Huntingdon,0
@@ -7226,6 +7238,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Huntingdon,0
 2022-02-25,Huntingdon,0
 2022-02-26,Huntingdon,0
+2022-02-27,Huntingdon,0
 2022-02-28,Huntingdon,0
 2020-03-28,Laurel Highlands,0
 2020-03-31,Laurel Highlands,0
@@ -7782,6 +7795,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Laurel Highlands,0
 2022-02-25,Laurel Highlands,0
 2022-02-26,Laurel Highlands,0
+2022-02-27,Laurel Highlands,0
 2022-02-28,Laurel Highlands,0
 2020-03-28,Mahanoy,0
 2020-03-31,Mahanoy,0
@@ -8338,6 +8352,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Mahanoy,0
 2022-02-25,Mahanoy,0
 2022-02-26,Mahanoy,0
+2022-02-27,Mahanoy,0
 2022-02-28,Mahanoy,0
 2020-03-28,Mercer,0
 2020-03-31,Mercer,0
@@ -8893,7 +8908,8 @@ date,SCI,incarcerated_person_positive
 2022-02-23,Mercer,0
 2022-02-24,Mercer,0
 2022-02-25,Mercer,0
-2022-02-26,Mercer,0
+2022-02-26,Mercer,1
+2022-02-27,Mercer,0
 2022-02-28,Mercer,0
 2020-03-28,Muncy,0
 2020-03-31,Muncy,0
@@ -9449,7 +9465,8 @@ date,SCI,incarcerated_person_positive
 2022-02-23,Muncy,0
 2022-02-24,Muncy,0
 2022-02-25,Muncy,0
-2022-02-26,Muncy,2
+2022-02-26,Muncy,6
+2022-02-27,Muncy,0
 2022-02-28,Muncy,0
 2020-03-28,Phoenix,1
 2020-03-31,Phoenix,1
@@ -10006,6 +10023,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Phoenix,0
 2022-02-25,Phoenix,2
 2022-02-26,Phoenix,0
+2022-02-27,Phoenix,0
 2022-02-28,Phoenix,0
 2020-03-28,Pine Grove,0
 2020-03-31,Pine Grove,0
@@ -10562,6 +10580,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Pine Grove,0
 2022-02-25,Pine Grove,0
 2022-02-26,Pine Grove,0
+2022-02-27,Pine Grove,0
 2022-02-28,Pine Grove,0
 2020-03-28,Quehanna,0
 2020-03-31,Quehanna,0
@@ -11118,6 +11137,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Quehanna,2
 2022-02-25,Quehanna,0
 2022-02-26,Quehanna,0
+2022-02-27,Quehanna,0
 2022-02-28,Quehanna,0
 2020-03-28,Retreat,0
 2020-03-31,Retreat,0
@@ -11674,6 +11694,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Retreat,0
 2022-02-25,Retreat,0
 2022-02-26,Retreat,0
+2022-02-27,Retreat,0
 2022-02-28,Retreat,0
 2020-03-28,Rockview,0
 2020-03-31,Rockview,0
@@ -12230,6 +12251,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Rockview,0
 2022-02-25,Rockview,0
 2022-02-26,Rockview,0
+2022-02-27,Rockview,0
 2022-02-28,Rockview,0
 2020-03-28,Smithfield,0
 2020-03-31,Smithfield,0
@@ -12786,6 +12808,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Smithfield,5
 2022-02-25,Smithfield,0
 2022-02-26,Smithfield,0
+2022-02-27,Smithfield,1
 2022-02-28,Smithfield,0
 2020-03-28,Somerset,0
 2020-03-31,Somerset,0
@@ -13342,6 +13365,7 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Somerset,0
 2022-02-25,Somerset,1
 2022-02-26,Somerset,0
+2022-02-27,Somerset,0
 2022-02-28,Somerset,0
 2020-03-28,Waymart,0
 2020-03-31,Waymart,0
@@ -13898,4 +13922,5 @@ date,SCI,incarcerated_person_positive
 2022-02-24,Waymart,0
 2022-02-25,Waymart,0
 2022-02-26,Waymart,0
+2022-02-27,Waymart,0
 2022-02-28,Waymart,0
