@@ -2238,7 +2238,7 @@ date,SCI,incarcerated_person_positive
 2022-02-28,Camp Hill,5
 2022-03-01,Camp Hill,0
 2022-03-02,Camp Hill,0
-2022-03-03,Camp Hill,0
+2022-03-03,Camp Hill,2
 2020-03-28,Chester,0
 2020-03-31,Chester,0
 2020-04-03,Chester,0
@@ -4478,7 +4478,7 @@ date,SCI,incarcerated_person_positive
 2022-02-28,Fayette,0
 2022-03-01,Fayette,0
 2022-03-02,Fayette,0
-2022-03-03,Fayette,0
+2022-03-03,Fayette,1
 2020-03-28,Forest,0
 2020-03-31,Forest,0
 2020-04-03,Forest,0
@@ -11198,7 +11198,7 @@ date,SCI,incarcerated_person_positive
 2022-02-28,Quehanna,0
 2022-03-01,Quehanna,0
 2022-03-02,Quehanna,0
-2022-03-03,Quehanna,0
+2022-03-03,Quehanna,1
 2020-03-28,Retreat,0
 2020-03-31,Retreat,0
 2020-04-03,Retreat,0
@@ -12876,9 +12876,9 @@ date,SCI,incarcerated_person_positive
 2022-02-26,Smithfield,0
 2022-02-27,Smithfield,1
 2022-02-28,Smithfield,1
-2022-03-01,Smithfield,1
-2022-03-02,Smithfield,0
-2022-03-03,Smithfield,1
+2022-03-01,Smithfield,2
+2022-03-02,Smithfield,1
+2022-03-03,Smithfield,3
 2020-03-28,Somerset,0
 2020-03-31,Somerset,0
 2020-04-03,Somerset,0
