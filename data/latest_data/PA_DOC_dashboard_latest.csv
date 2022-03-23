@@ -1,26 +1,26 @@
 SCI,population,ip_active_cases,ip_cases,ip_deaths,staff_active_cases,staff_cases
-Albion,2014,0,876,5,1,418
-Benner,1636,1,408,11,1,427
-Cambridge Springs,794,0,807,1,1,244
-Camp Hill,2232,11,1120,5,3,479
-Chester,969,1,382,13,0,309
-Coal Township,1539,1,685,6,0,396
-Dallas,1784,0,1374,11,2,299
-Fayette,1917,0,210,6,0,395
-Forest,2054,1,1091,6,4,407
-Frackville,987,0,317,1,0,300
+Albion,2012,0,876,5,1,418
+Benner,1632,1,408,11,1,427
+Cambridge Springs,797,0,807,1,1,244
+Camp Hill,2224,5,1120,5,3,479
+Chester,972,1,382,13,0,309
+Coal Township,1546,1,685,6,0,396
+Dallas,1782,0,1374,11,2,299
+Fayette,1904,0,210,6,1,396
+Forest,2058,1,1091,6,4,407
+Frackville,988,0,317,1,0,300
 Greene,1486,2,322,1,3,482
-Houtzdale,2284,0,328,4,0,421
-Huntingdon,1542,0,425,9,0,444
+Houtzdale,2279,0,328,4,0,421
+Huntingdon,1543,0,425,9,0,444
 Laurel Highlands,1126,0,880,18,0,425
-Mahanoy,2016,0,574,8,2,458
+Mahanoy,2017,0,574,8,2,458
 Mercer,947,0,299,6,2,271
-Muncy,1028,5,737,2,2,449
-Phoenix,2907,1,420,23,1,688
-Pine Grove,899,0,234,2,4,283
-Quehanna,359,1,330,0,0,171
+Muncy,1027,5,737,2,1,449
+Phoenix,2901,1,420,23,1,688
+Pine Grove,898,0,234,2,4,283
+Quehanna,357,1,330,0,0,171
 Retreat,0,0,8,0,0,4
 Rockview,1804,0,253,2,0,588
-Smithfield,1284,6,2017,6,4,457
+Smithfield,1340,6,2017,6,2,457
 Somerset,1817,0,723,4,1,456
-Waymart,783,0,887,16,3,515
+Waymart,782,0,887,16,3,515
